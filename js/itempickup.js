@@ -1,11 +1,12 @@
 let player = document.getElementById("player");
 let item = document.getElementById("item");
 
+// Platzhalter für Position des Spielers
 let player_pos = {
     x : 800,
     y : 800
 }
-
+// Platzhalter für Position des Items
 let item_pos = {
     x : 400,
     y : 400
