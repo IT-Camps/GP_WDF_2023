@@ -8,17 +8,14 @@ function blinkeZufällig() {
 }
 
 function blink() {
-  $(".blink").addClass("blink2");
-  setTimeout(function () {
-    $(".blink").removeClass("blink2");
-  }, 2000);
+  setInterval(function () {
+    element.innerHTML += "Hello";
+  }, 1000);
 }
 
 $(document).ready(function () {
-  console.log("geladen");
   $(".blink").click(function () {
-    console.log("wurde angeklickt");
-    $(".blink").css("background-color", "red");
+    $(".blink").blink();
     alert("blinkt");
   });
 });
