@@ -1,3 +1,4 @@
-$(document).ready(() => {
+$(document).ready(function () {
     starteEngine();
 });
+

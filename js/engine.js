@@ -1,4 +1,4 @@
-
+let blocks;
 const HEIGHT = 15;
 const WIDTH = 20;
 
@@ -21,8 +21,8 @@ function ladeBlocksInArray(levelName) {
 
 function zeigeSpielfeld(spielfeld) {
     //console.log(spielfeld)
-	for(let y = 0; y < HEIGHT; y++) {
-		for(let x = 0; x < WIDTH; x++) {
+	for(let x = 0; x < WIDTH; x++) {
+		for(let y = 0; y < HEIGHT; y++) {
             //console.log(spielfeld[x][y]);
 			$('#spielfeld').append('<div class="' + spielfeld[x][y].material +  '" id="' + spielfeld[x][y].x + '/' + spielfeld[x][y].y + '">');
 		}
@@ -52,7 +52,6 @@ function starteEngine() {
     console.log(`Geladene level: ${LEVEL.map(l => l.name).join(', ')}`);
 
     let levelblocks = ladeBlocksInArray("demoLevel");
-    console.log(levelblocks);
     zeigeSpielfeld(levelblocks);
     spielfeldLeeren();
     levelblocks = blockAuswechseln(levelblocks, 0, 0, 'server', true, true);
