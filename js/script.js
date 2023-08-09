@@ -1,18 +1,20 @@
 let mainArray = [];
-
+// Spielbrett erstellen
 $(function() {
-	//let array = [];
-	for (var i = 0; i<15; i++){
+	for (var i = 15; i>0; i--){
 		mainArray[i] = [];
-		console.log(mainArray);
+
 		for (var j = 0; j<20; j++){
 			if (i%2 == 0){
+                console.log('Schwarz!!!');
 				if (j % 2 == 0){
 					mainArray[i][j] = 's';
 				} else {
 					mainArray[i][j] = 'w';
 				}
+                
 			} else {
+                console.log('Weiß!');
 				if (j % 2 == 0){
 					mainArray[i][j]= 'w';
 				} else {
@@ -20,25 +22,39 @@ $(function() {
 				}
 			}
 		}
-		console.log(mainArray[i])
+        
 
 	}
+    console.log(mainArray);
+// Border erstellen
+    for (let i = 0; i<15; i++){
+        for (let j = 0; j<20; j++){
+            if ((i == 0) || (i == 14)){
+                mainArray[i][j] = "o";
+            } else {
+                mainArray[i][0] = "o";
+                mainArray[i][19] = "o";
+            }
+        }
+    }
+
     zeigeSchachbrett (mainArray);
 
 	console.log(mainArray);
 });
-
+//
 function zeigeSchachbrett (spielfeld) {
 	for(let a of spielfeld) {
 		for (let i of a){
-			console.log(i)
 			if(i == "s"){
-				console.log("fhecegkcj")
 				$('#spielfeld').append('<div class="black">');
 			}	
 			if(i == 'w'){
 				$('#spielfeld').append('<div class="white">');
-			}	
+			}
+            if(i == "o"){
+				$('#spielfeld').append('<div class="orange">');
+			}
 		}
 	}
 }
@@ -56,7 +72,6 @@ function erzeugeFeld(farbe, reihe, spalte) {
 
 
 
-
 let player = {
     x: 0,
     y: 0,
@@ -65,12 +80,17 @@ let player = {
 }
 
 
+
 $(document).ready(function() {
     $(document).keydown(function(event){
         bewegeFigur(event);
     });
+    $(document).keyup(function(event){
+        bewegeFigurNicht(event);
+    });
     
-    setStartingPosition(10, 10, 500, 500)
+    setStartingPosition(9, 9, 450, 450)
+    setInterval(movePlayer, 50);
 });	
 
 function bewegeFigur(event) {
@@ -79,76 +99,63 @@ function bewegeFigur(event) {
     console.log(event.code);
     switch (event.code) {
         case "KeyW":
+
             console.log(player);
             console.log(mainArray);
-            if (mainArray[player.y - 1][player.x].solid != 's'){ //Warte auf Spielbrett gruppe dann anpassen
+            if (mainArray[player.y - 1][player.x] == 'w'){ //Warte auf Spielbrett gruppe dann anpassen
                 player.y = player.y - 1;
                 player.top = player.top - 50;
-                setPosition(player.top, player.left)
+                player.isMovingUp = true;
             } else {
 
             }
             break;
         case "KeyS":
-            if (mainArray[player.y + 1][player.x] != 's'){
+            if (mainArray[player.y + 1][player.x] == 'w'){
                 player.y = player.y + 1;
                 player.top = player.top + 50;
-                setPosition(player.top, player.left)
+                player.isMovingDown = true;
             }
             break;
         case "KeyA":
-            if (mainArray[player.y][player.x - 1] != 's'){
+            if (mainArray[player.y][player.x - 1] == 'w'){
                 player.x = player.x - 1;
                 player.left = player.left - 50;
-                setPosition(player.top, player.left)
+                player.isMovingLeft = true;
             }
             break;
         case "KeyD":
-            if (mainArray[player.y][player.x + 1] != 's'){
+            if (mainArray[player.y][player.x + 1] == 'w'){
                 player.x = player.x + 1;
                 player.left = player.left + 50;
-                setPosition(player.top, player.left)
-            }
-            break;
-
-// --------------- Diagoal ---------------------\\
-        case "KeyE":
-            if (mainArray[player.y - 1][player.x + 1] != 's'){ //Warte auf Spielbrett gruppe dann anpassen
-                player.x = player.x + 1;
-                player.y = player.y - 1;
-                player.top = player.top - 50;
-                player.left = player.left + 50;
-                setPosition(player.top, player.left)
-            }
-            break;
-        case "KeyC":
-            if (mainArray[player.y + 1][player.x + 1] != 's'){ //Warte auf Spielbrett gruppe dann anpassen
-                player.x = player.x + 1;
-                player.y = player.y + 1;
-                player.top = player.top + 50;
-                player.left = player.left + 50;
-                setPosition(player.top, player.left)
-            }
-            break;
-        case "KeyZ":
-            if (mainArray[player.y + 1][player.x - 1] != 's'){ //Warte auf Spielbrett gruppe dann anpassen
-                player.x = player.x - 1;
-                player.y = player.y + 1;
-                player.top = player.top + 50;
-                player.left = player.left - 50;
-                setPosition(player.top, player.left)
-            }
-            break;
-        case "KeyQ":
-            if (mainArray[player.y - 1][player.x - 1] != 's'){ //Warte auf Spielbrett gruppe dann anpassen
-                player.x = player.x - 1;
-                player.y = player.y - 1;
-                player.top = player.top - 50;
-                player.left = player.left - 50;
-                setPosition(player.top, player.left)
+                player.isMovingRight = true;
             }
             break;
     }
+}
+
+function bewegeFigurNicht(event) {
+    switch (event.code) {
+        case "KeyW":
+            player.isMovingUp = false;
+            break;
+        case "KeyS":
+            player.isMovingDown = false;
+            break;
+        case "KeyA":
+            player.isMovingLeft = false;
+            break;
+        case "KeyD":
+            player.isMovingRight = false;
+            break;
+    }
+}
+
+function movePlayer() {
+    if (player.isMovingUp) setPosition(player.top, player.left);
+    if (player.isMovingDown) setPosition(player.top, player.left);
+    if (player.isMovingLeft) setPosition(player.top, player.left);
+    if (player.isMovingRight) setPosition(player.top, player.left);
 }
 
 function setStartingPosition(x, y, top, left) {
@@ -161,7 +168,7 @@ function setStartingPosition(x, y, top, left) {
 
 function setPosition(top, left) {
     $("#spielfigur")
-        .css("margin-top", top)
-        .css("margin-left", left)
+        .css("top", top)
+        .css("left", left)
 }
 
