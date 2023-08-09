@@ -28,13 +28,13 @@ $(document).ready(function() {
 			x = j + 1;
 			if(j%2==0 && i%2==0)
 			{
-				spielfeld[i][j] = erzeugeFeld('s',y ,j);
+				spielfeld[i][j] = erzeugeFeld('s',y ,x);
 			}
 			else if (j%2!=0 && i%2!=0) {
-				spielfeld[i][j] = erzeugeFeld('s',y ,j);
+				spielfeld[i][j] = erzeugeFeld('s',y ,x);
 			}
 			else{
-				spielfeld[i][j] = erzeugeFeld('w',y,j);
+				spielfeld[i][j] = erzeugeFeld('w',y,x);
 
 			}
 		}
