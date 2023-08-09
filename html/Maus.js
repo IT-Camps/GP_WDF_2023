@@ -10,6 +10,33 @@ $(document).ready(function(){
         console.log(timeleft);
         if(timeleft == 0){ //Checke wenn Scoreboard == 0 -> dann verstecke Logo
             versteckeSapLogo(); 
+
+            if (a < 10){ //alört um die Punkte anzugeben
+            alert ('Die Zeit is um! Deine punkte sind: '+a+' Versuchs nochmal!');
+            }
+            else if (a <20) {
+                alert ('Die Zeit is um! Deine punkte sind: '+a+' Du wirst besser!');
+            }
+            else if (a <30) {
+                alert ('Die Zeit is um! Deine punkte sind: '+a+' Unglaublich!');
+            }
+            else if (a <40) {
+                alert ('Die Zeit is um! Deine punkte sind: '+a+' Super! Aber schaffst du die 50?');
+            }
+            else if (a <50) {
+                alert ('Die Zeit is um! Deine punkte sind: '+a+' Echt schnell, WOW!');
+            }
+            else if (a <60){
+                alert ('Die Zeit is um! Deine punkte sind: '+a+' Hast du schon überlegt proffesionell Videospiele zu spielen?');
+            }
+            else if (a <70) {
+                alert ('Die Zeit is um! Deine punkte sind: '+a+' Du hast mehr als 1 klick pro sekunde, WOW!');
+            }
+            else if (a >70) {
+                alert ('Die Zeit is um! Deine punkte sind: '+a+' Cheatest du?');
+            }
+
+
         }
     },1000);
     
@@ -21,13 +48,13 @@ $(document).ready(function(){
                 Scoregehthoch();
             }else{
                 versteckeSapLogo();
-                alert ('Die Zeit is um! Deine punkte sind: 0 /n Versuchs nochmal!')
-                
+              
+
             }
         });
 
 
-    function platziereKaese()
+    function platziereKaese()   //alle Firmen Logos werden zufällig platziert
     {
         let x = Math.floor(Math.random()*1000);
         let y = Math.floor(Math.random()*1000);
@@ -39,6 +66,7 @@ $(document).ready(function(){
 
     function versteckeSapLogo(){
         $("#SAP-logo").hide();
+        
     }
 
     
@@ -64,8 +92,10 @@ $(document).ready(function(){
         a++;
         $("#score").text("Score: "+a);
         }
-
-    
+    function Scoregehtrunter(){
+        a--;
+        $("#score").text("Score:" -a)
+    }
 });
 
 
