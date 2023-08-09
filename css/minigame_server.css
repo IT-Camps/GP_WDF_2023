@@ -1,14 +1,48 @@
 .blink{
     width: 50px;
     height: 50px;
+    background-color: aquamarine;
+}
+
+.server-reihe{
+    display:flex;
+    margin: 80px;
+    margin-top: 250px;
+}
+
+.server-reihe div{
+    width: 50px;
+    height: 50px;
+    display:flex;
+    position: relative;
+    left: 45%;
     background-color: blue;
 }
 
-.blink2{
-    width: 50px;
-    height: 50px;
-    background-color: red;
+.server-reihe2{
+    display:flex;
+    margin: 80px;
 }
 
+.server-reihe2 div{
+    width: 50px;
+    height: 50px;
+    display:flex;
+    position: relative;
+    left: 45%;
+    background-color: blue;
+}
 
+.server-reihe3{
+    display:flex;
+    margin: 80px;
+}
 
+.server-reihe3 div{
+    width: 50px;
+    height: 50px;
+    display:flex;
+    position: relative;
+    left: 45%;
+    background-color: blue;
+}
