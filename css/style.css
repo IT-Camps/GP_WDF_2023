@@ -28,6 +28,10 @@ body{
 	background: black;
 }
 
+.orange {
+	background: orange;
+}
+
 #spielfigur {
     width: 60px;
     height: 60px;
