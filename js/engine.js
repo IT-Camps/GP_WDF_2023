@@ -26,8 +26,8 @@ function ladeBlocksInArray(levelName) {
 
 function zeigeSpielfeld(spielfeld) {
     //console.log(spielfeld)
-	for(let x = 0; x < WIDTH; x++) {
-		for(let y = 0; y < HEIGHT; y++) {
+	for(let y = 0; y < HEIGHT; y++) {
+		for(let x = 0; x < WIDTH; x++) {
             //console.log(spielfeld[x][y]);
 			$('#spielfeld').append('<div class="' + spielfeld[x][y].material +  '" id="' + spielfeld[x][y].x + '/' + spielfeld[x][y].y + '">');
 		}
