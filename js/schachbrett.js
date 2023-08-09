@@ -8,23 +8,22 @@ function erzeugeFeld(farbe, reihe, spalte) {
 }
 
 function zeigeSchachbrett (spielfeld) {
-	for(let reihe of spielfeld) {
-		console.log(reihe);
-		console.log(reihe.farbe);
+	for(let e of spielfeld) {
+		console.log(e);
 
-		for(let spalte of reihe) {
-		if(spalte.farbe == 's')	$('#spielfeld').append('<div class="black">');
-		if(spalte.farbe == 'w')	$('#spielfeld').append('<div class="white">');
-	}
-}
-}
+		for(let k = 0; k < e.length; k++) {
+			console.log("test");
+			if(e[k].farbe == 's')	$('#spielfeld').append('<div class="black" id="'+e[k].reihe+e[k].spalte+'">');
+			if(e[k].farbe == 'w')	$('#spielfeld').append('<div class="white" id="'+e[k].reihe+e[k].spalte+'">');
+		}
+}}
 
 let spielfeld = [];
 $(document).ready(function() {
 	
-	for(let i = 0; i < 8; i++) {
+	for(let i = 0; i <15; i++) {
 		spielfeld[i] = [];
-	 	for(let j = 0; j < 8; j++) {
+	 	for(let j = 0; j < 20; j++) {
 			spalte = i + 1
 			if(j%2==0 && i%2==0)
 			{
