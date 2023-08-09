@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    //alert ('verfolge die Geschäftsanfragen um Punkte zu sammeln solange die Zeit läuft!')
+    alert ('verfolge die Geschäftsanfragen um Punkte zu sammeln solange die Zeit läuft!')
 
     var timeleft = 60;
     var downloadTimer = setInterval(function(){
@@ -21,6 +21,8 @@ $(document).ready(function(){
                 Scoregehthoch();
             }else{
                 versteckeSapLogo();
+                alert ('Die Zeit is um! Deine punkte sind: 0 /n Versuchs nochmal!')
+                
             }
         });
 

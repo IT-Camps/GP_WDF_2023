@@ -1,12 +1,11 @@
 #Geschäftsmann {
     width: 100px;
     height: 100px;
-    background-image: url('');
+    background-image: url('Christian\ Klein.png');
     background-size: contain;
     background-repeat: no-repeat;
     position: absolute;
     z-index: 1;
-    background-color: black;
 }
 
 #SAP-logo {
@@ -24,7 +23,7 @@ display:inline-block {
 width: 300px; 
 margin: 20px 0; 
 border-radius: 5px;  
-background: black; 
+background: lightskyblue; 
 }
 #countdown {
 font-family: "Fira Sans", sans-serif; 
