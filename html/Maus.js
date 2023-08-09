@@ -1,77 +1,26 @@
 $(document).ready(function(){
-    alert ('verfolge die Geschäftsanfragen um Punkte zu sammmeln solange die Zeit läuft!')
-    let days = 0;
-    let hours = 0;
-    let minutes = 1;
-    let seconds = 0; 
+    //alert ('verfolge die Geschäftsanfragen um Punkte zu sammeln solange die Zeit läuft!')
 
-    let totalSeconds =
-    days * 60 * 60 * 24 + hours * 60 * 60 + minutes * 60 + seconds;
+    var timeleft = 60;
+    var downloadTimer = setInterval(function(){
+    timeleft--;
+    document.getElementById("seconds").textContent = timeleft + "s";
+    if(timeleft <= 0)
+        clearInterval(downloadTimer);
+        console.log(timeleft);
+        if(timeleft == 0){ //Checke wenn Scoreboard == 0 -> dann verstecke Logo
+            versteckeSapLogo(); 
+        }
+    },1000);
+    
 
-
-    let tempSeconds = totalSeconds;
-
-    const convert = (value, inSeconds) => {
-    if (value > inSeconds) {
-        let x = value % inSeconds;
-        tempSeconds = x;
-        return (value - x) / inSeconds;
-    } else {
-        return 0;
-    }
-    };
-
-    const setSeconds = (s) => {
-    document.querySelector("#seconds").textContent = s + "s";
-    };
-
-    const setMinutes = (m) => {
-    document.querySelector("#minutes").textContent = m + "m";
-    };
-
-    const setHours = (h) => {
-    document.querySelector("#hours").textContent = h + "h";
-    };
-
-    const setDays = (d) => {
-    document.querySelector("#days").textContent = d + "d";
-    };
-
-    var x = setInterval(() => {
-    if (totalSeconds <= 0) {
-        clearInterval(x);
-    }
-    setDays(convert(tempSeconds, 24 * 60 * 60));
-    setHours(convert(tempSeconds, 60 * 60));
-    setMinutes(convert(tempSeconds, 60));
-    setSeconds(tempSeconds == 60 ? 59 : tempSeconds);
-    totalSeconds--;
-    tempSeconds = totalSeconds;
-    }, 1000);
-
-    var a = 0
-    /*
-    $("#SAP-logo").click(function(){
-       if (minutes ==0 && seconds == 0) {
-        
-       }    
-       else {
-        platziereKaese();
-        Scoregehthoch();
-       }
-    });
-    */
-    //Schöne Code
-        //Test
+    var a = 0 //Variable für Score
         $("#SAP-logo").click(function(){
-            console.log(minutes);
-            console.log(seconds);
-            if (minutes != 0 && seconds != 0) {
-                console.log("clicked");
+            if (timeleft != 0) { //Prüfe bevor Score hochzählt ob Zeit > 0 ist
                 platziereKaese();
                 Scoregehthoch();
             }else{
-                console.log("else");
+                versteckeSapLogo();
             }
         });
 
@@ -84,6 +33,10 @@ $(document).ready(function(){
         $("#SAP-logo").css("top", x);
         $("#SAP-logo").css("left", y);
 
+    }
+
+    function versteckeSapLogo(){
+        $("#SAP-logo").hide();
     }
 
     
