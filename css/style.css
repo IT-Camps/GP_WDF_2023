@@ -1,0 +1,30 @@
+body{
+	display: flex;
+	width: 100vw;
+	height: 100vh;
+	margin: 0;
+}
+
+#spielfeld {
+	width: 800px;
+	height: 800px;
+	margin: auto auto;
+	display: flex;
+	flex-flow: row wrap;
+	flex-direction: row-reverse;
+	border: 10px solid brown;
+}
+
+#spielfeld>div {
+	width: 100px;
+	height: 100px;
+	margin: 0;
+}
+
+.white {
+	background: white;
+}
+
+.black {
+	background: black;
+}
