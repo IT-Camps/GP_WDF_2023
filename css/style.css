@@ -1,13 +1,12 @@
 body{
-	display: flex;
-	width: 100vw;
-	height: 100vh;
+	width: 0vw;
+	height: 0vh;
 	margin: 0;
 }
 
 #spielfeld {
-	width: 800px;
-	height: 800px;
+	width: 1000px;
+	height: 750px;
 	margin: auto auto;
 	display: flex;
 	flex-flow: row wrap;
@@ -16,8 +15,8 @@ body{
 }
 
 #spielfeld>div {
-	width: 100px;
-	height: 100px;
+	width: 50px;
+	height: 50px;
 	margin: 0;
 }
 
@@ -28,3 +27,14 @@ body{
 .black {
 	background: black;
 }
+
+#spielfigur {
+    width: 60px;
+    height: 60px;
+    background-image: url(img/spielFigur/lumberjackOne.png);
+    background-repeat: no-repeat;
+    position: absolute;
+    background-size: contain;
+    z-index: 1;
+}
+
