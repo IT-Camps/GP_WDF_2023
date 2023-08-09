@@ -1,0 +1,33 @@
+body{
+	width: 100vw;
+	height: 100vh;
+	margin: 0;
+}
+
+#spielfeld {
+	width: 1000px;
+	height: 750px;
+	margin: auto auto;
+	display: flex;
+	flex-flow: row wrap;
+	
+	border: 10px solid brown;
+}
+
+#spielfeld>div {
+	width: 50px;
+	height: 50px;
+	margin: 0;
+}
+
+.white {
+	background: white;
+}
+
+.black {
+	background: black;
+}
+
+.floor {
+	background-color: steelblue;
+}
