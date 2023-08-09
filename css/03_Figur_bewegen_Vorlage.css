@@ -1,0 +1,8 @@
+.spielfigur {
+    background-image: url("Kunst.png");
+    height:300px;
+    width: 200px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+}
