@@ -39,4 +39,9 @@ function starteEngine() {
     let levelblocks = ladeBlocksInArray("demoLevel");
     console.log(levelblocks);
     zeigeSpielfeld(levelblocks);
+    /*
+    delete levelblocks[0][0];
+    console.log(levelblocks);
+    levelblocks[0][0] = {x: 0, y: 0, material: 'floor', solid: false, interactive: false}
+    */
 }
