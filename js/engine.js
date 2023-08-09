@@ -33,9 +33,9 @@ function blockAuswechseln(spielfeld, x, y, material, solid, interactive) {
 
 function spielfeldLeeren() {
     let current;
-    for(let y = 0; y < HEIGHT; y++) {
+    for(let y = 0; y < HOEHE; y++) {
      	spielfeld[y] = [];
-     	for(let x = 0; x < WIDTH; x++) {
+     	for(let x = 0; x < BREITE; x++) {
             current = document.getElementById(x + '/' + y);
             current.remove();
      	}
