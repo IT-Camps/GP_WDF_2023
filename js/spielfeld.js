@@ -1,6 +1,6 @@
 let spielfeld = [];
-let width = 20;
-let height = 15;
+let WIDTH = 20;
+let HEIGHT = 15;
 
 function erzeugeFeld(x, y, material, solid, interactive) {	
 	return {
@@ -14,16 +14,16 @@ function erzeugeFeld(x, y, material, solid, interactive) {
 
 function zeigeSpielfeld (spielfeld) {
 	console.log(spielfeld);
-	for(let y = 1; y <= height; y++) {
-		for(let x = 1; x <= width; x++) {
+	for(let y = 1; y <= HEIGHT; y++) {
+		for(let x = 1; x <= WIDTH; x++) {
 			$('#spielfeld').append('<div class="' + spielfeld[y][x].material +  '" id="' + spielfeld[y][x].x + '/' + spielfeld[y][x].y + '">');
 		}
 }}
 
 function standartSpielfeld() {
-	for(let y = 1; y <= height; y++) {
+	for(let y = 1; y <= HEIGHT; y++) {
 		spielfeld[y] = [];
-	 	for(let x = 1; x <= width; x++) {
+	 	for(let x = 1; x <= WIDTH; x++) {
 			spielfeld[y][x] = erzeugeFeld(y, x, 'floor', false, false);
 		}
 	}

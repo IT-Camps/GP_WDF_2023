@@ -1,25 +1,41 @@
-let levelblocks = [ ];
-function ladeBlocksInArray(levelName) {
 
+const HEIGHT = 15;
+const WIDTH = 20;
+
+function ladeBlocksInArray(levelName) {
+    let levelblocks = [];
     const level = LEVEL.find(l => l.name == levelName);
-    for (let x = 0; x < 20; x++) {
+    for (let x = 0; x < WIDTH; x++) {
         levelblocks[x]= [];
-        for (let y = 0; y < 15; y++) {
+        for (let y = 0; y < HEIGHT; y++) {
             levelblocks[x][y] = level.data.find(block => block.x == x && block.y == y) || {x: x, y: y, material: 'floor', solid: false};
         }
     }
-    console.log(levelblocks);
+
+    // Alternative:
+
+    // for(let y = 1; y <= height; y++) {
+	// 	spielfeld[y] = [];
+	//  	for(let x = 1; x <= width; x++) {
+	// 		spielfeld[y][x] = erzeugeFeld(y, x, 'floor', false, false);
+	// 	}
+	// }
+
+    return levelblocks;
 }
 
-
-
-function zeichneSpielbrett() {
-
-}
-
+function zeigeSpielfeld(spielfeld) {
+    //console.log(spielfeld)
+	for(let x = 0; x < WIDTH; x++) {
+		for(let y = 0; y < HEIGHT; y++) {
+            //console.log(spielfeld[x][y]);
+			$('#spielfeld').append('<div class="' + spielfeld[x][y].material +  '" id="' + spielfeld[x][y].x + '/' + spielfeld[x][y].y + '">');
+		}
+}}
 function starteEngine() {
     console.log("Starte engine...");
     console.log(`Geladene level: ${LEVEL.map(l => l.name).join(', ')}`);
 
-    ladeBlocksInArray("demoLevel");
+    let levelblocks = ladeBlocksInArray("demoLevel");
+    zeigeSpielfeld(levelblocks);
 }
