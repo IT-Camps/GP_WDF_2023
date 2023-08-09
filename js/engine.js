@@ -8,7 +8,7 @@ function ladeBlocksInArray(levelName) {
     for (let x = 0; x < WIDTH; x++) {
         levelblocks[x]= [];
         for (let y = 0; y < HEIGHT; y++) {
-            levelblocks[x][y] = level.data.find(block => block.x == x && block.y == y) || {x: x, y: y, material: 'floor', solid: false};
+            levelblocks[x][y] = level.data.find(block => block.x == x && block.y == y) || {x: x, y: y, material: 'floor', solid: false, interactive: false};
         }
     }
 
@@ -37,5 +37,6 @@ function starteEngine() {
     console.log(`Geladene level: ${LEVEL.map(l => l.name).join(', ')}`);
 
     let levelblocks = ladeBlocksInArray("demoLevel");
+    console.log(levelblocks);
     zeigeSpielfeld(levelblocks);
 }

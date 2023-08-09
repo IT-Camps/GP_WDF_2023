@@ -29,5 +29,5 @@ body{
 }
 
 .floor {
-	background-color: steelblue;
+	background-image: url('../img/spielFeld/SRB.png');
 }
