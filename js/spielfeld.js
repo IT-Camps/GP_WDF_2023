@@ -1,3 +1,7 @@
+let spielfeld = [];
+let width = 20;
+let height = 15;
+
 function erzeugeFeld(x, y, material, solid, interactive) {	
 	return {
 		x: x,
@@ -8,38 +12,27 @@ function erzeugeFeld(x, y, material, solid, interactive) {
 	}
 }
 
-function zeigeSchachbrett (spielfeld) {
+function zeigeSpielfeld (spielfeld) {
 	console.log(spielfeld);
-	for(let e of spielfeld) {
-
-		for(let k = 0; k < e.length; k++) {
-			$('#spielfeld').append('<div class="' + e[k].material +  '" id="'+e[k].x+'/'+e[k].y+'">');
+	for(let y = 1; y <= height; y++) {
+		for(let x = 1; x <= width; x++) {
+			$('#spielfeld').append('<div class="' + spielfeld[y][x].material +  '" id="' + spielfeld[y][x].x + '/' + spielfeld[y][x].y + '">');
 		}
 }}
 
-let spielfeld = [];
-$(document).ready(function() {
-	
-	for(let i = 0; i <15; i++) {
-		spielfeld[i] = [];
-	 	for(let j = 0; j < 20; j++) {
-			y = i + 1;
-			x = j + 1;
-			if(j%2==0 && i%2==0)
-			{
-				spielfeld[i][j] = erzeugeFeld(y ,x,'black');
-			}
-			else if (j%2!=0 && i%2!=0) {
-				spielfeld[i][j] = erzeugeFeld(y ,x,'black');
-			}
-			else{
-				spielfeld[i][j] = erzeugeFeld(y,x,'white');
-
-			}
+function standartSpielfeld() {
+	for(let y = 1; y <= height; y++) {
+		spielfeld[y] = [];
+	 	for(let x = 1; x <= width; x++) {
+			spielfeld[y][x] = erzeugeFeld(y, x, 'floor', false, false);
 		}
 	}
+}
 
-zeigeSchachbrett(spielfeld);
+
+$(document).ready(function() {
+	standartSpielfeld();
+	zeigeSpielfeld(spielfeld);
 
 });
 
