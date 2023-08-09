@@ -9,16 +9,25 @@
 }
 
 #SAP-logo {
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     top: 200px;
     left: 200px;
-    background-image: url("");
+    background-image: url('logo_SAP.png');
     background-repeat: no-repeat;
     position: absolute;
     background-size: contain;
-    background-color: red;
 } 
+#oracle-logo {
+    width: 50px;
+    height: 50px;
+    top: 500px;
+    left: 100px;
+    background-image: url('logo_oracle.png');
+    background-repeat: no-repeat;
+    position: absolute;
+    background-size: contain;
+}
 display:inline-block {
 width: 300px; 
 margin: 20px 0; 
@@ -29,7 +38,7 @@ background: lightskyblue;
 font-family: "Fira Sans", sans-serif; 
 display: inline-block;
 padding: 30px; 
-background: black;
+background: lightskyblue;
 color: white;
 }
 
