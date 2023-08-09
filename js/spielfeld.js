@@ -1,20 +1,19 @@
-function erzeugeFeld(farbe, x, y) {	
+function erzeugeFeld(x, y, material, solid, interactive) {	
 	return {
-		farbe: farbe,
 		x: x,
 		y: y,
-		besetzt: 0
+		material: material,
+		solid: solid,
+		interactive: interactive,
 	}
 }
 
 function zeigeSchachbrett (spielfeld) {
+	console.log(spielfeld);
 	for(let e of spielfeld) {
-		console.log(e);
 
 		for(let k = 0; k < e.length; k++) {
-			console.log("test");
-			if(e[k].farbe == 's')	$('#spielfeld').append('<div class="black" id="'+e[k].x+e[k].y+'">');
-			if(e[k].farbe == 'w')	$('#spielfeld').append('<div class="white" id="'+e[k].x+e[k].y+'">');
+			$('#spielfeld').append('<div class="' + e[k].material +  '" id="'+e[k].x+'/'+e[k].y+'">');
 		}
 }}
 
@@ -28,13 +27,13 @@ $(document).ready(function() {
 			x = j + 1;
 			if(j%2==0 && i%2==0)
 			{
-				spielfeld[i][j] = erzeugeFeld('s',y ,x);
+				spielfeld[i][j] = erzeugeFeld(y ,x,'black');
 			}
 			else if (j%2!=0 && i%2!=0) {
-				spielfeld[i][j] = erzeugeFeld('s',y ,x);
+				spielfeld[i][j] = erzeugeFeld(y ,x,'black');
 			}
 			else{
-				spielfeld[i][j] = erzeugeFeld('w',y,x);
+				spielfeld[i][j] = erzeugeFeld(y,x,'white');
 
 			}
 		}

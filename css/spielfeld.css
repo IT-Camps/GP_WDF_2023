@@ -10,7 +10,7 @@ body{
 	margin: auto auto;
 	display: flex;
 	flex-flow: row wrap;
-	flex-direction: row-reverse;
+	
 	border: 10px solid brown;
 }
 
