@@ -24,7 +24,7 @@ function zeigeSpielfeld() {
 
 function blockAuswechseln(x, y, material, solid, interactive) {
     //  Warum?
-    delete spielfeld[x][y];
+    //delete spielfeld[x][y];
     spielfeld[x][y] = { x: x, y: y, material: material, solid: solid, interactive: interactive }
 
     spielfeldLeeren();
