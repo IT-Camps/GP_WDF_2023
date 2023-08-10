@@ -17,14 +17,16 @@ body{
 	display: flex;
 	flex-flow: row wrap;
 	flex-direction: row-reverse;
-	border: 10px solid brown;
+	border: 10px solid black;
     
 }
 
 #Geschäftsmann {
     width: 100px;
     height: 100px;
-    background-image: url('Christian_Klein.png');     /**christian klein **/
+    top: 150px;
+    left: 100px;
+    background-image: url('../img/spielFigur/Christian_Klein.png');     /**christian klein **/
     background-size: contain;
     background-repeat: no-repeat;
     position: absolute;
@@ -35,7 +37,7 @@ body{
     width: 50px;
     height: 50px;
     top: 200px;
-    left: 200px;            
+    left: 1000px;            
     background-image: url('../img/icons/logo_SAP.png');                     /*sap Logo größe & startposition*/
     background-repeat: no-repeat;
     position: absolute;
@@ -45,7 +47,7 @@ body{
     width: 50px;
     height: 50px;
     top: 500px;
-    left: 100px;
+    left: 810px;
     background-image: url('../img/icons/logo_oracle.png');                   /*oracle Logo größe & startposition*/
     background-repeat: no-repeat;
     position: absolute;
@@ -54,8 +56,8 @@ body{
 #salesforce-logo {
     width: 50px;
     height: 50px;
-    top: 700px;
-    left: 300px;
+    top:   320px;
+    left: 1300px;
     background-image: url('../img/icons/logo_salesforce.png');                  /*sap Logo größe & startposition*/
     background-repeat: no-repeat;
     position: absolute;
@@ -64,8 +66,8 @@ body{
 #apple-logo {
     width: 50px;
     height: 50px;
-    top: 600px;
-    left: 200px;
+    top: 100px;
+    left:500px;
     background-image: url('..//img/icons/Apple.png');                       /* apple logo größe & startposition*/
     background-repeat: no-repeat;
     position: absolute;

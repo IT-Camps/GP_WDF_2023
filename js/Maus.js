@@ -1,13 +1,23 @@
 $(document).ready(function(){
     alert ('verfolge die Geschäftsanfragen um Punkte zu sammeln solange die Zeit läuft,aber Achtung manche sind vom falschem anbieter!')
-
+    MausfolgtZeiger();
     var timeleft = 60;
     var downloadTimer = setInterval(function(){
     timeleft--;
-    document.getElementById("seconds").textContent = timeleft + "s";
-    if(timeleft <= 0)
+    if(timeleft >= 0){
+        console.log('IF-Statement');
+        document.getElementById("seconds").textContent = timeleft + "s";
+    }else{
+        console.log('Else-Statement');
+        document.getElementById("seconds").textContent = 0 + "s";
+    }
+   
+    if(timeleft <= 0){
         clearInterval(downloadTimer);
         console.log(timeleft);
+        timeleft = 0;
+    }
+        
         if(timeleft == 0){ //Checke wenn Scoreboard == 0 -> dann verstecke Logo
             versteckeSapLogo(); 
             versteckeOracleLogo();
@@ -48,12 +58,13 @@ $(document).ready(function(){
 
     var a = 0 //Variable für Score
         $("#SAP-logo").click(function(){
-            if (timeleft != 0) { //Prüfe bevor Score hochzählt ob Zeit > 0 ist
+            if (timeleft != 0) {                //Prüfe bevor Score hochzählt ob Zeit > 0 ist
                 platziereSAPlogo();
                 platziereOracleLogo();
                 platziereSalesForceLogo();
                 platziereAppleLogo();
                 Scoregehthoch();
+                christianFreutSich();
             }else{
                 versteckeSapLogo();
                 versteckeOracleLogo();
@@ -62,12 +73,13 @@ $(document).ready(function(){
             }
         });
         $("#oracle-logo").click(function(){
-            if (timeleft != 0) { //Prüfe bevor Score hochzählt ob Zeit > 0 ist
+            if (timeleft != 0) {                     //Prüfe bevor Score hochzählt ob Zeit > 0 ist
                 platziereSAPlogo();
                 platziereOracleLogo();
                 platziereSalesForceLogo();
                 platziereAppleLogo();
                 Scoregehtrunter();
+
             }else{
                 versteckeSapLogo();
                 versteckeOracleLogo();
@@ -77,7 +89,7 @@ $(document).ready(function(){
             }
         });
         $("#salesforce-logo").click(function(){
-            if (timeleft != 0) { //Prüfe bevor Score hochzählt ob Zeit > 0 ist
+            if (timeleft != 0) {                     //Prüfe bevor Score hochzählt ob Zeit > 0 ist
                 platziereSAPlogo();
                 platziereOracleLogo();
                 platziereSalesForceLogo();
@@ -92,12 +104,13 @@ $(document).ready(function(){
             }
         });
         $("#apple-logo").click(function(){
-            if (timeleft != 0) { //Prüfe bevor Score hochzählt ob Zeit > 0 ist
+            if (timeleft != 0) {                        //Prüfe bevor Score hochzählt ob Zeit > 0 ist
                 platziereSAPlogo();
                 platziereOracleLogo();
                 platziereSalesForceLogo();
                 platziereAppleLogo();
                 Scoregehthoch();
+                christianFreutSich();
                 console.log(appleClicked);
             }else{
                 versteckeSapLogo();
@@ -110,40 +123,41 @@ $(document).ready(function(){
 
     function platziereSAPlogo()                         // Logos werden zufällig platziert
     {
-        let x = Math.floor(Math.random()*1000);
-        let y = Math.floor(Math.random()*1000);
+        console.log($("#hintergrundbild"));
+        console.log($("#hintergrundbild")[0].offsetLeft);
+        let x = Math.floor(Math.random()*700)+$("#hintergrundbild")[0].offsetTop;
+        let y = Math.floor(Math.random()*950)+$("#hintergrundbild")[0].offsetLeft;
 
         $("#SAP-logo").css("top", x);
         $("#SAP-logo").css("left", y);
     } 
     function platziereOracleLogo()                         
     {
-        let x = Math.floor(Math.random()*1000);
-        let y = Math.floor(Math.random()*1000);
+        let x = Math.floor(Math.random()*700)+$("#hintergrundbild")[0].offsetTop;
+        let y = Math.floor(Math.random()*950)+$("#hintergrundbild")[0].offsetLeft;
 
         $("#oracle-logo").css("top", x);
         $("#oracle-logo").css("left", y);
     }
     function platziereSalesForceLogo()                        
     {
-        let x = Math.floor(Math.random()*1000);
-        let y = Math.floor(Math.random()*1000);
+        let x = Math.floor(Math.random()*700)+$("#hintergrundbild")[0].offsetTop;
+        let y = Math.floor(Math.random()*950)+$("#hintergrundbild")[0].offsetLeft;
 
         $("#salesforce-logo").css("top", x);
         $("#salesforce-logo").css("left", y);
     }
     function platziereAppleLogo()                        
     {
-        let x = Math.floor(Math.random()*1000);
-        let y = Math.floor(Math.random()*1000);
+        let x = Math.floor(Math.random()*700)+$("#hintergrundbild")[0].offsetTop;
+        let y = Math.floor(Math.random()*950)+$("#hintergrundbild")[0].offsetLeft;
 
         $("#apple-logo").css("top", x);
         $("#apple-logo").css("left", y);
     }
 
-    function versteckeSapLogo(){
-        $("#SAP-logo").hide();
-                                        //verstecken der verschiedenen Logos
+    function versteckeSapLogo(){      //verstecken der verschiedenen Logos
+        $("#SAP-logo").hide()                            
     }                                       
     function versteckeOracleLogo(){
         $("#oracle-logo").hide();
@@ -167,9 +181,6 @@ $(document).ready(function(){
          });
 
     }
-    $(document).ready(function(){
-        MausfolgtZeiger();
-    })
 
 function Scoregehthoch()
     {
@@ -193,7 +204,7 @@ function checkScore(){
         a = 0;
         
     }else if ( a == 0){
-        alert('OH NEIN! - verloren :( ')
+        alert('OH NEIN! - verloren :( möchtest du erneut spielen?')
         versteckeAppleLogo();
         versteckeOracleLogo();
         versteckeSalesforceLogo();
