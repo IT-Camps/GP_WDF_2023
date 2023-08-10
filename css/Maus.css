@@ -1,8 +1,20 @@
-body{
+#body1{
 	width: 0vw;
 	height: 0vh;
 	margin: 0;
+    background-image: url('../img/hintergrund/');
+    background-repeat:no-repeat;
+    background-size: cover;
 }
+#body2{
+    width: 0vw;
+	height: 0vh;
+	margin: 0;
+    background-image: url('../img/hintergrund/käseMausEndeHintergrund.png');
+    background-repeat:no-repeat;
+    background-size: cover;
+}
+
 #hintergrundbild {
     background: cover;
     background-image : url('../img/spielFeld/Hintergrund_Käse&Maus.png');
@@ -96,4 +108,8 @@ font-size: 30px;
 background-color: lightskyblue;
 text-indent: left;
 text-align: left;
+}
+#backToStart {
+    color: white;
+    text-align: center;
 }

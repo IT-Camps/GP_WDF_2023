@@ -195,7 +195,7 @@ function Scoregehtrunter(){
     }
 function checkScore(){
     if( a < 0){
-        alert('OH NEIN! - verloren :( ')
+        window.open("ende.html");
         versteckeAppleLogo();
         versteckeOracleLogo();
         versteckeSalesforceLogo();
@@ -204,7 +204,7 @@ function checkScore(){
         a = 0;
         
     }else if ( a == 0){
-        alert('OH NEIN! - verloren :( möchtest du erneut spielen?')
+        window.open("ende.html");
         versteckeAppleLogo();
         versteckeOracleLogo();
         versteckeSalesforceLogo();
