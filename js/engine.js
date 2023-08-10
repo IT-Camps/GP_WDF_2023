@@ -79,7 +79,13 @@ function setStartingPosition() {
 }
 
 function setPosition(x, y) {
+
+checkInteraktion(x, y);
+
     // X orientation
+
+
+    
     if (x < player.positionX) $('#spielfigur').css('transform', 'scaleX(-1)');
     if (x > player.positionX) $('#spielfigur').css('transform', 'scaleX(1)')
 
@@ -134,17 +140,21 @@ function istBetretbar(x, y) {
 }
 
 
-/*function interaktion(x, y) {
-    if (!spielfeld.interactive) {
+function checkInteraktion(x, y) {
+    if (!spielfeld[x][y].interactive) {
         console.log("Nicht interagierbar")
     }
     else {
-        if (spielfeld.material == Tür) { //Material hinzufügen || Tür?
-            //Ändere Level
-            ladeBlocksInArray(current_level);
+        if (spielfeld[x][y].material == "Tür") {
+            //  player keycard check
+            const teleportDestination = spielfeld[x][y].interaction.replace('teleport_', '');
+            //  TODO: teleport logic
         }
-        if (spielfeld.material == Server SSF || SSW){
-            
+        if (spielfeld.material == ""){
+             
         }
     }
-}*/
+}
+
+
+

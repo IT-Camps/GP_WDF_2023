@@ -491,7 +491,8 @@ let LEVEL = [
         y: 6,
         material: 'Tür',
         solid: true,
-        interactive: false,
+        interactive: true,
+        interaction: 'teleport_foyer'
       },
       {
         x: 0,
