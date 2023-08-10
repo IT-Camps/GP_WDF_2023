@@ -5,7 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4ca5b4e1-ce09-4837-ae85-c6194abfb20f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/css/03_Figur_bewegen_Vorlage.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/03_Figur_bewegen_Vorlage.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/css/startseite.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/Startseite.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/startseite.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/hintergrund/SapSimulatorStartBildschirm.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/hintergrund/SapSimulatorStartBildschirm1.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -14,6 +19,15 @@
   </component>
   <component name="ComposerSettings">
     <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="CSS File" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -28,8 +42,10 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "Startseite",
+    "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
