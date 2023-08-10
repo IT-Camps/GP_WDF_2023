@@ -15,7 +15,7 @@ let LEVEL = [
         ]
     },
     {
-                name: 'serverraum',
+        name: 'serverraum',
         data: [
         {x:0, y:0, material: 'SSF', solid: true, interactive: false},
         {x:0, y:2, material: 'SSF', solid: true, interactive: false},
@@ -187,6 +187,14 @@ let LEVEL = [
         {x:14, y:17, material: 'SSF', solid: true, interactive: false},
         {x:14, y:18, material: 'SSF', solid: true, interactive: false},
         {x:14, y:19, material: 'SSF', solid: true, interactive: false}
+
+        ]
+    },
+    {
+        name: 'foyer',
+        data: [
+            {x:14, y:7, material: 'FPKF', solid: true, interactive: false},
+            {x:14, y:10, material: 'FPKF', solid: true, interactive: false}  
 
         ]
     }

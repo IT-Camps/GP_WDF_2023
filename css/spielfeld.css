@@ -37,7 +37,7 @@ body {
 	background: black;
 }
 
-.floor {
+.SRB {
 	background-image: url('../img/spielFeld/SRB.png');
 }
 
@@ -94,4 +94,11 @@ body {
 
 .SSR {
 	background-image: url('../img/spielFeld/SSR.png');
+}
+
+.FBKP {
+	background-image: url('../img/spielFeld/FBKP.png');
+}
+.FPKF {
+	background-image: url('../img/spielFeld/FPKF.png');
 }

@@ -1,6 +1,7 @@
 let spielfeld = [];
 let blocks;
-let current_level = "serverraum";
+let current_level = "foyer";
+let floor;
 const BREITE = 20;
 const HOEHE = 15;
 
@@ -16,10 +17,20 @@ let player = {
 
 function ladeBlocksInArray(levelName) {
     const level = LEVEL.find(l => l.name == levelName);
+    switch (levelName) {
+        case "foyer":
+            floor = 'FBKP';
+            break;
+        case "serverraum":
+            floor = 'SRB';
+            break;
+        default:
+            break;
+    }
     for (let x = 0; x < HOEHE; x++) {
         spielfeld[x] = [];
         for (let y = 0; y < BREITE; y++) {
-            spielfeld[x][y] = level.data.find(block => block.x == x && block.y == y) || { x: x, y: y, material: 'floor', solid: false, interactive: false };
+            spielfeld[x][y] = level.data.find(block => block.x == x && block.y == y) || { x: x, y: y, material: floor, solid: false, interactive: false };
         }
     }
 }
