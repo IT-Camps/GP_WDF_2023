@@ -10,8 +10,7 @@ body{
 	margin: auto auto;
 	display: flex;
 	flex-flow: row wrap;
-	
-	border: 10px solid brown;
+	border: 10px solid black;
 }
 
 #spielfeld>div {
