@@ -1,0 +1,48 @@
+#Geschäftsmann {
+    width: 100px;
+    height: 100px;
+    background-image: url('Christian\ Klein.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    z-index: 1;
+}
+
+#SAP-logo {
+    width: 50px;
+    height: 50px;
+    top: 200px;
+    left: 200px;
+    background-image: url('logo_SAP.png');
+    background-repeat: no-repeat;
+    position: absolute;
+    background-size: contain;
+} 
+#oracle-logo {
+    width: 50px;
+    height: 50px;
+    top: 500px;
+    left: 100px;
+    background-image: url('logo_oracle.png');
+    background-repeat: no-repeat;
+    position: absolute;
+    background-size: contain;
+}
+display:inline-block {
+width: 300px; 
+margin: 20px 0; 
+border-radius: 5px;  
+background: lightskyblue; 
+}
+#countdown {
+font-family: "Fira Sans", sans-serif; 
+display: inline-block;
+padding: 30px; 
+background: lightskyblue;
+color: white;
+}
+
+#countdown span {
+font-weight: bold; 
+font-size: 30px; 
+}

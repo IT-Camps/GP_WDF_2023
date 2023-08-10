@@ -1,0 +1,47 @@
+
+.server-reihe{
+    display:flex;
+    margin: 80px;
+    margin-top: 250px;
+}
+
+.server-reihe div{
+    width: 75px;
+    height: 75px;
+    background-repeat: none;
+    display:flex;
+    position: relative;
+    left: 40%;
+    background-image: url(../img/spielFeld/SSD.png);
+    background-size:contain;
+}
+
+.server-reihe2{
+    display:flex;
+    margin: 80px;
+}
+
+.server-reihe2 div{
+    width: 75px;
+    height: 75px;
+    display:flex;
+    position: relative;
+    left: 40%;
+    background-image: url(../img/spielFeld/SSD.png);
+    background-size:contain;
+}
+
+.server-reihe3{
+    display:flex;
+    margin: 80px;
+}
+
+.server-reihe3 div{
+    width: 75px;
+    height: 75px;
+    display:flex;
+    position: relative;
+    left: 40%;
+    background-image: url(../img/spielFeld/SSD.png);
+    background-size:contain;
+}
