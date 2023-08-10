@@ -31,16 +31,16 @@ function serverRandomZerstören() {
     case 0:
       switch (generateRandom(4)) {
         case 0:
-          $(".server-reihe1>.server1").css("background-image", "url(../img/spielFeld/SRB.png)");
+          $(".server-reihe1>#server1").css("background-image", "url(../img/spielFeld/SRB.png)");
           break;
         case 1:
-          $(".server-reihe1>.server2").css("background-image", "url(../img/spielFeld/SRB.png)");
+          $(".server-reihe1>#server2").css("background-image", "url(../img/spielFeld/SRB.png)");
           break;
         case 2:
-          $(".server-reihe1>.server3").css("background-image", "url(../img/spielFeld/SRB.png)");
+          $(".server-reihe1>#server3").css("background-image", "url(../img/spielFeld/SRB.png)");
           break;
         case 3:
-          $(".server-reihe1>.server4").css("background-image", "url(../img/spielFeld/SRB.png)");
+          $(".server-reihe1>#server4").css("background-image", "url(../img/spielFeld/SRB.png)");
           break;
         default:
           break;
@@ -49,16 +49,16 @@ function serverRandomZerstören() {
     case 1:
       switch (generateRandom(4)) {
         case 0:
-          $(".server-reihe2>.server1").css("background-image", "url(../img/spielFeld/SRB.png)");
+          $(".server-reihe2>#server5").css("background-image", "url(../img/spielFeld/SRB.png)");
           break;
         case 1:
-          $(".server-reihe2>.server2").css("background-image", "url(../img/spielFeld/SRB.png)");
+          $(".server-reihe2>#server6").css("background-image", "url(../img/spielFeld/SRB.png)");
           break;
         case 2:
-          $(".server-reihe2>.server3").css("background-image", "url(../img/spielFeld/SRB.png)");
+          $(".server-reihe2>#server7").css("background-image", "url(../img/spielFeld/SRB.png)");
           break;
         case 3:
-          $(".server-reihe2>.server4").css("background-image", "url(../img/spielFeld/SRB.png)");
+          $(".server-reihe2>#server8").css("background-image", "url(../img/spielFeld/SRB.png)");
           break;
         default:
           break;
@@ -67,16 +67,16 @@ function serverRandomZerstören() {
     case 2:
       switch (generateRandom(4)) {
         case 0:
-          $(".server-reihe3>.server1").css("background-image", "url(../img/spielFeld/SRB.png)");
+          $(".server-reihe3>#server9").css("background-image", "url(../img/spielFeld/SRB.png)");
           break;
         case 1:
-          $(".server-reihe3>.server2").css("background-image", "url(../img/spielFeld/SRB.png)");
+          $(".server-reihe3>#server10").css("background-image", "url(../img/spielFeld/SRB.png)");
           break;
         case 2:
-          $(".server-reihe3>.server3").css("background-image", "url(../img/spielFeld/SRB.png)");
+          $(".server-reihe3>#server11").css("background-image", "url(../img/spielFeld/SRB.png)");
           break;
         case 3:
-          $(".server-reihe3>.server4").css("background-image", "url(../img/spielFeld/SRB.png)");
+          $(".server-reihe3>#server12").css("background-image", "url(../img/spielFeld/SRB.png)");
           break;
         default:
           break;
