@@ -66,7 +66,8 @@ $(document).ready(function() {
     }
 
     function message(input) {
-         $("message_content")
+        $('#message_content').text(input + "wurde aufgesammelt");
+        $("#message").show();
             
            
     }
@@ -147,7 +148,6 @@ $(document).ready(function() {
             $("#item").hide();  //item sollte aufgesammelt werden wenn man drüber geht
             item_pos.x = 0;
             item_pos.y = 0;
-            $("message").show();
             
             
             }
