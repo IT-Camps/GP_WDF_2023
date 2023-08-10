@@ -1,6 +1,6 @@
 let spielfeld = [];
 let blocks;
-let current_level = "Kaffeeecke";
+let current_level = "serverraum";
 let floor;
 const BREITE = 20;
 const HOEHE = 15;
