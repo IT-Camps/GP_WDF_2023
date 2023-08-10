@@ -1,0 +1,15 @@
+#startseite{
+    grid-column: 4/7;
+    grid-row: 4/6;
+    background-color: aqua;
+
+}
+body{
+    display: grid;
+    grid-template-columns: 10vw 10vw 10vw 10vw 10vw 10vw 10vw 10vw 10vw 10vw;
+    grid-template-rows: 10vh 10vh 10vh 10vh 10vh 10vh 10vh 10vh 10vh 10vh;
+    background-image: url("../img/hintergrund/SapSimulatorStartBildschirm-rot.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    opacity: 30%;
+}

@@ -47,7 +47,7 @@ h1 {
 #spielfeld {
 	width: 1000px;
 	height: 750px;
-	margin: auto auto;
+	margin: auto, auto;
 	display: flex;
 	flex-flow: row wrap;
 	
@@ -60,6 +60,16 @@ h1 {
 	margin: 0;
 }
 
+#spielfigur {
+	width: 60px;
+	height: 60px;
+	background-image: url(img/spielFigur/lumberjackOne.png);
+	background-repeat: no-repeat;
+	position: absolute;
+	background-size: contain;
+	z-index: 1;
+}
+
 .white {
 	background: white;
 }
@@ -68,14 +78,12 @@ h1 {
 	background: black;
 }
 
-.floor {
+.SRB {
 	background-image: url('../img/spielFeld/SRB.png');
 }
-
 .SSF {
 	background-image: url('../img/spielFeld/SSF.png');
 }
-
 .SSU {
 	background-image: url('../img/spielFeld/SSU.png');
 }
@@ -107,48 +115,67 @@ h1 {
 	filter: drop-shadow(2px 4px 6px black)
 }
 
-
-#keycard1 {
-	width: 60px;
-	height: 60px;
-	background-image: url('../img/KeyCards/keycard_bob.png');
-	background-repeat: no-repeat;
-	position: absolute;
-	background-size: contain;
-	z-index: 1;
-	filter: drop-shadow(2px 4px 6px black)
+.SSF {
+	background-image: url('../img/spielFeld/SSF.png');
+}
+.SSL {
+	background-image: url('../img/spielFeld/SSL.png');
+}
+.SSU {
+	background-image: url('../img/spielFeld/SSU.png');
+}
+.SSD {
+	background-image: url('../img/spielFeld/SSD.png');
+}
+.SSM {
+	background-image: url('../img/spielFeld/SSM.png');
+}
+.SSR {
+	background-image: url('../img/spielFeld/SSR.png');
 }
 
-#keycard2 {
-	width: 60px;
-	height: 60px;
-	background-image: url('../img/KeyCards/keycard_daniel.png');
-	background-repeat: no-repeat;
-	position: absolute;
-	background-size: contain;
-	z-index: 1;
-	filter: drop-shadow(2px 4px 6px black)
+.KHW {
+	background-image: url('../img/hintergrund/KHW.png');
 }
 
-#keycard3 {
-	width: 60px;
-	height: 60px;
-	background-image: url('../img/KeyCards/keycard_olli.png');
-	background-repeat: no-repeat;
-	position: absolute;
-	background-size: contain;
-	z-index: 1;
-	filter: drop-shadow(2px 4px 6px black)
+.KTB {
+	background-image: url('../img/hintergrund/KTB.png');
 }
 
-#keycard4 {
-	width: 60px;
-	height: 60px;
-	background-image: url('../img/KeyCards/keycard_oskar.png');
-	background-repeat: no-repeat;
-	position: absolute;
-	background-size: contain;
-	z-index: 1;
-	filter: drop-shadow(2px 4px 6px black)
+.KTW {
+	background-image: url('../img/hintergrund/KTW.png');
+}
+.FBKP {
+	background-image: url('../img/spielFeld/FBKP.png');
+}
+.FPKF {
+	background-image: url('../img/spielFeld/FPKF.png');
+}
+.AFFE {
+	background-image: url('../img/spielFeld/AFFE.png');
+}
+.DESK {
+	background-image: url('../img/spielFeld/DESK.png');
+}
+.DPPH {
+	background-image: url('../img/spielFeld/DPPH.png');
+}
+.CRDR {
+	background-image: url('../img/spielFeld/CRDR.png');
+}
+.SPRU {
+	background-image: url('../img/spielFeld/SPRU.png');
+}
+
+.KAFFEE {
+	background-image: url('../img/Gegenstaende/Kaffemaschiene2.png');
+}
+
+.KEW {
+	background-color: tomato;
+}
+
+.KEKM {
+	background-color: green;
 }
 
