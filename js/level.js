@@ -2,23 +2,15 @@
 
 let LEVEL = [
   {
-    name: 'demoLevel',
-    data: [
-      {x: 2, y: 3, material: 'grass', solid: true, interactive: false},
-      {x: 3, y: 4, material: 'grass', solid: true, interactive: false},
-      {x: 4, y: 4, material: 'grass', solid: true, interactive: false},
-      {x: 5, y: 4, material: 'grass', solid: true, interactive: false},
-      {x: 6, y: 5, material: 'grass', solid: true, interactive: false},
-      {x: 7, y: 4, material: 'grass', solid: true, interactive: false},
-      {x: 8, y: 4, material: 'grass', solid: true, interactive: false},
-      {x: 9, y: 3, material: 'grass', solid: true, interactive: false},
-    ],
-  },
-
-  {
     name: 'foyer',
+    start_x: 10,
+    start_y: 14,
     data: [
-    {x:10, y:0, material: 'SPRU', solid: true, interactive: false},
+      {x:19, y:7, material: 'door', solid: false, interactive: true, interaction: "teleport_serverraum"}, //serverrraum
+      {x:12, y:0, material: 'door', solid: false, interactive: true, interaction: "teleport_office"}, //eigenes büro
+      {x:3, y:0, material: 'door', solid: false, interactive: true, interaction: "teleport_ceo"}, //aufzug ceo
+      {x:0, y:7, material: 'door', solid: false, interactive: true, interaction: "teleport_cafeteria"}, //cafeteria
+    /*{x:10, y:0, material: 'SPRU', solid: true, interactive: false},
     {x:10, y:1, material: 'SPRU', solid: true, interactive: false},
     {x:10, y:2, material: 'CRDR', solid: false, interactive: false},
     {x:10, y:3, material: 'SPRU', solid: true, interactive: false},
@@ -44,14 +36,17 @@ let LEVEL = [
     {x:12, y:10, material: 'DPPH', solid: false, interactive: false},
 
     {x:14, y:7, material: 'FPKF', solid: true, interactive: false},
-    {x:14, y:10, material: 'FPKF', solid: true, interactive: false}  
+    {x:14, y:10, material: 'FPKF', solid: true, interactive: false}  */
 
     ]
 },
 
   {
     name: 'serverraum',
+    start_x: 1,
+    start_y: 3,
     data: [
+      {        x: 0,        y: 3,        material: 'door',        solid: false,        interactive: true,        interaction: 'teleport_foyer'      },
       {x: 0, y: 0, material: 'SSF', solid: true, interactive: false},
       {x: 2, y: 0, material: 'SSF', solid: true, interactive: false},
       {        x: 3,        y: 0,        material: 'SSF',
@@ -520,14 +515,7 @@ let LEVEL = [
         solid: true,
         interactive: false,
       },
-      {
-        x: 19,
-        y: 6,
-        material: 'door',
-        solid: false,
-        interactive: true,
-        interaction: 'teleport_foyer'
-      },
+      
       {
         x: 0,
         y: 7,

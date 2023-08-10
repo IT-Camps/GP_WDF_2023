@@ -1,6 +1,6 @@
 let spielfeld = [];
 let blocks;
-let current_level = "serverraum";
+let current_level = "foyer";
 const BREITE = 20;
 const HOEHE = 15;
 
@@ -14,9 +14,9 @@ let player = {
     isMovingRight: false,
 };
 
-function ladeBlocksInArray(levelName) {
-    const level = LEVEL.find(l => l.name == levelName);
-    switch (levelName) {
+function ladeBlocksInArray() {
+    const level = LEVEL.find(l => l.name == current_level);
+    switch (current_level) {
         case "foyer":
             floor = 'FBKP';
             break;
@@ -54,21 +54,17 @@ function blockAuswechseln(x, y, material, solid, interactive) {
 }
 
 function spielfeldLeeren() {
-    let current;
     for (let y = 0; y < HOEHE; y++) {
         for (let x = 0; x < BREITE; x++) {
-            current = document.getElementById(x + '/' + y);
-            current.remove();
+            document.getElementById(x + '/' + y).remove();
         }
     }
 }
 
 function starteEngine() {
     let levelNamen = LEVEL.map(l => l.name);
-    console.log("Starte engine...");
-    console.log(`Geladene level: ` + levelNamen.join(', '));
 
-    ladeBlocksInArray(current_level);
+    ladeBlocksInArray();
     zeigeSpielfeld();
 
     console.log(spielfeld);
@@ -89,19 +85,27 @@ function movePlayer() {
 }
 
 function setStartingPosition() {
-    setPosition(0, 0);
+    let level = LEVEL.find(l => l.name == current_level);
+
+    console.log(level);
+    forceSetPosition(level.start_x, level.start_y);
 }
 
 function setPosition(x, y) {
 
-    checkInteraktion(x, y);
+    if(checkInteraktion(x, y))
 
-    // X orientation
+    forceSetPosition(x, y);
+}
 
 
-    
+function forceSetPosition(x, y) 
+{
     if (x < player.positionX) $('#spielfigur').css('transform', 'scaleX(-1)');
-    if (x > player.positionX) $('#spielfigur').css('transform', 'scaleX(1)')
+    if (x > player.positionX) $('#spielfigur').css('transform', 'scaleX(1)');
+
+    console.log(x);
+    console.log(y);
 
     player.positionX = x;
     player.positionY = y;
@@ -156,14 +160,20 @@ function istBetretbar(x, y) {
 
 function checkInteraktion(x, y) {
     if (!spielfeld[x][y].interactive) {
-        console.log("Nicht interagierbar")
+        return true;
     }
     else {
         if (spielfeld[x][y].material == "door") {
             //  player keycard check
-            const teleportDestination = spielfeld[x][y].interaction.replace('teleport_', '');
+            current_level = spielfeld[x][y].interaction.replace('teleport_', '');
             console.log("neues level");
-            //  TODO: teleport logic
+
+            spielfeldLeeren();
+            ladeBlocksInArray();
+            zeigeSpielfeld();
+            console.log('Level change??');
+            setStartingPosition();
+            return false;
         }
         if (spielfeld.material == ""){
              
