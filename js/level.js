@@ -32,7 +32,7 @@ let LEVEL = [
         {x:14, y:1, material: 'SSU', solid: true, interactive: false},
         {x:15, y:1, material: 'SSU', solid: true, interactive: false},
     
-        {x:1, y:2, material: 'SSL', solid: true, interactive: false},
+        /*{x:1, y:2, material: 'SSL', solid: true, interactive: false},
         {x:6, y:2, material: 'SSM', solid: true, interactive: false},
        
         {x:1, y:3, material: 'SSF', solid: true, interactive: false},
@@ -92,7 +92,7 @@ let LEVEL = [
         {x:10, y:9, material: 'SSF', solid: true, interactive: false},
         {x:12, y:9, material: 'SSF', solid: true, interactive: false},
         {x:13, y:9, material: 'SSF', solid: true, interactive: false},
-        {x:15, y:9, material: 'SSR', solid: true, interactive: false},
+        {x:15, y:9, material: 'SSR', solid: true, interactive: false},*/
     
         {x:2, y:10, material: 'SSM', solid: true, interactive: false},
         {x:4, y:10, material: 'SSF', solid: true, interactive: false},
@@ -105,7 +105,7 @@ let LEVEL = [
         {x:13, y:10, material: 'SSF', solid: true, interactive: false},
         {x:15, y:10, material: 'SSR', solid: true, interactive: false},
     
-        {x:12, y:11, material: 'SSF', solid: true, interactive: false},
+       /* {x:12, y:11, material: 'SSF', solid: true, interactive: false},
         {x:2, y:11, material: 'SSM', solid: true, interactive: false},
         {x:4, y:11, material: 'SSF', solid: true, interactive: false},
         {x:5, y:11, material: 'SSF', solid: true, interactive: false},
