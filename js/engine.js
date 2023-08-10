@@ -16,18 +16,17 @@ let player = {
 
 function ladeBlocksInArray(levelName) {
     const level = LEVEL.find(l => l.name == levelName);
-    for (let x = 0; x < BREITE; x++) {
+    for (let x = 0; x < HOEHE; x++) {
         spielfeld[x] = [];
-        for (let y = 0; y < HOEHE; y++) {
+        for (let y = 0; y < BREITE; y++) {
             spielfeld[x][y] = level.data.find(block => block.x == x && block.y == y) || { x: x, y: y, material: 'floor', solid: false, interactive: false };
         }
     }
-    console.log(spielfeld)
 }
 
 function zeigeSpielfeld() {
-    for (let y = 0; y < HOEHE; y++) {
-        for (let x = 0; x < BREITE; x++) {
+    for (let x = 0; x < HOEHE; x++) {
+        for (let y = 0; y < BREITE; y++) {
             $("#spielfeld").append(`<div class="${spielfeld[x][y].material}" id="${x}/${y}"></div>`)
         }
     }
