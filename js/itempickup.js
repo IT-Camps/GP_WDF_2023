@@ -18,7 +18,6 @@ $(document).ready(function() {
         x : 400,
         y : 400,
         name: "Keycard",
-        img: "../img/KeyCards/Keycard Bob Ross.png"
 
     }
     // Position der Tür
@@ -64,7 +63,11 @@ $(document).ready(function() {
     // Funktionen zum Nachricht erstellen und anzeigen
     function showMessage(input) {
         $('#message_content').text(input + " wurde aufgesammelt.");
+        $('#message').append()
         $("#message").show();
+        setTimeout(function() {
+            $('#message').fadeOut('fast');
+        }, 5000); // <-- time in milliseconds
     }
 
     // Alle Spielobjekte Platzieren
@@ -93,21 +96,22 @@ $(document).ready(function() {
     function addItemInv (item, inventory) {
         inventory.push(item)
         let $div = $("<div>", {id: item});
-        $("#inventory")
-            .append($div)
-            .css('background-image', item.img)
-            .css('position', 'absolute')
+        $("#inventory").append($div);
+        $("#"+item)
             .css('height', '50px')
             .css('width', '50px')
+            .css('background-image', 'url(../img/KeyCards/KeycardBobRoss.png)')
+            .css('position', 'absolute')
             .css('z-index', '4');
         console.log(item)
     }
 
     // Item vom Inventar entfernen
     function removeItemInv (item, inventory) {
-        var index = inventory.indexOf(item);
+        let index = inventory.indexOf(item);
         if (index > -1) {
             inventory.splice(index, 1);
+            $("#"+item.name).remove();
             }
         }
 
@@ -132,18 +136,10 @@ $(document).ready(function() {
                     break;
 
                 case "KeyE": //E Taste   (Inventar)
-                    if (showingInventory == false) {
-                        // Inventar anzeigen
                         $('#inventory').show();
-                        showingInventory == true;
-                    } else if (showingInventory == true) {
-                        // Inventar verstecken
-                        $('#inventory').hide();
-                        showingInventory == false;
-                    } else {
-                        // Inventar anzeigen
-                        $('#inventory').show();
-                    }
+                        setTimeout(function() {
+                            $('#inventory').fadeOut('fast');
+                        }, 7000); // <-- time in milliseconds
                     break;
 
                 default:
@@ -153,11 +149,8 @@ $(document).ready(function() {
           
                 setPlayerOnPosition(player.x, player.y);
         } else {
-        // setPlayerOnPosition(player_pos.x, player_pos.y);
-            console.log("Set Start");
-        // setStartPosition();
-        }
-            
+        console.log("Set Start");
+            }
     }
 
     // Spiel Objekte erscheinen lassen
@@ -165,7 +158,7 @@ $(document).ready(function() {
 
     // Intervall festlegen
     setInterval( function(){
-    
+        
         // Überprüfen ob die DIVs des Items und des Spielers sich überlappen
         if (checkOverlap([player.x, player.y], [item.x, item.y]) == true) {
             // Item wird aufgesammelt
@@ -176,12 +169,14 @@ $(document).ready(function() {
             showMessage(item.name);
         }
 
+
         if(checkOverlap([tuer_pos.x,tuer_pos.y], [player.x, player.y]) == true && player.inventory.includes(item.name) == true){
             // Tür wird geöffnet
             console.log("Tür öffnet")
             tuer_pos.x = 0;
             tuer_pos.x = 0;
             $("#tuer").hide();
+            removeItemInv(item.name, player.inventory)
         }
     },33);
     $(document).keydown(function(event){
