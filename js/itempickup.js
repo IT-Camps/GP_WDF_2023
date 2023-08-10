@@ -1,6 +1,7 @@
 let player = document.getElementById("player");
 let item = document.getElementById("item");
-
+let tür = document.getElementById("tür");
+var inventory = [];
 // Platzhalter für Position des Spielers
 let player_pos = {
     x : 800,
@@ -10,47 +11,82 @@ let player_pos = {
 let item_pos = {
     x : 400,
     y : 400
+
 }
 
-function setStartPosition() {
+let tür_pos = {
+    x : 400,
+    y : 400
+
+}
+
+
+ function setStartPosition() {
     setPlayerOnPosition("800px", "800px");
-    setItemOnPosition("400px", "400px")
+    setItemOnPosition("400px", "400px");
+    //setTürOnPosition("600px", "600px");
 }
 
-function setItemOnPosition(x,y) {
+
+ function setItemOnPosition(x,y) {
     $('#item')
-    .css('margin-top', x)
-    .css('margin-left', y);
+    .css('margin-top', x )
+    .css('margin-left', y );
 }
 
-function setPlayerOnPosition(x,y) {
+ function setPlayerOnPosition(x,y) {
     $('#player')
-    .css('margin-top', x)
-    .css('margin-left', y);
+    .css('margin-top', x )
+    .css('margin-left', y );
+
+
 }
 
-function movePlayer(event){
+function seTürOnPosition(x,y) {
+    $('#tür')
+    .css('margin-top', x )
+    .css('margin-left', y );
+
+
+}
+
+
+
+ function movePlayer(event){
     if(player_pos.x > 10 && player_pos.y > 10) {
         switch(event.code) {
-            case "KeyW": //Wasted Taste
+            case "KeyW": //W Taste
                 player_pos.x -=10
                 break;
             
-            case "KeyS": //Slow Taste
+            case "KeyS": //S Taste
                 player_pos.x +=10
                 break;
 
-            case "KeyA": //Accurate Taste
+            case "KeyA": //A Taste
                 player_pos.y -=10
                 break;
 
-            case "KeyD": //Drum Taste
+            case "KeyD": //D Taste
                 player_pos.y +=10
                 break;
+
+            case "KeyE": //E Taste   (Inventar)
+                player_pos.y +=10
+                break;
+
+            case "KeyL": //L Taste Item wegwerfen ->   -> 
+              
+                $("#item").show();
+                setItemOnPosition(player_pos.x, player_pos.y);
+                    
+               break;
+
             default:
                 console.log("Default case");
                 break;
             }
+
         setPlayerOnPosition(player_pos.x, player_pos.y);
     } else {
         console.log("Set Start");
@@ -58,6 +94,7 @@ function movePlayer(event){
     }
         
     }
+
 
 $(document).ready(function() {
     
@@ -72,19 +109,26 @@ $(document).ready(function() {
         //and the top of the item
         let itemTop = parseInt(item_pos.x);
         let itemHeight = parseInt(item_pos.y);
-        console.log(itemTop)
-
+        console.log(itemTop);
+    
         if (itemHeight == charHeight && charTop == itemTop || itemHeight == charHeight || itemHeight == charHeight) {
             // Treffen der DIVs
-            
-            console.log("Treffer")
+
+           $("#item").hide();  //item sollte aufgesammelt werden wenn man drüber geht 
+           
         }
-    
+            });
+            
+            
+     if(itemHeight == türHeight && türTop == itemTop || itemHeight == türHeight || itemHeight == türHeight){
+        console.log("Tür öffnet")
+     }
         
-    },33);
+    });//,33);
 
     $(document).keydown(function(event){
         movePlayer(event);
     });
-})
-   
+
+       
+    
