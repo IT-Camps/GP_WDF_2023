@@ -187,8 +187,9 @@ function Scoregehtrunter(){
 function checkScore(){
     if( a < 0){
         alert('OH NEIN! - verloren :( ')
+        
     }else if ( a == 0){
-        alert('OH NEIN! - verloren :( m ')
+        alert('OH NEIN! - verloren :( ')
 
     }
 }

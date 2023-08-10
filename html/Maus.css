@@ -1,14 +1,18 @@
 #hintergrundbild {
     background: cover;
     background-image : url('Hintergrund_Käse&Maus.png');
-    width: 1000px;
-    height:750px;
+    width: 750px;
+    height: 750px;
     background-repeat: no-repeat;
     background-size: contain;
     position: absolute;
     margin: 1em;
-    text-align: center
-
+    text-align: center;
+    margin: auto auto;
+	display: flex;
+	flex-flow: row wrap;
+	flex-direction: row-reverse;
+	border: 10px solid brown;
 }
 
 #Geschäftsmann {
@@ -73,9 +77,15 @@ display: inline-block;
 padding: 30px; 
 background: lightskyblue;
 color: white;
+text-align: left;
 }
 
 #countdown span {
 font-weight: bold; 
 font-size: 30px; 
+}
+#neustart {
+background-color: lightskyblue;
+text-indent: left;
+text-align: left;
 }
