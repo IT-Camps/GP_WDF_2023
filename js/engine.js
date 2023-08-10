@@ -1,6 +1,6 @@
 let spielfeld = [];
 let blocks;
-let current_level = "serverraum";
+let current_level = "kaffeeecke";
 let floor;
 const BREITE = 20;
 const HOEHE = 15;
@@ -24,7 +24,7 @@ function ladeBlocksInArray(levelName) {
         case "serverraum":
             floor = 'SRB';
             break;
-        case "Kaffeeecke":
+        case "kaffeeecke":
             floor = 'KTB';
             break;
         default:
