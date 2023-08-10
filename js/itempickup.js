@@ -26,7 +26,8 @@ $(document).ready(function() {
 
     let message_pos = {
         x : 50,
-        y : 50
+        y : 50,
+        name: Keycard
 
     }
 
@@ -148,6 +149,7 @@ $(document).ready(function() {
             $("#item").hide();  //item sollte aufgesammelt werden wenn man drüber geht
             item_pos.x = 0;
             item_pos.y = 0;
+            message(item_pos.name);
             
             
             }
