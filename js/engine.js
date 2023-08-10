@@ -14,6 +14,17 @@ let player = {
     isMovingRight: false,
 };
 
+/*wwwwwwwwlet item= {
+
+    name: "Keycard",
+    switch(currentLevel){
+        case "serverraum": 
+            x : 400,
+            y : 400,
+    }
+    material: "Keycard1"
+}*/
+
 function ladeBlocksInArray() {
     const level = LEVEL.find(l => l.name == currentLevel);
     switch (currentLevel) {
@@ -208,18 +219,6 @@ function checkInteraktion(x, y) {
     }
 }
 
-
-/*
-To do liste
-    Sebastian:
-        -teleport logic
-        -interaktion
-    Maksim:
-        -interaktion mit items
-        -keycards aufheben und oben rechts im bildschirm als inventar anzeigen
-*/
-
-
 function addToInventory(item) {
     inventory.push(item);
     console.log(item + " wurde dem Inventar hinzugefügt.");
@@ -247,25 +246,3 @@ function checkInventory(item) {
     }
 }
 
-setInterval(function () {
-
-    // Überprüfen ob die DIVs des Items und des Spielers sich überlappen
-    if (checkOverlap([player.x, player.y], [item.x, item.y]) == true) {
-        // Item wird aufgesammelt
-        $("#item").hide();
-        addItemInv(item.name, player.inventory)
-        item.x = 0;
-        item.y = 0;
-        showMessage(item.name);
-    }
-
-
-    if (checkOverlap([tuer_pos.x, tuer_pos.y], [player.x, player.y]) == true && player.inventory.includes(item.name) == true) {
-        // Tür wird geöffnet
-        console.log("Tür öffnet")
-        tuer_pos.x = 0;
-        tuer_pos.x = 0;
-        $("#tuer").hide();
-        removeItemInv(item.name, player.inventory)
-    }
-}, 33);
