@@ -16,10 +16,24 @@ let player = {
 
 function ladeBlocksInArray(levelName) {
     const level = LEVEL.find(l => l.name == levelName);
+    switch (levelName) {
+        case "foyer":
+            floor = 'FBKP';
+            break;
+        case "serverraum":
+            floor = 'SRB';
+            break;
+        case "Kaffeeecke":
+            floor = 'Holzboden';
+            break;
+        default:
+            break;
+    }
+    
     for (let x = 0; x < BREITE; x++) {
         spielfeld[x] = [];
         for (let y = 0; y < HOEHE; y++) {
-            spielfeld[x][y] = level.data.find(block => block.x == x && block.y == y) || { x: x, y: y, material: 'floor', solid: false, interactive: false };
+            spielfeld[x][y] = level.data.find(block => block.x == x && block.y == y) || { x: x, y: y, material: floor, solid: false, interactive: false };
         }
     }
 }
@@ -80,7 +94,7 @@ function setStartingPosition() {
 
 function setPosition(x, y) {
 
-checkInteraktion(x, y);
+    checkInteraktion(x, y);
 
     // X orientation
 
@@ -112,7 +126,7 @@ $(document).on("keydown", (e) => {
                 player.isMovingRight = true;
                 break;
         }
-        console.log(e.code)
+       // console.log(e.code)
     }
 });
 
@@ -145,9 +159,10 @@ function checkInteraktion(x, y) {
         console.log("Nicht interagierbar")
     }
     else {
-        if (spielfeld[x][y].material == "Tür") {
+        if (spielfeld[x][y].material == "door") {
             //  player keycard check
             const teleportDestination = spielfeld[x][y].interaction.replace('teleport_', '');
+            console.log("neues level");
             //  TODO: teleport logic
         }
         if (spielfeld.material == ""){

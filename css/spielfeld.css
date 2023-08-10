@@ -27,14 +27,12 @@ body {
 	background: black;
 }
 
-.floor {
+.SRB {
 	background-image: url('../img/spielFeld/SRB.png');
 }
-
 .SSF {
 	background-image: url('../img/spielFeld/SSF.png');
 }
-
 .SSU {
 	background-image: url('../img/spielFeld/SSU.png');
 }
@@ -51,7 +49,7 @@ body {
 	background-image: url('../img/spielFeld/SSR.png');
 }
 
-.Tür {
+.door {
 	background-image: url("../img/Gegenstände/TolleTür.png")
 }
 #spielfigur {
@@ -108,4 +106,57 @@ body {
 	background-size: contain;
 	z-index: 1;
 	filter: drop-shadow(2px 4px 6px black)
+}
+
+
+.SSF {
+	background-image: url('../img/spielFeld/SSF.png');
+}
+.SSL {
+	background-image: url('../img/spielFeld/SSL.png');
+}
+.SSU {
+	background-image: url('../img/spielFeld/SSU.png');
+}
+.SSD {
+	background-image: url('../img/spielFeld/SSD.png');
+}
+.SSM {
+	background-image: url('../img/spielFeld/SSM.png');
+}
+.SSR {
+	background-image: url('../img/spielFeld/SSR.png');
+}
+
+.KHW {
+	background-image: url('../img/hintergrund/KHW.png');
+}
+
+.KTB {
+	background-image: url('../img/hintergrund/KTB.png');
+}
+
+.KTW {
+	background-image: url('../img/hintergrund/KTW.png');
+}
+.FBKP {
+	background-image: url('../img/spielFeld/FBKP.png');
+}
+.FPKF {
+	background-image: url('../img/spielFeld/FPKF.png');
+}
+.AFFE {
+	background-image: url('../img/spielFeld/AFFE.png');
+}
+.DESK {
+	background-image: url('../img/spielFeld/DESK.png');
+}
+.DPPH {
+	background-image: url('../img/spielFeld/DPPH.png');
+}
+.CRDR {
+	background-image: url('../img/spielFeld/CRDR.png');
+}
+.SPRU {
+	background-image: url('../img/spielFeld/SPRU.png');
 }

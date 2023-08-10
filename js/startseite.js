@@ -1,5 +1,5 @@
 $(document).ready(function (){
-    $("body > #startseite").on("click", (e) => {
-        alert("Spiel geht los");
+    $("#startseite").on("click", (e) => {
+        window.open("index.html");
     });
 })
