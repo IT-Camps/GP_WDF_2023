@@ -29,6 +29,21 @@ body {
 	z-index: 1;
 }
 
+#spielfigur {
+	width: 60px;
+	height: 60px;
+	background-image: url('../img/spielFigur/Christian_Klein.png');
+	background-repeat: no-repeat;
+	position: absolute;
+	background-size: contain;
+	z-index: 1;
+	filter: drop-shadow(2px 4px 6px black)
+}
+
+.Holzboden {
+	background-image: url('../img/hintergrund/GuterHolzboden.png');
+}
+
 .white {
 	background: white;
 }
@@ -61,16 +76,6 @@ body {
 	background-image: url('../img/spielFeld/SSR.png');
 }
 
-#spielfigur {
-	width: 60px;
-	height: 60px;
-	background-image: url('../img/spielFigur/Christian_Klein.png');
-	background-repeat: no-repeat;
-	position: absolute;
-	background-size: contain;
-	z-index: 1;
-	filter: drop-shadow(2px 4px 6px black)
-}
 
 .SSF {
 	background-image: url('../img/spielFeld/SSF.png');
@@ -97,15 +102,15 @@ body {
 }
 
 .KHW {
-	background-image: url ('../img/hintergrund/KHW.png');
+	background-image: url('../img/hintergrund/KHW.png');
 }
 
 .KTB {
-	background-image: url ('../img/hintergrund/KTB.png');
+	background-image: url('../img/hintergrund/KTB.png');
 }
 
 .KTW {
-	background-image: url ('../img/hintergrund/KTW.png');
+	background-image: url('../img/hintergrund/KTW.png');
 }
 .FBKP {
 	background-image: url('../img/spielFeld/FBKP.png');
