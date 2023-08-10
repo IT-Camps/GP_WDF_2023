@@ -1,24 +1,30 @@
+body{
+	width: 0vw;
+	height: 0vh;
+	margin: 0;
+}
 #hintergrundbild {
     background: cover;
-    background-image : url('Hintergrund_Käse&Maus.png');
-    width: 750px;
+    background-image : url('../img/spielFeld/Hintergrund_Käse&Maus.png');
+    width: 1000px;
     height: 750px;
     background-repeat: no-repeat;
-    background-size: contain;
-    position: absolute;
-    margin: 1em;
-    text-align: center;
-    margin: auto auto;
+    background-size: cover;
+    position: center;
+    margin-left:26.45em;
+    
+
 	display: flex;
 	flex-flow: row wrap;
 	flex-direction: row-reverse;
 	border: 10px solid brown;
+    
 }
 
 #Geschäftsmann {
     width: 100px;
     height: 100px;
-    background-image: url('Christian\ Klein.png');
+    background-image: url('../img/spielfigur/Christian Klein.png');
     background-size: contain;
     background-repeat: no-repeat;
     position: absolute;
@@ -30,7 +36,7 @@
     height: 50px;
     top: 200px;
     left: 200px;
-    background-image: url('logo_SAP.png');
+    background-image: url('../img/icons/logo_SAP.png');
     background-repeat: no-repeat;
     position: absolute;
     background-size: contain;
@@ -40,7 +46,7 @@
     height: 50px;
     top: 500px;
     left: 100px;
-    background-image: url('logo_oracle.png');
+    background-image: url('../img/icons/logo_oracle.png');
     background-repeat: no-repeat;
     position: absolute;
     background-size: contain;
@@ -50,7 +56,7 @@
     height: 50px;
     top: 700px;
     left: 300px;
-    background-image: url('logo_salesforce.png');
+    background-image: url('../img/icons/logo_salesforce.png');
     background-repeat: no-repeat;
     position: absolute;
     background-size: contain;
@@ -60,7 +66,7 @@
     height: 50px;
     top: 600px;
     left: 200px;
-    background-image: url('Apple.png');
+    background-image: url('..//img/icons/Apple.png');
     background-repeat: no-repeat;
     position: absolute;
     background-size: contain;
