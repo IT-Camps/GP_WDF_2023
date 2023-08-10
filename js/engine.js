@@ -4,7 +4,6 @@ let current_level = "foyer";
 const BREITE = 20;
 const HOEHE = 15;
 
-
 let player = {
     positionX: 0,
     positionY: 0,
@@ -194,4 +193,72 @@ function checkInteraktion(x, y) {
 }
 
 
+/*
+To do liste
+    Sebastian:
+        -teleport logic
+        -interaktion
+    Maksim:
+        -interaktion mit items
+        -keycards aufheben und oben rechts im bildschirm als inventar anzeigen
+*/
 
+
+
+//items unsichtbar
+//items werden platziert, wenn der benötigte Raum geladen ist und Bedingungen erfüllt sind
+//platzieren: zugewiesene Koordinaten im Array auslesen
+//items werden aufgehoben, aber anstelle item.hide oben rechts in die ecke und kleiner
+//Stelle im array wo item war mit floor ersetzen
+//items fallen lassen nicht einbauen weil warum
+
+function itemSichtbar(item){
+    switch (item){
+        case "keycard1":
+            itemSetPosition(item)
+            $(item).show()
+
+    }
+}
+let arrayKeycards= [false,false,false,false]
+function itemSetPosition(item, inventar){
+    switch(item){
+        case "keycard1":
+            if (inventar == true){
+                
+                $('#item')
+                    .css('top',  )//Koordinaten anpassen
+                    .css('left',  );
+            }
+            else{
+                blockAuswechseln(x, y, "keycard1", false, true) //Koordinaten auswechseln
+            }
+        case "keycard2":
+            if (inventar == true){
+                $('#item')
+                    .css('top',  )//Koordinaten anpassen
+                    .css('left',  );
+            }
+            else{
+                blockAuswechseln(x, y, "keycard2", false, true) //Koordinaten auswechseln
+            }
+        case "keycard3":
+            if (inventar == true){
+                $('#item')
+                    .css('top',  )//Koordinaten anpassen
+                    .css('left',  );
+            }
+            else{
+                blockAuswechseln(x, y, "keycard3", false, true) //Koordinaten auswechseln
+            }
+        case "keycard4":
+            if (inventar == true){
+                $('#item')
+                    .css('top',  )//Koordinaten anpassen
+                    .css('left',  );
+            }
+            else{
+                blockAuswechseln(x, y, "keycard4", false, true) //Koordinaten auswechseln
+            }
+    }
+}

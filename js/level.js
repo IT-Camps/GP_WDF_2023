@@ -243,10 +243,7 @@ let LEVEL = [
       {        x: 0,        y: 3,        material: 'door',        solid: false,        interactive: true,        interaction: 'teleport_foyer'      },
       {x: 0, y: 0, material: 'SSF', solid: true, interactive: false},
       {x: 2, y: 0, material: 'SSF', solid: true, interactive: false},
-      {        x: 3,        y: 0,        material: 'SSF',
-        solid: true,
-        interactive: false,
-      },
+      {x: 3, y: 0, material: 'SSF',solid: true, interactive: false,},
       {
         x: 4,
         y: 0,
