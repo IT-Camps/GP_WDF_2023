@@ -23,8 +23,7 @@ function zeigeSpielfeld() {
 
 function blockAuswechseln(spielfeld, x, y, material, solid, interactive) {
     delete spielfeld[y][x];
-    console.log(spielfeld);
-    spielfeld[y][x] = { x: x, y: y, material: material, solid: solid, interactive: interactive }
+    spielfeld[y][x] = {x: x, y: y, material: material, solid: solid, interactive: interactive}
 
     return spielfeld;
 }
@@ -47,15 +46,13 @@ function starteEngine() {
 
     ladeBlocksInArray("serverraum");
     zeigeSpielfeld();
-    /*
-    spielfeldLeeren();
-    levelblocks = blockAuswechseln(levelblocks, 0, 0, 'server', true, true);
-    zeigeSpielfeld(levelblocks); */
 
 }
 
 
 $(document).ready(function () {
     starteEngine();
-    console.log(spielfeld);
+    //spielfeldLeeren();
+    //spielfeld = blockAuswechseln(spielfeld, 1, 2, 'black', true, true);
+    //zeigeSpielfeld(spielfeld); 
 });
