@@ -200,6 +200,9 @@ let LEVEL = [
             {x:10, y:10, material: 'DESK', solid: true, interactive: false},
             {x:10, y:11, material: 'DESK', solid: true, interactive: false},
 
+            {x:12, y:7, material: 'DPPH', solid: false, interactive: false},
+            {x:12, y:10, material: 'DPPH', solid: false, interactive: false},
+
             {x:14, y:7, material: 'FPKF', solid: true, interactive: false},
             {x:14, y:10, material: 'FPKF', solid: true, interactive: false}  
 
