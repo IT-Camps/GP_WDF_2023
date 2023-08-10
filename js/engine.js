@@ -3,7 +3,7 @@ let blocks;
 let current_level = "serverraum";
 const BREITE = 20;
 const HOEHE = 15;
-
+let itemAufheben;
 
 let player = {
     positionX: 0,
@@ -155,3 +155,23 @@ function checkInteraktion(x, y) {
         }
     }
 }
+
+
+/*
+To do liste
+    Sebastian:
+        -teleport logic
+        -interaktion
+    Maksim:
+        -interaktion mit items
+        -keycards aufheben und oben rechts im bildschirm als inventar anzeigen
+*/
+
+
+
+//items unsichtbar
+//items werden platziert, wenn der benötigte Raum geladen ist und Bedingungen erfüllt sind
+//platzieren: zugewiesene Koordinaten im Array auslesen
+//items werden aufgehoben, aber anstelle item.hide oben rechts in die ecke und kleiner
+//Stelle im array wo item war mit floor ersetzen
+//items fallen lassen nicht einbauen weil warum

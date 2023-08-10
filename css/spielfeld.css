@@ -1,9 +1,48 @@
 body {
 	width: 0vw;
-	height: 0vh;
+	height: 1vh;
 	margin: 0;
 	background-color: steelblue;
 }
+
+h1 {
+	text-align: center;
+	font-size: 36px;
+  }
+  
+#inventory-list {
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+}
+  
+.item {
+	display: flex;
+	justify-content: space-between;
+	margin: 10px;
+	padding: 10px;
+	background-color: #eaeaea;
+	border-radius: 5px;
+  }
+  
+  .item-name {
+	font-weight: bold;
+	font-size: 24px;
+  }
+  
+  .item-remove {
+	background-color: red;
+	color: white;
+	border: none;
+	border-radius: 3px;
+	font-size: 20px;
+	padding: 5px 10px;
+	cursor: pointer;
+  }
+  
+  .item-remove:hover {
+	background-color: #cc0000;
+  }
 
 #spielfeld {
 	width: 1000px;
