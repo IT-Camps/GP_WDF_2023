@@ -95,3 +95,15 @@ body {
 .SSR {
 	background-image: url('../img/spielFeld/SSR.png');
 }
+
+.KHW {
+	background-image: url ('../img/hintergrund/KHW.png');
+}
+
+.KTB {
+	background-image: url ('../img/hintergrund/KTB.png');
+}
+
+.KTW {
+	background-image: url ('../img/hintergrund/KTW.png');
+}
