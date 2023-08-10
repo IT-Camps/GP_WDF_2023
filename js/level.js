@@ -9,36 +9,30 @@ let LEVEL = [
       {x:19, y:7, material: 'door', solid: false, interactive: true, interaction: "teleport_serverraum"}, //serverrraum
       {x:12, y:0, material: 'door', solid: false, interactive: true, interaction: "teleport_office"}, //eigenes büro
       {x:3, y:0, material: 'door', solid: false, interactive: true, interaction: "teleport_ceo"}, //aufzug ceo
-      {x:0, y:7, material: 'door', solid: false, interactive: true, interaction: "teleport_cafeteria"}, //cafeteria
+      {x:0, y:7, material: 'door', solid: false, interactive: true, interaction: "teleport_kaffeeecke"}, //cafeteria
     /*{x:10, y:0, material: 'SPRU', solid: true, interactive: false},
-    {x:10, y:1, material: 'SPRU', solid: true, interactive: false},
-    {x:10, y:2, material: 'CRDR', solid: false, interactive: false},
-    {x:10, y:3, material: 'SPRU', solid: true, interactive: false},
-    {x:10, y:4, material: 'CRDR', solid: false, interactive: false},
-    {x:10, y:5, material: 'SPRU', solid: true, interactive: false},
-    {x:10, y:6, material: 'DESK', solid: true, interactive: false},
-    {x:10, y:7, material: 'DESK', solid: true, interactive: false},
-    {x:10, y:8, material: 'DESK', solid: true, interactive: false},
-    {x:10, y:9, material: 'DESK', solid: true, interactive: false},
-    {x:10, y:10, material: 'DESK', solid: true, interactive: false},
-    {x:10, y:11, material: 'DESK', solid: true, interactive: false},
-    {x:10, y:12, material: 'SPRU', solid: true, interactive: false},
-    {x:10, y:13, material: 'CRDR', solid: true, interactive: false},
-    {x:10, y:14, material: 'SPRU', solid: true, interactive: false},
-    {x:10, y:15, material: 'CRDR', solid: true, interactive: false},
-    {x:10, y:16, material: 'SPRU', solid: true, interactive: false},
-    {x:10, y:17, material: 'SPRU', solid: true, interactive: false},
-    {x:10, y:18, material: 'SPRU', solid: true, interactive: false},
-    {x:10, y:19, material: 'SPRU', solid: true, interactive: false},
     
-
-    {x:12, y:7, material: 'DPPH', solid: false, interactive: false},
-    {x:12, y:10, material: 'DPPH', solid: false, interactive: false},
-
+    
     {x:14, y:7, material: 'FPKF', solid: true, interactive: false},
     {x:14, y:10, material: 'FPKF', solid: true, interactive: false}  */
 
     ]
+},
+
+
+{
+  name: 'office',
+  start_x: 10,
+  start_y: 14,
+  data: [
+    {x:9, y:0, material: 'door', solid: false, interactive: true, interaction: "teleport_foyer"},
+  /*{x:10, y:0, material: 'SPRU', solid: true, interactive: false},
+  
+  
+  {x:14, y:7, material: 'FPKF', solid: true, interactive: false},
+  {x:14, y:10, material: 'FPKF', solid: true, interactive: false}  */
+
+  ]
 },
 
 { 
@@ -46,6 +40,7 @@ let LEVEL = [
   start_x: 10,
   start_y: 14,
   data: [
+    {x:9, y:0, material: 'door', solid: false, interactive: true, interaction: "teleport_foyer"},
   {x:0, y:0, material: 'KEW', solid: true, interactive: false},
   {x:0, y:1, material: 'KEW', solid: true, interactive: false},
   {x:0, y:2, material: 'KEW', solid: true, interactive: false},

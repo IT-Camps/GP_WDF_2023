@@ -23,8 +23,20 @@ function ladeBlocksInArray() {
         case "serverraum":
             floor = 'SRB';
             break;
-        case "Kaffeeecke":
+        case "kaffeeecke":
             floor = 'Holzboden';
+            break;
+        case "office":
+            floor = 'fu';
+            console.log($("#spielfeld"));
+            $("#spielfeld").css("background-image", "url('img/hintergrund/mathis spiel.png')");
+            //CSS FÜR eigenes büro setzen
+            break;
+        case "ceo":
+            floor = 'fu';
+            console.log($("#spielfeld"));
+            $("#spielfeld").css("background-image", "url('img/hintergrund/endbildschir_bearbeitet_final.png')");
+            //CSS FÜR ENDBILDSCHIRM setzen
             break;
         default:
             break;
