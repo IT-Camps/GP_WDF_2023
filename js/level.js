@@ -20,10 +20,7 @@ let LEVEL = [
     data: [
       {x: 0, y: 0, material: 'SSF', solid: true, interactive: false},
       {x: 2, y: 0, material: 'SSF', solid: true, interactive: false},
-      {        x: 3,        y: 0,        material: 'SSF',
-        solid: true,
-        interactive: false,
-      },
+      {x: 3, y: 0, material: 'SSF',solid: true, interactive: false,},
       {
         x: 4,
         y: 0,

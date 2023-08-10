@@ -3,7 +3,6 @@ let blocks;
 let current_level = "serverraum";
 const BREITE = 20;
 const HOEHE = 15;
-let itemAufheben;
 
 let player = {
     positionX: 0,
@@ -175,3 +174,54 @@ To do liste
 //items werden aufgehoben, aber anstelle item.hide oben rechts in die ecke und kleiner
 //Stelle im array wo item war mit floor ersetzen
 //items fallen lassen nicht einbauen weil warum
+
+function itemSichtbar(item){
+    switch (item){
+        case "keycard1":
+            itemSetPosition(item)
+            $(item).show()
+
+    }
+}
+let arrayKeycards= [false,false,false,false]
+function itemSetPosition(item, inventar){
+    switch(item){
+        case "keycard1":
+            if (inventar == true){
+                
+                $('#item')
+                    .css('top',  )//Koordinaten anpassen
+                    .css('left',  );
+            }
+            else{
+                blockAuswechseln(x, y, "keycard1", false, true) //Koordinaten auswechseln
+            }
+        case "keycard2":
+            if (inventar == true){
+                $('#item')
+                    .css('top',  )//Koordinaten anpassen
+                    .css('left',  );
+            }
+            else{
+                blockAuswechseln(x, y, "keycard2", false, true) //Koordinaten auswechseln
+            }
+        case "keycard3":
+            if (inventar == true){
+                $('#item')
+                    .css('top',  )//Koordinaten anpassen
+                    .css('left',  );
+            }
+            else{
+                blockAuswechseln(x, y, "keycard3", false, true) //Koordinaten auswechseln
+            }
+        case "keycard4":
+            if (inventar == true){
+                $('#item')
+                    .css('top',  )//Koordinaten anpassen
+                    .css('left',  );
+            }
+            else{
+                blockAuswechseln(x, y, "keycard4", false, true) //Koordinaten auswechseln
+            }
+    }
+}
