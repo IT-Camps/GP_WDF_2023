@@ -25,7 +25,7 @@ function ladeBlocksInArray(levelName) {
             floor = 'SRB';
             break;
         case "Kaffeeecke":
-            floor = 'Holzboden';
+            floor = 'KTB';
             break;
         default:
             break;
