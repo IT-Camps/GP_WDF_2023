@@ -80,6 +80,10 @@ function setStartingPosition() {
 }
 
 function setPosition(x, y) {
+    // X orientation
+    if (x < player.positionX) $('#spielfigur').css('transform', 'scaleX(-1)');
+    if (x > player.positionX) $('#spielfigur').css('transform', 'scaleX(1)')
+
     player.positionX = x;
     player.positionY = y;
     x *= 50;
