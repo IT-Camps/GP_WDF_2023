@@ -160,6 +160,15 @@ $(document).on("keyup", (e) => {
         case "KeyD":
             player.isMovingRight = false;
             break;
+        case "KeyE":
+            $('#inventory').show();
+            setTimeout(function () {
+                $('#inventory').fadeOut('fast');
+            }, 7000);
+            break;
+        default:
+            console.log("Default case");
+            break;
     }
 });
 
@@ -210,24 +219,47 @@ function addToInventory(item) {
     console.log(item + " wurde dem Inventar hinzugefügt.");
   }
   
-  
-  function removeFromInventory(item) {
+
+function removeFromInventory(item) {
     var index = inventory.indexOf(item);
     if (index > -1) {
-      inventory.splice(index, 1);
-      console.log(item + " wurde aus dem Inventar entfernt.");
+        inventory.splice(index, 1);
+        console.log(item + " wurde aus dem Inventar entfernt.");
     } else {
-      console.log(item + " konnte nicht gefunden werden.");
+        console.log(item + " konnte nicht gefunden werden.");
     }
-  }
-  
-  
-  function checkInventory(item) {
+}
+
+
+function checkInventory(item) {
     if (inventory.indexOf(item) > -1) {
-      console.log(item + " ist im Inventar.");
-      return true;
+        console.log(item + " ist im Inventar.");
+        return true;
     } else {
-      console.log(item + " ist nicht im Inventar.");
-      return false;
+        console.log(item + " ist nicht im Inventar.");
+        return false;
     }
-  }
+}
+
+setInterval(function () {
+
+    // Überprüfen ob die DIVs des Items und des Spielers sich überlappen
+    if (checkOverlap([player.x, player.y], [item.x, item.y]) == true) {
+        // Item wird aufgesammelt
+        $("#item").hide();
+        addItemInv(item.name, player.inventory)
+        item.x = 0;
+        item.y = 0;
+        showMessage(item.name);
+    }
+
+
+    if (checkOverlap([tuer_pos.x, tuer_pos.y], [player.x, player.y]) == true && player.inventory.includes(item.name) == true) {
+        // Tür wird geöffnet
+        console.log("Tür öffnet")
+        tuer_pos.x = 0;
+        tuer_pos.x = 0;
+        $("#tuer").hide();
+        removeItemInv(item.name, player.inventory)
+    }
+}, 33);
