@@ -28,6 +28,16 @@
     position: absolute;
     background-size: contain;
 }
+#salesforce-logo {
+    width: 50px;
+    height: 50px;
+    top: 1020px;
+    left: 900px;
+    background-image: url('logo_salesforce.png');
+    background-repeat: no-repeat;
+    position: absolute;
+    background-size: contain;
+}
 display:inline-block {
 width: 300px; 
 margin: 20px 0; 
