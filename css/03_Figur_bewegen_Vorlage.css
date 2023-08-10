@@ -1,0 +1,19 @@
+
+#player {
+    height: 100px;
+    width: 100px;
+    position: absolute;
+    background-image: url('../img/sap.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 1;
+}
+
+  #item {
+   height: 100px;
+   width: 100px;
+   position: absolute;
+   background-image: url('../img/dreikek.jpg');
+   background-size: contain;
+   background-repeat: no-repeat;
+  }
