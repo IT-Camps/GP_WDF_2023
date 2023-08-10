@@ -1,15 +1,16 @@
 let spielfeld = [];
 let blocks;
+let current_level = "demoLevel";
 const BREITE = 20;
 const HOEHE = 15;
 
+
 let player = {
     positionX: 0,
-    PositionY: 0,
-    isMovingUp: false,
-    isMovingDown: false,
-    isMovingLeft: false,
-    isMovingRight: false
+    positionY: 0,
+    top: 0,
+    left: 0,
+    speed: 150
 };
 
 function ladeBlocksInArray(levelName) {
@@ -36,7 +37,7 @@ function starteEngine() {
     console.log("Starte engine...");
     console.log(`Geladene level: `+level);
 
-    ladeBlocksInArray('serverraum');
+    ladeBlocksInArray(current_level);
     zeigeSpielfeld();
 }
 
@@ -45,33 +46,31 @@ $(document).ready(function() {
     starteEngine();
     console.log(spielfeld);
     setStartingPosition();
-    setInterval(movePlayer, 10);
 });
 
 function movePlayer() {
-    if (player.isMovingUp) setPosition(player.x, player.y - 2);
-    if (player.isMovingDown) setPosition(player.x, player.y + 2);
-    if (player.isMovingLeft) setPosition(player.x - 2, player.y);
-    if (player.isMovingRight) setPosition(player.x + 2, player.y);
+    if (player.isMovingUp) setPosition(player.left, player.top - 50);
+    if (player.isMovingDown) setPosition(player.left, player.top + 50);
+    if (player.isMovingLeft) setPosition(player.left - 50, player.top);
+    if (player.isMovingRight) setPosition(player.left + 50, player.top);
 }
 
 function setStartingPosition() {
     setPosition(0, 0);
 }
 
-function setPosition(x, y) {
-    player.x = x;
-    player.y = y;
-    $("#spielfigur").css("top", y).css("left", x);
+function setPosition(top, left) {
+    $("#spielfigur").css("top", top).css("left", left);
 }
 
 $(document).on("keydown", (e) => {
     if (!e.repeat) {
         switch (e.code) {
             case "KeyW":
-                console.log(spielfeld[player.positionX][player.positionY - 1]);
-                if (){
-                    player.isMovingUp = true;
+                if (!askSolid(player.positionX, player.positionY - 1)){
+                    player.positionY -= 1;
+                    player.top = player.top - 50;
+                    setPosition(player.top, player.left)
                     break;
                 } else{
                     console.log("Kolision oben")
@@ -79,24 +78,30 @@ $(document).on("keydown", (e) => {
                 }
                 
             case "KeyS":
-                if (!spielfeld[player.positionX][player.positionY + 1].solid){
-                    player.isMovingDown = true;
+                if (!askSolid(player.positionX, player.positionY + 1)){
+                    player.positionY += 1;
+                    player.top = player.top + 50;
+                    setPosition(player.top, player.left)
                     break;
                 } else{
                     console.log("Kolision unten")
                     break;
                 }
             case "KeyA":
-                if (spielfeld[PositionX - 1][PositionY].solid === false){
-                    player.isMovingLeft = true;
+                if (!askSolid(player.positionX - 1, player.positionY)){
+                    player.positionX -= 1;
+                    player.left = player.left - 50;
+                    setPosition(player.top, player.left)
                     break;
                 } else{
                     console.log("Kolision links")
                     break;
                 }
             case "KeyD":
-                if (spielfeld[PositionX + 1][PositionY].solid === false){
-                    player.isMovingRight = true;
+                if (!askSolid(player.positionX + 1, player.positionY)){
+                    player.positionX += 1;
+                    player.left = player.left + 50;
+                    setPosition(player.top, player.left)
                     break;
                 } else{
                     console.log("Kolision rechts")
@@ -108,31 +113,20 @@ $(document).on("keydown", (e) => {
 
 });
 
-$(document).on("keyup", (e) => {
-    switch (e.code) {
-        case "KeyW":
-            player.isMovingUp = false;
-            break;
-        case "KeyS":
-            player.isMovingDown = false;
-            break;
-        case "KeyA":
-            player.isMovingLeft = false;
-            break;
-        case "KeyD":
-            player.isMovingRight = false;
-            break;
+
+function askSolid(x, y){
+    let leveldaten = LEVEL.find(einzel => einzel.name == current_level);
+    console.log("Leveldaten unter mir")
+    console.log(leveldaten);
+    console.log("x unter mir")
+    console.log(x);
+    console.log("y unter mir")
+    console.log(y);
+    let block = leveldaten.data.find(block => block.x == y && block.y == x);
+    console.log(block);
+    if (block){
+        return true
+    } else {
+        return false 
     }
-});
-
-
-
-//to do Maksim:
-//  if abfrage ob solid
-//  bewegung anpassen das man sich im array bewegt
-//  
-//
-//
-//
-//
-//
+}

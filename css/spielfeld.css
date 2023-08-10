@@ -1,6 +1,6 @@
 body{
-	width: 100vw;
-	height: 100vh;
+	width: 0vw;
+	height: 0vh;
 	margin: 0;
 }
 
@@ -32,5 +32,13 @@ body{
 	background-image: url('../img/spielFeld/SRB.png');
 }
 
-
+#spielfigur {
+    width: 60px;
+    height: 60px;
+    background-image: url(img/spielFigur/lumberjackOne.png);
+    background-repeat: no-repeat;
+    position: absolute;
+    background-size: contain;
+    z-index: 1;
+}
 
