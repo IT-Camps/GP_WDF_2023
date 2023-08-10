@@ -31,16 +31,16 @@ function serverRandomZerstören() {
     case 0:
       switch (generateRandom(4)) {
         case 0:
-          $(".server-reihe1>.server1").css("background-image", "#");
+          $(".server-reihe1>.server1").css("background-image", "url(../img/spielFeld/SRB.png)");
           break;
         case 1:
-          $(".server-reihe1>.server2").css("background-image", "#");
+          $(".server-reihe1>.server2").css("background-image", "url(../img/spielFeld/SRB.png)");
           break;
         case 2:
-          $(".server-reihe1>.server3").css("background-image", "#");
+          $(".server-reihe1>.server3").css("background-image", "url(../img/spielFeld/SRB.png)");
           break;
         case 3:
-          $(".server-reihe1>.server4").css("background-image", "#");
+          $(".server-reihe1>.server4").css("background-image", "url(../img/spielFeld/SRB.png)");
           break;
         default:
           break;
@@ -49,16 +49,16 @@ function serverRandomZerstören() {
     case 1:
       switch (generateRandom(4)) {
         case 0:
-          $(".server-reihe2>.server1").css("background-image", "#");
+          $(".server-reihe2>.server1").css("background-image", "url(../img/spielFeld/SRB.png)");
           break;
         case 1:
-          $(".server-reihe2>.server2").css("background-image", "#");
+          $(".server-reihe2>.server2").css("background-image", "url(../img/spielFeld/SRB.png)");
           break;
         case 2:
-          $(".server-reihe2>.server3").css("background-image", "#");
+          $(".server-reihe2>.server3").css("background-image", "url(../img/spielFeld/SRB.png)");
           break;
         case 3:
-          $(".server-reihe2>.server4").css("background-image", "#");
+          $(".server-reihe2>.server4").css("background-image", "url(../img/spielFeld/SRB.png)");
           break;
         default:
           break;
@@ -67,16 +67,16 @@ function serverRandomZerstören() {
     case 2:
       switch (generateRandom(4)) {
         case 0:
-          $(".server-reihe3>.server1").css("background-image", "#");
+          $(".server-reihe3>.server1").css("background-image", "url(../img/spielFeld/SRB.png)");
           break;
         case 1:
-          $(".server-reihe3>.server2").css("background-image", "#");
+          $(".server-reihe3>.server2").css("background-image", "url(../img/spielFeld/SRB.png)");
           break;
         case 2:
-          $(".server-reihe3>.server3").css("background-image", "#");
+          $(".server-reihe3>.server3").css("background-image", "url(../img/spielFeld/SRB.png)");
           break;
         case 3:
-          $(".server-reihe3>.server4").css("background-image", "#");
+          $(".server-reihe3>.server4").css("background-image", "url(../img/spielFeld/SRB.png)");
           break;
         default:
           break;
@@ -91,7 +91,7 @@ function serverRandomZerstören() {
 
 $(document).ready(function () {
   if ($("#button").on("click", e => {
-    var timeleft = 10;
+    var timeleft = 15;
     var downloadTimer = setInterval(function(){
       timeleft--;
       if(timeleft <= 0){
@@ -99,7 +99,7 @@ $(document).ready(function () {
           console.log(timeleft);
           
       }
-    
+    serverRandomZerstören();
     },1000);
     })
     );
@@ -115,13 +115,13 @@ $(document).ready(function () {
         let zahl = 1;
         if (zahl==2){
           console.log("image");
-          $("#server"+j+"").css("background-image", "url(../img/spielFeld/SSF.png)");
+          $("#server"+j+"").css("background-image", "url(url(../img/spielFeld/SSD.png))");
           zahl--;
           console.log(zahl +"von zahl2");
         }
         if (zahl ==1){
           console.log("image2");
-          $("#server" + j).css("background-image", "url('https://example.com/mein_bild.jpg')");
+          $("#server" + j).css("background-image", "url(../img/spielFeld/SSD.png)");
           zahl++;
           console.log(zahl +"von zahl1");
         }
