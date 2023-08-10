@@ -49,7 +49,14 @@ function ladeBlocksInArray(levelName) {
 function zeigeSpielfeld() {
     for (let y = 0; y < HOEHE; y++) {
         for (let x = 0; x < BREITE; x++) {
-            $("#spielfeld").append(`<div class="${spielfeld[x][y].material}" id="${x}_${y}"></div>`)
+            const block = spielfeld[x][y];
+            //  Render div
+            $("#spielfeld").append(`<div class="${block.material}" id="${x}_${y}"></div>`)
+
+            //  Render items
+            if (block.interaction?.startsWith('item_')) {
+                setBlockItem(x, y, block.interaction.replace('item_', ''), ITEM_TEXTURE_ATLAS[block.interaction], false);
+            }
         }
     }
 }
@@ -81,7 +88,7 @@ function setBlockItem(x, y, itemName, itemTextureLocation, animate) {
             },
         ], { duration: 1000, easing: "ease-in-out", iterations: Infinity })
     }
-    
+
 }
 
 //  Leert #spieldfeld in DOM; NICHT 'spielfeld' array
@@ -237,6 +244,23 @@ function checkInventory(item) {
     }
 }
 
+function itempPickupAnimation(elementID) {
+    document.getElementById(elementID).animate([
+        {
+            position: "absolute",
+            left: "50%",
+            top: "50%",
+            transform: "translate(-50%, -50%)",
+            scale: 6.0
+        },
+        {
+            position: "relative",
+            transofrm: "none",
+            scale: 1
+        }
+    ], {duration: 2500})
+}
+
 function checkInteraktion(x, y) {
     const block = spielfeld[x][y]
     if (!block.interactive) return false;
@@ -254,8 +278,8 @@ function checkInteraktion(x, y) {
             const item = block.interaction.replace('item_', '');
             console.log(item);
             addToInventory(item);
-            blockAuswechseln(block.x, block.y, 'SRB', false, false);
-            spielfeld[block.x, block.y] = { x: block.x, y: block.y, material: "SRB", solid: false, interactive: false };
+            blockAuswechseln(block.x, block.y, LEVEL.find(l => l.name === currentLevel).meta.default_material, false, false);
+            spielfeld[block.x, block.y] = { x: block.x, y: block.y, material: LEVEL.find(l => l.name === currentLevel).meta.default_material, solid: false, interactive: false };
             break;
     }
 }

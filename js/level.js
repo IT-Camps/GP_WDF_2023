@@ -1,5 +1,7 @@
 // Spoiler: Tut nicht ganz (:
-
+let ITEM_TEXTURE_ATLAS = {
+  item_keycard_bob: "./img/keyCards/keycard_bob.png",
+}
 let LEVEL = [
   {
     name: 'foyer',
@@ -569,9 +571,10 @@ let LEVEL = [
       {
         x: 14,
         y: 4,
-        material: 'SSF',
-        solid: true,
-        interactive: false,
+        material: 'SRB',
+        solid: false,
+        interactive: true,
+        interaction: 'item_keycard_bob'
       },
       {
         x: 15,
