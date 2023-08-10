@@ -52,7 +52,7 @@ let item_pos = {
                 player_pos.y +=10
                 break;
 
-            case "KeyL": //L Taste Item wegwerfen ->    
+            case "KeyL": //L Taste Item wegwerfen ->   -> 
               
                 $("#item").show();
                 setItemOnPosition(player_pos.x, player_pos.y);
@@ -98,7 +98,7 @@ $(document).ready(function() {
             
             
      
-
+    
     
         
     });//,33);
@@ -107,5 +107,5 @@ $(document).ready(function() {
         movePlayer(event);
     });
 
-   
+    if ()   
     
