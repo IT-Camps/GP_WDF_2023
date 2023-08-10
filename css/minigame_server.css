@@ -47,3 +47,11 @@
 }
 
 
+#button {
+    padding: 40px;
+    position: relative;
+    left: 45%;
+    font-size: 25px;
+
+}
+

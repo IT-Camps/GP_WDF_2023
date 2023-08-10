@@ -91,12 +91,13 @@ function serverRandomZerstören() {
 
 $(document).ready(function () {
   if ($("#button").on("click", e => {
-    var timeleft = 5;
+    var timeleft = 10;
     var downloadTimer = setInterval(function(){
       timeleft--;
       if(timeleft <= 0){
           clearInterval(downloadTimer);
           console.log(timeleft);
+          
       }
     
     },1000);
