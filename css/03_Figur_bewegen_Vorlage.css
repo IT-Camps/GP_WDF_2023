@@ -1,7 +1,7 @@
 
 #player {
-    height: 150px;
-    width: 150px;
+    height: 50px;
+    width: 50px;
     position: absolute;
     background-image: url('../img/sap.jpg');
     background-size: contain;
@@ -9,16 +9,17 @@
     z-index: 1;
 }
 
-  #item {
+#item {
    height: 50px;
    width: 50px;
    position: absolute;
    background-image: url('../img/dreikek.jpg');
    background-size: contain;
    background-repeat: no-repeat;
+   z-index: 0,5;
   }
 
-   #tür {
+#tuer {
     height: 50px;
     width: 50px;
     position: absolute;
