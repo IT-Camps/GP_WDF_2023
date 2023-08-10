@@ -1,11 +1,11 @@
 
-.server-reihe{
+.server-reihe1{
     display:flex;
     margin: 80px;
     margin-top: 250px;
 }
 
-.server-reihe div{
+.server-reihe1 div{
     width: 75px;
     height: 75px;
     background-repeat: none;
@@ -45,3 +45,5 @@
     background-image: url(../img/spielFeld/SSD.png);
     background-size:contain;
 }
+
+

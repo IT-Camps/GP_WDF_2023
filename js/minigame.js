@@ -1,4 +1,3 @@
-
 function reward() {
   alert("Du bekommst eine Belohnung");
 }
@@ -23,27 +22,77 @@ function changeColor(i) {
 }
 
 function generateRandom(max) {
-    let x = Math.floor((Math.random() * max) + 1);
-    return x;
+  let x = Math.floor(Math.random() * max);
+  return x;
 }
 
 $(document).ready(function () {
-  let zufall;
-  zufall = generateRandom(3);
-  if (zufall == 1) {
-    console.log("zufall==1");
-    zufall = generateRandom(5);
-    if (zufall == 0) {
-        
-    }
-    if (zufall == 1) {
-
-    }
-    if (zufall == 2) {
-
-    }
-    if (zufall == 3) {
-
-    }
+  switch (generateRandom(3)) {
+    case 0:
+      switch (generateRandom(4)) {
+        case 0:
+          $(".server-reihe1>.server1").css("background-image", "#");
+          break;
+        case 1:
+          $(".server-reihe1>.server2").css("background-image", "#");
+          break;
+        case 2:
+          $(".server-reihe1>.server3").css("background-image", "#");
+          break;
+        case 3:
+          $(".server-reihe1>.server4").css("background-image", "#");
+          break;
+        default:
+          break;
+      }
+     break;
+    case 1:
+      switch (generateRandom(4)) {
+        case 0:
+          $(".server-reihe2>.server1").css("background-image", "#");
+          break;
+        case 1:
+          $(".server-reihe2>.server2").css("background-image", "#");
+          break;
+        case 2:
+          $(".server-reihe2>.server3").css("background-image", "#");
+          break;
+        case 3:
+          $(".server-reihe2>.server4").css("background-image", "#");
+          break;
+        default:
+          break;
+      }
+     break;
+    case 2:
+      switch (generateRandom(4)) {
+        case 0:
+          $(".server-reihe3>.server1").css("background-image", "#");
+          break;
+        case 1:
+          $(".server-reihe3>.server2").css("background-image", "#");
+          break;
+        case 2:
+          $(".server-reihe3>.server3").css("background-image", "#");
+          break;
+        case 3:
+          $(".server-reihe3>.server4").css("background-image", "#");
+          break;
+        default:
+          break;
+      }
+     break;
+    default:
+      break;
+      
   }
+
+});
+
+$(document).ready(function () {
+  //Generiere Server Reihen und Spalten
+  for (let i = 1; i <= 3; i++) {
+    for (let j = 1; j <= 4; j++) {
+      $("#server > .server-reihe" + i + " >.server" + j + "").on("click", (e) => {});
+    }}
 });
