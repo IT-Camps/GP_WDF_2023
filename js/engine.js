@@ -1,6 +1,6 @@
 let spielfeld = [];
 let blocks;
-let current_level = "foyer";
+let currentLevel = "foyer";
 const BREITE = 20;
 const HOEHE = 15;
 var inventory = [];
@@ -15,8 +15,8 @@ let player = {
 };
 
 function ladeBlocksInArray() {
-    const level = LEVEL.find(l => l.name == current_level);
-    switch (current_level) {
+    const level = LEVEL.find(l => l.name == currentLevel);
+    switch (currentLevel) {
         case "foyer":
             floor = 'FBKP';
             break;
@@ -50,6 +50,8 @@ function ladeBlocksInArray() {
     }
 }
 
+//  Fügt alle Blöcke aus 'spielfeld' reihenweise (wegen flexbox layout) als div zu #spielfeld hinzu,
+//  wobei das Material die Klasse des div und die Koordinaten im Format X/Y die ID sind
 function zeigeSpielfeld() {
     for (let y = 0; y < HOEHE; y++) {
         for (let x = 0; x < BREITE; x++) {
@@ -58,6 +60,7 @@ function zeigeSpielfeld() {
     }
 }
 
+//  Ersetzt einen einzelnen Block an den gegebenen Koordinaten und rendert das spielfeld neu
 function blockAuswechseln(x, y, material, solid, interactive) {
     spielfeld[x][y] = { x: x, y: y, material: material, solid: solid, interactive: interactive }
 
@@ -65,6 +68,8 @@ function blockAuswechseln(x, y, material, solid, interactive) {
     zeigeSpielfeld();
 }
 
+
+//  Leert #spieldfeld in DOM; NICHT 'spielfeld' array
 function spielfeldLeeren() {
     for (let y = 0; y < HOEHE; y++) {
         for (let x = 0; x < BREITE; x++) {
@@ -74,8 +79,6 @@ function spielfeldLeeren() {
 }
 
 function starteEngine() {
-    let levelNamen = LEVEL.map(l => l.name);
-
     ladeBlocksInArray();
     zeigeSpielfeld();
 
@@ -97,7 +100,7 @@ function movePlayer() {
 }
 
 function setStartingPosition() {
-    let level = LEVEL.find(l => l.name == current_level);
+    let level = LEVEL.find(l => l.name == currentLevel);
 
     console.log(level);
     forceSetPosition(level.start_x, level.start_y);
@@ -174,7 +177,10 @@ $(document).on("keyup", (e) => {
 
 
 function istBetretbar(x, y) {
+    //  False wenn Koordinaten außerhalb des Spielfeldes sind
     if (x < 0 || y < 0 || x >= BREITE || y >= HOEHE) return false;
+
+    //  False wenn Block an Koordinaten solid ist
     return !spielfeld[x][y].solid;
 }
 
@@ -186,7 +192,7 @@ function checkInteraktion(x, y) {
     else {
         if (spielfeld[x][y].material == "door") {
             //  player keycard check
-            current_level = spielfeld[x][y].interaction.replace('teleport_', '');
+            currentLevel = spielfeld[x][y].interaction.replace('teleport_', '');
             console.log("neues level");
 
             spielfeldLeeren();
