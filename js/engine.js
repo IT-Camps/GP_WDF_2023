@@ -14,34 +14,57 @@ let player = {
 
 function ladeBlocksInArray(levelName) {
     const level = LEVEL.find(l => l.name == levelName);
-    for (let x = 0; x < HOEHE; x++) {
-        spielfeld[x]= [];
-        for (let y = 0; y < BREITE; y++) {
-            spielfeld[x][y] = level.data.find(block => block.x == x && block.y == y) || {x: x, y: y, material: 'floor', solid: false, interactive: false};
+    for (let x = 0; x < BREITE; x++) {
+        spielfeld[x] = [];
+        for (let y = 0; y < HOEHE; y++) {
+            spielfeld[x][y] = level.data.find(block => block.x == x && block.y == y) || { x: x, y: y, material: 'floor', solid: false, interactive: false };
         }
     }
     console.log(spielfeld)
 }
 
-
 function zeigeSpielfeld() {
-	for(let x = 0; x < HOEHE; x++) {
-		for(let y = 0; y < BREITE; y++) {
-			$('#spielfeld').append('<div class="' + spielfeld[x][y].material +  '" id="' + x + '/' + y + '"></div>');
-		}
-}}
+    for (let y = 0; y < HOEHE; y++) {
+        for (let x = 0; x < BREITE; x++) {
+            $("#spielfeld").append(`<div class="${spielfeld[x][y].material}" id="${x}/${y}"></div>`)
+            //$('#spielfeld').append('<div class="' + spielfeld[x][y].material + '" id="' + x + '/' + y + '"></div>');
+        }
+    }
+}
+
+function blockAuswechseln(x, y, material, solid, interactive) {
+    //  Warum?
+    //delete spielfeld[x][y];
+    spielfeld[x][y] = { x: x, y: y, material: material, solid: solid, interactive: interactive }
+
+    spielfeldLeeren();
+    zeigeSpielfeld();
+
+    //return spielfeld;
+}
+
+function spielfeldLeeren() {
+    let current;
+    for (let y = 0; y < HOEHE; y++) {
+        for (let x = 0; x < BREITE; x++) {
+            current = document.getElementById(x + '/' + y);
+            current.remove();
+        }
+    }
+}
 
 function starteEngine() {
-    let level = LEVEL.map(l => l.name).join(', ');
+    let levelNamen = LEVEL.map(l => l.name);
     console.log("Starte engine...");
-    console.log(`Geladene level: `+level);
+    console.log(`Geladene level: ` + levelNamen.join(', '));
 
     ladeBlocksInArray(current_level);
     zeigeSpielfeld();
+
 }
 
 
-$(document).ready(function() {
+$(document).ready(function () {
     starteEngine();
     console.log(spielfeld);
     setStartingPosition();
@@ -121,7 +144,7 @@ function askSolid(x, y){
     console.log(x);
     console.log("y unter mir")
     console.log(y);
-    let block = leveldaten.data.find(block => block.x == y && block.y == x);
+    let block = leveldaten.data.find(block => block.x == x && block.y == y);
     console.log(block);
     if (block){
         return true

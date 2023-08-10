@@ -32,13 +32,5 @@ body{
 	background: orange;
 }
 
-#spielfigur {
-    width: 60px;
-    height: 60px;
-    background-image: url(img/spielFigur/lumberjackOne.png);
-    background-repeat: no-repeat;
-    position: absolute;
-    background-size: contain;
-    z-index: 1;
-}
+
 

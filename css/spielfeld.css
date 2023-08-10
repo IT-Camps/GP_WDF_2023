@@ -1,4 +1,4 @@
-body{
+body {
 	width: 0vw;
 	height: 0vh;
 	margin: 0;
@@ -11,13 +11,23 @@ body{
 	display: flex;
 	flex-flow: row wrap;
 	
-	border: 10px solid brown;
+	border: 10px solid black;
 }
 
 #spielfeld>div {
 	width: 50px;
 	height: 50px;
 	margin: 0;
+}
+
+#spielfigur {
+	width: 60px;
+	height: 60px;
+	background-image: url(img/spielFigur/lumberjackOne.png);
+	background-repeat: no-repeat;
+	position: absolute;
+	background-size: contain;
+	z-index: 1;
 }
 
 .white {
@@ -43,3 +53,26 @@ body{
 	filter: drop-shadow(2px 4px 6px black)
 }
 
+.SSF {
+	background-image: url('../img/spielFeld/SSF.png');
+}
+
+.SSL {
+	background-image: url('../img/spielFeld/SSL.png');
+}
+
+.SSU {
+	background-image: url('../img/spielFeld/SSU.png');
+}
+
+.SSD {
+	background-image: url('../img/spielFeld/SSD.png');
+}
+
+.SSM {
+	background-image: url('../img/spielFeld/SSM.png');
+}
+
+.SSR {
+	background-image: url('../img/spielFeld/SSR.png');
+}
