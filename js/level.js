@@ -193,6 +193,13 @@ let LEVEL = [
     {
         name: 'foyer',
         data: [
+            {x:10, y:6, material: 'DESK', solid: true, interactive: false},
+            {x:10, y:7, material: 'DESK', solid: true, interactive: false},
+            {x:10, y:8, material: 'DESK', solid: true, interactive: false},
+            {x:10, y:9, material: 'DESK', solid: true, interactive: false},
+            {x:10, y:10, material: 'DESK', solid: true, interactive: false},
+            {x:10, y:11, material: 'DESK', solid: true, interactive: false},
+
             {x:14, y:7, material: 'FPKF', solid: true, interactive: false},
             {x:14, y:10, material: 'FPKF', solid: true, interactive: false}  
 

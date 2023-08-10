@@ -102,3 +102,10 @@ body {
 .FPKF {
 	background-image: url('../img/spielFeld/FPKF.png');
 }
+
+.AFFE {
+	background-image: url('../img/spielFeld/AFFE.png');
+}
+.DESK {
+	background-image: url('../img/spielFeld/DESK.png');
+}
