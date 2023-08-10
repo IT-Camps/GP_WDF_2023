@@ -31,3 +31,23 @@ body{
 .floor {
 	background-image: url('../img/spielFeld/SRB.png');
 }
+
+.SSF {
+	background-image: url('../img/spielFeld/SSF.png');
+}
+
+.SSU {
+	background-image: url('../img/spielFeld/SSU.png');
+}
+.SSL {
+	background-image: url('../img/spielFeld/SSL.png');
+}
+.SSM {
+	background-image: url('../img/spielFeld/SSM.png');
+}
+.SSD {
+	background-image: url('../img/spielFeld/SSD.png');
+}
+.SSR {
+	background-image: url('../img/spielFeld/SSR.png');
+}
