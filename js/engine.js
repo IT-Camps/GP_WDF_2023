@@ -1,6 +1,6 @@
 let spielfeld = [];
 let blocks;
-let current_level = "demoLevel";
+let current_level = "serverraum";
 const BREITE = 20;
 const HOEHE = 15;
 
@@ -67,7 +67,7 @@ $(document).on("keydown", (e) => {
     if (!e.repeat) {
         switch (e.code) {
             case "KeyW":
-                if (!askSolid(player.positionX, player.positionY - 1)){
+                if (!askSolid(player.positionX, player.positionY - 1) && (player.top - 50 >= 0)){
                     player.positionY -= 1;
                     player.top = player.top - 50;
                     setPosition(player.top, player.left)
@@ -78,7 +78,7 @@ $(document).on("keydown", (e) => {
                 }
                 
             case "KeyS":
-                if (!askSolid(player.positionX, player.positionY + 1)){
+                if (!askSolid(player.positionX, player.positionY + 1) && (player.top + 50 < 750)){
                     player.positionY += 1;
                     player.top = player.top + 50;
                     setPosition(player.top, player.left)
@@ -88,7 +88,7 @@ $(document).on("keydown", (e) => {
                     break;
                 }
             case "KeyA":
-                if (!askSolid(player.positionX - 1, player.positionY)){
+                if (!askSolid(player.positionX - 1, player.positionY) && (player.left - 50 >= 0)){
                     player.positionX -= 1;
                     player.left = player.left - 50;
                     setPosition(player.top, player.left)
@@ -98,7 +98,7 @@ $(document).on("keydown", (e) => {
                     break;
                 }
             case "KeyD":
-                if (!askSolid(player.positionX + 1, player.positionY)){
+                if ((!askSolid(player.positionX + 1, player.positionY) && (player.left + 50 < 1000))){
                     player.positionX += 1;
                     player.left = player.left + 50;
                     setPosition(player.top, player.left)
