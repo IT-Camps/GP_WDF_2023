@@ -3,6 +3,8 @@ let blocks;
 const BREITE = 20;
 const HOEHE = 15;
 
+
+
 function ladeBlocksInArray(levelName) {
     const level = LEVEL.find(l => l.name == levelName);
     for (let x = 0; x < HOEHE; x++) {
