@@ -11,8 +11,7 @@ function ladeBlocksInArray(levelName) {
             spielfeld[x][y] = level.data.find(block => block.x == x && block.y == y) || {x: x, y: y, material: 'floor', solid: false, interactive: false};
         }
     }
-
-
+    return spielfeld;
 }
 
 
@@ -25,18 +24,16 @@ function zeigeSpielfeld() {
 
 function blockAuswechseln(spielfeld, x, y, material, solid, interactive) {
     delete spielfeld[y][x];
-    console.log(spielfeld);
     spielfeld[y][x] = {x: x, y: y, material: material, solid: solid, interactive: interactive}
 
-    return spielfeld
+    return spielfeld;
 }
 
 function spielfeldLeeren() {
     let current;
     for(let y = 0; y < HOEHE; y++) {
-     	spielfeld[y] = [];
      	for(let x = 0; x < BREITE; x++) {
-            current = document.getElementById(x + '/' + y);
+            current = document.getElementById(y + '/' + x);
             current.remove();
      	}
     }
@@ -49,15 +46,13 @@ function starteEngine() {
 
     let levelblocks = ladeBlocksInArray("serverraum");
     zeigeSpielfeld();
-    /*
-    spielfeldLeeren();
-    levelblocks = blockAuswechseln(levelblocks, 0, 0, 'server', true, true);
-    zeigeSpielfeld(levelblocks); */
 
 }
 
 
 $(document).ready(function() {
     starteEngine();
-    console.log(spielfeld);
+    //spielfeldLeeren();
+    //spielfeld = blockAuswechseln(spielfeld, 1, 2, 'black', true, true);
+    //zeigeSpielfeld(spielfeld); 
 });
