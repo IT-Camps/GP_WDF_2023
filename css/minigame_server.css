@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@600&family=Open+Sans&family=Poppins&display=swap');
+
 
 .server-reihe1{
     display:flex;
@@ -12,7 +14,7 @@
     display:flex;
     position: relative;
     left: 40%;
-    background-image: url(../img/spielFeld/SSD.png);
+    background-image: url(../img/spielFeld/SSF.png);
     background-size:contain;
 }
 
@@ -27,7 +29,7 @@
     display:flex;
     position: relative;
     left: 40%;
-    background-image: url(../img/spielFeld/SSD.png);
+    background-image: url(../img/spielFeld/SSF.png);
     background-size:contain;
 }
 
@@ -42,7 +44,7 @@
     display:flex;
     position: relative;
     left: 40%;
-    background-image: url(../img/spielFeld/SSD.png);
+    background-image: url(../img/spielFeld/SSF.png);
     background-size:contain;
 }
 
@@ -50,8 +52,58 @@
 #button {
     padding: 40px;
     position: relative;
-    left: 45%;
+    left: 41%;
     font-size: 25px;
+    height: 50px;
 
 }
+
+#spielfeld {
+	width: 1000px;
+	height: 750px;
+	margin: auto auto;
+	display: flex;
+	flex-flow: row wrap;
+	border: 10px solid black;
+}
+
+#timer{
+    position :absolute;
+    font-family: 'Poppins', sans-serif;
+    font-size: 45px;
+    margin:0;
+
+}
+
+#timer p {
+    margin:0;
+}
+
+
+#box{
+    position: absolute;
+    border: 6px solid rgb(0, 255, 128);
+    margin:0;
+    height: 120px;
+    width: 200px;
+    
+}
+
+#score{
+    position :absolute;
+    font-family: 'Poppins', sans-serif;
+    font-size: 45px;
+    margin:0;
+    top: 40px;
+    height: 30px;
+    width: 40px;
+}
+
+#score p {
+    margin:0;
+    position: absolute;
+ 
+}
+
+
 
