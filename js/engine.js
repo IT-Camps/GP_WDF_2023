@@ -45,11 +45,11 @@ function ladeBlocksInArray(levelName) {
 }
 
 //  Fügt alle Blöcke aus 'spielfeld' reihenweise (wegen flexbox layout) als div zu #spielfeld hinzu,
-//  wobei das Material die Klasse des div und die Koordinaten im Format X/Y die ID sind
+//  wobei das Material die Klasse des div und die Koordinaten im Format X_Y die ID sind
 function zeigeSpielfeld() {
     for (let y = 0; y < HOEHE; y++) {
         for (let x = 0; x < BREITE; x++) {
-            $("#spielfeld").append(`<div class="${spielfeld[x][y].material}" id="${x}/${y}"></div>`)
+            $("#spielfeld").append(`<div class="${spielfeld[x][y].material}" id="${x}_${y}"></div>`)
         }
     }
 }
@@ -62,12 +62,33 @@ function blockAuswechseln(x, y, material, solid, interactive) {
     zeigeSpielfeld();
 }
 
+//  Beispiel: setBlockItem(19, 7, 'keycard_bob', './img/keyCards/keycard_bob.png', true); 
+function setBlockItem(x, y, itemName, itemTextureLocation, animate) {
+    const block = spielfeld[x][y];
+    block.interactive = true;
+    block.interaction = `item_${itemName}`;
+    $(`#${block.x}_${block.y}`).append(`<div id='${block.interaction}' style='background-image: url("${itemTextureLocation}"); height: 50px; scale: 0.7; rotate: 45deg; position: relative; top: 0px; filter: drop-shadow(0 0 6px black);'></div>`);
+    if (animate != false) {
+        document.getElementById(block.interaction).animate([
+            {
+                top: "-5px",
+            },
+            {
+                top: "0px",
+            },
+            {
+                top: "-5px",
+            },
+        ], { duration: 1000, easing: "ease-in-out", iterations: Infinity })
+    }
+    
+}
 
 //  Leert #spieldfeld in DOM; NICHT 'spielfeld' array
 function spielfeldLeeren() {
     for (let y = 0; y < HOEHE; y++) {
         for (let x = 0; x < BREITE; x++) {
-            document.getElementById(x + '/' + y)?.remove();
+            document.getElementById(`${x}_${y}`)?.remove();
         }
     }
 }
@@ -189,21 +210,6 @@ function istBetretbar(x, y) {
     return !spielfeld[x][y].solid;
 }
 
-
-function checkInteraktion(x, y) {
-    const block = spielfeld[x][y]
-    if (!block.interactive) return false;
-    if (block.material == "door") {
-        //  player keycard check
-        console.log(`Door Interaktion @ x=${x}, y=${y}`);
-        teleportDestionation = block.interaction.replace('teleport_', '');
-        console.log(`Lade Level '${teleportDestionation}'`);
-
-        ladeLevel(teleportDestionation);
-        return true;
-    }
-}
-
 function addToInventory(item) {
     inventory.push(item);
     console.log(item + " wurde dem Inventar hinzugefügt.");
@@ -230,6 +236,31 @@ function checkInventory(item) {
         return false;
     }
 }
+
+function checkInteraktion(x, y) {
+    const block = spielfeld[x][y]
+    if (!block.interactive) return false;
+    switch (block.interaction.split('_')[0]) {
+        case "teleport": // Door
+            //  player keycard check
+            console.log(`Door Interaktion @ x=${x}, y=${y}`);
+            teleportDestionation = block.interaction.replace('teleport_', '');
+            console.log(`Lade Level '${teleportDestionation}'`);
+
+            ladeLevel(teleportDestionation);
+            return true;
+            break;
+        case "item": // item
+            const item = block.interaction.replace('item_', '');
+            console.log(item);
+            addToInventory(item);
+            blockAuswechseln(block.x, block.y, 'SRB', false, false);
+            spielfeld[block.x, block.y] = { x: block.x, y: block.y, material: "SRB", solid: false, interactive: false };
+            break;
+    }
+}
+
+
 
 // setInterval(function () {
 
