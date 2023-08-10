@@ -26,7 +26,7 @@ function generateRandom(max) {
   return x;
 }
 
-$(document).ready(function () {
+function serverRandomZerstören() {
   switch (generateRandom(3)) {
     case 0:
       switch (generateRandom(4)) {
@@ -87,12 +87,46 @@ $(document).ready(function () {
       
   }
 
-});
+};
 
 $(document).ready(function () {
+  if ($("#button").on("click", e => {
+    var timeleft = 5;
+    var downloadTimer = setInterval(function(){
+      timeleft--;
+      if(timeleft <= 0){
+          clearInterval(downloadTimer);
+          console.log(timeleft);
+      }
+    
+    },1000);
+    })
+    );
+  
+
+
   //Generiere Server Reihen und Spalten
   for (let i = 1; i <= 3; i++) {
     for (let j = 1; j <= 4; j++) {
-      $("#server > .server-reihe" + i + " >.server" + j + "").on("click", (e) => {});
+      console.log("for");
+      $("#server > .server-reihe" + i + " >.server" + j + "").on("click", (e) => {
+        console.log("reihe");
+        let zahl = 1;
+        if (zahl==2){
+          console.log("image");
+          $("#server"+j+"").css("background-image", "url(../img/spielFeld/SSF.png)");
+          zahl--;
+          console.log(zahl +"von zahl2");
+        }
+        if (zahl ==1){
+          console.log("image2");
+          $("#server" + j).css("background-image", "url('https://example.com/mein_bild.jpg')");
+          zahl++;
+          console.log(zahl +"von zahl1");
+        }
+      }); 
     }}
+
 });
+
+
