@@ -30,6 +30,18 @@ body {
 	filter: drop-shadow(2px 4px 6px black)
 }
 
+#ausdunkeln {
+	width: 2250px;
+	height: 1750px;
+	top: -925px;
+	left: -875px;
+	background-image: url('../img/hintergrund/ausblenden.png');
+	background-repeat: no-repeat;
+	position: absolute;
+	background-size: contain;
+	z-index: 2;
+}
+
 .Holzboden {
 	background-image: url('../img/hintergrund/GuterHolzboden.png');
 }

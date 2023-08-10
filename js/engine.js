@@ -76,9 +76,14 @@ function starteEngine() {
     setInterval(movePlayer, 150);
 }
 
+function ausdunkeln() { 
+    // Irgendwas machen, dass der nicht ausgedunkelte bereich der Figur folgt
+    // Maße der Schablone: height: 1750, width: 2250 durchmesser kreis: 250px
+}
 
 $(document).ready(function () {
     starteEngine();
+    ausdunkeln();
 });
 
 function movePlayer() {
