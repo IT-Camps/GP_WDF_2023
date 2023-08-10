@@ -1,6 +1,12 @@
+<<<<<<< Updated upstream
 body {
 	width: 0vw;
 	height: 0vh;
+=======
+body{
+	width: 100vw;
+	height: 100vh;
+>>>>>>> Stashed changes
 	margin: 0;
 }
 
@@ -10,7 +16,12 @@ body {
 	margin: auto auto;
 	display: flex;
 	flex-flow: row wrap;
+<<<<<<< Updated upstream
 	border: 10px solid black;
+=======
+	
+	border: 10px solid brown;
+>>>>>>> Stashed changes
 }
 
 #spielfeld>div {
@@ -28,6 +39,7 @@ body {
 }
 
 .floor {
+<<<<<<< Updated upstream
 	background-image: url('../img/spielFeld/SRB.png');
 }
 
@@ -109,3 +121,7 @@ body {
 	z-index: 1;
 	filter: drop-shadow(2px 4px 6px black)
 }
+=======
+	background-color: steelblue;
+}
+>>>>>>> Stashed changes
