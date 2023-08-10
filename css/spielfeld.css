@@ -100,8 +100,8 @@ h1 {
 	background-image: url('../img/spielFeld/SSR.png');
 }
 
-.Tür {
-	background-image: url("../img/Gegenstände/TolleTür.png")
+.door {
+	background-image: url("../img/Gegenstaende/TolleTür.png");
 }
 
 #spielfigur {
