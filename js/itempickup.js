@@ -1,5 +1,6 @@
 let player = document.getElementById("player");
 let item = document.getElementById("item");
+let tür = document.getElementById("tür");
 var inventory = [];
 // Platzhalter für Position des Spielers
 let player_pos = {
@@ -10,12 +11,22 @@ let player_pos = {
 let item_pos = {
     x : 400,
     y : 400
+
 }
+
+let tür_pos = {
+    x : 400,
+    y : 400
+
+}
+
 
  function setStartPosition() {
     setPlayerOnPosition("800px", "800px");
-    setItemOnPosition("400px", "400px")
+    setItemOnPosition("400px", "400px");
+    //setTürOnPosition("600px", "600px");
 }
+
 
  function setItemOnPosition(x,y) {
     $('#item')
@@ -27,7 +38,19 @@ let item_pos = {
     $('#player')
     .css('margin-top', x )
     .css('margin-left', y );
+
+
 }
+
+function seTürOnPosition(x,y) {
+    $('#tür')
+    .css('margin-top', x )
+    .css('margin-left', y );
+
+
+}
+
+
 
  function movePlayer(event){
     if(player_pos.x > 10 && player_pos.y > 10) {
@@ -97,9 +120,9 @@ $(document).ready(function() {
             });
             
             
-     
-    
-    
+     if(itemHeight == türHeight && türTop == itemTop || itemHeight == türHeight || itemHeight == türHeight){
+        console.log("Tür öffnet")
+     }
         
     });//,33);
 
@@ -107,5 +130,5 @@ $(document).ready(function() {
         movePlayer(event);
     });
 
-    if ()   
+       
     
