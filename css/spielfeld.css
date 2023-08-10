@@ -7,7 +7,7 @@ body {
 #spielfeld {
 	width: 1000px;
 	height: 750px;
-	margin: auto auto;
+	margin: auto, auto;
 	display: flex;
 	flex-flow: row wrap;
 	border: 10px solid black;
@@ -17,6 +17,16 @@ body {
 	width: 50px;
 	height: 50px;
 	margin: 0;
+}
+
+#spielfigur {
+	width: 60px;
+	height: 60px;
+	background-image: url(img/spielFigur/lumberjackOne.png);
+	background-repeat: no-repeat;
+	position: absolute;
+	background-size: contain;
+	z-index: 1;
 }
 
 .white {
@@ -49,9 +59,6 @@ body {
 	background-image: url('../img/spielFeld/SSR.png');
 }
 
-.door {
-	background-image: url("../img/Gegenstände/TolleTür.png")
-}
 #spielfigur {
 	width: 60px;
 	height: 60px;
@@ -62,52 +69,6 @@ body {
 	z-index: 1;
 	filter: drop-shadow(2px 4px 6px black)
 }
-
-
-#keycard1 {
-	width: 60px;
-	height: 60px;
-	background-image: url('../img/KeyCards/keycard_bob.png');
-	background-repeat: no-repeat;
-	position: absolute;
-	background-size: contain;
-	z-index: 1;
-	filter: drop-shadow(2px 4px 6px black)
-}
-
-#keycard2 {
-	width: 60px;
-	height: 60px;
-	background-image: url('../img/KeyCards/keycard_daniel.png');
-	background-repeat: no-repeat;
-	position: absolute;
-	background-size: contain;
-	z-index: 1;
-	filter: drop-shadow(2px 4px 6px black)
-}
-
-#keycard3 {
-	width: 60px;
-	height: 60px;
-	background-image: url('../img/KeyCards/keycard_olli.png');
-	background-repeat: no-repeat;
-	position: absolute;
-	background-size: contain;
-	z-index: 1;
-	filter: drop-shadow(2px 4px 6px black)
-}
-
-#keycard4 {
-	width: 60px;
-	height: 60px;
-	background-image: url('../img/KeyCards/keycard_oskar.png');
-	background-repeat: no-repeat;
-	position: absolute;
-	background-size: contain;
-	z-index: 1;
-	filter: drop-shadow(2px 4px 6px black)
-}
-
 
 .SSF {
 	background-image: url('../img/spielFeld/SSF.png');
@@ -159,4 +120,16 @@ body {
 }
 .SPRU {
 	background-image: url('../img/spielFeld/SPRU.png');
+}
+
+.KAFFEE {
+	background-image: url('../img/Gegenstaende/Kaffemaschiene2.png');
+}
+
+.KEW {
+	background-color: tomato;
+}
+
+.KEKM {
+	background-color: green;
 }
