@@ -3,8 +3,11 @@
 let LEVEL = [
   {
     name: 'foyer',
-    start_x: 10,
-    start_y: 14,
+    meta: {
+      start_x: 10,
+      start_y: 14,
+      default_material: 'FBKP'
+    },
     data: [
       {x:19, y:7, material: 'door', solid: false, interactive: true, interaction: "teleport_serverraum"}, //serverrraum
       {x:12, y:0, material: 'door', solid: false, interactive: true, interaction: "teleport_office"}, //eigenes büro
@@ -22,8 +25,11 @@ let LEVEL = [
 
 {
   name: 'office',
-  start_x: 10,
-  start_y: 14,
+  meta: {
+    start_x: 10,
+    start_y: 14,
+    default_material: 'fu'
+  },
   data: [
     {x:9, y:0, material: 'door', solid: false, interactive: true, interaction: "teleport_foyer"},
   /*{x:10, y:0, material: 'SPRU', solid: true, interactive: false},
@@ -37,8 +43,11 @@ let LEVEL = [
 
 { 
   name: 'kaffeeecke',
-  start_x: 10,
-  start_y: 14,
+  meta: {
+    start_x: 10,
+    start_y: 14,
+    default_material: 'Holzboden'
+  },
   data: [
     {x:9, y:0, material: 'door', solid: false, interactive: true, interaction: "teleport_foyer"},
   {x:0, y:0, material: 'KEW', solid: true, interactive: false},
@@ -230,15 +239,13 @@ let LEVEL = [
 ]
 },
 
-
-
-
-
-
   {
     name: 'serverraum',
-    start_x: 1,
-    start_y: 3,
+    meta: {
+      start_x: 1,
+      start_y: 3,
+      default_material: "SRB"
+    },
     data: [
       {        x: 0,        y: 3,        material: 'door',        solid: false,        interactive: true,        interaction: 'teleport_foyer'      },
       {x: 0, y: 0, material: 'SSF', solid: true, interactive: false},

@@ -5,6 +5,9 @@ const BREITE = 20;
 const HOEHE = 15;
 var inventory = [];
 
+//  damit movement interval gestoppt werden kann
+let movementIntervalID;
+
 let player = {
     positionX: 0,
     positionY: 0,
@@ -14,38 +17,29 @@ let player = {
     isMovingRight: false,
 };
 
-function ladeBlocksInArray() {
+function ladeBlocksInArray(levelName) {
     const level = LEVEL.find(l => l.name == currentLevel);
+
+    //  TODO: Vollkommen auf level.meta.default_material umsteigen
+    //  mit ausnahme von background-image und level spezifischen stylesheets
     switch (currentLevel) {
-        case "foyer":
-            floor = 'FBKP';
-            break;
-        case "serverraum":
-            floor = 'SRB';
-            break;
-        case "kaffeeecke":
-            floor = 'Holzboden';
-            break;
         case "office":
-            floor = 'fu';
-            console.log($("#spielfeld"));
+            //floor = 'fu';
             $("#spielfeld").css("background-image", "url('img/hintergrund/mathis spiel.png')");
             //CSS FÜR eigenes büro setzen
             break;
         case "ceo":
             floor = 'fu';
-            console.log($("#spielfeld"));
             $("#spielfeld").css("background-image", "url('img/hintergrund/endbildschir_bearbeitet_final.png')");
             //CSS FÜR ENDBILDSCHIRM setzen
             break;
-        default:
-            break;
     }
-    
+
+    //  level.data Blöcke in 2D array 'spielfeld' speichern
     for (let x = 0; x < BREITE; x++) {
         spielfeld[x] = [];
         for (let y = 0; y < HOEHE; y++) {
-            spielfeld[x][y] = level.data.find(block => block.x == x && block.y == y) || { x: x, y: y, material: floor, solid: false, interactive: false };
+            spielfeld[x][y] = level.data.find(block => block.x == x && block.y == y) || { x: x, y: y, material: level.meta.default_material, solid: false, interactive: false };
         }
     }
 }
@@ -73,18 +67,35 @@ function blockAuswechseln(x, y, material, solid, interactive) {
 function spielfeldLeeren() {
     for (let y = 0; y < HOEHE; y++) {
         for (let x = 0; x < BREITE; x++) {
-            document.getElementById(x + '/' + y).remove();
+            document.getElementById(x + '/' + y)?.remove();
         }
     }
 }
 
-function starteEngine() {
-    ladeBlocksInArray();
+//  Läd level bei Namen
+function ladeLevel(levelName) {
+    if (!LEVEL.some(level => level.name === levelName)) throw new Error(`Level '${levelName}' existiert nicht!"`);
+
+    //  disable movement
+    if (movementIntervalID) clearInterval(movementIntervalID);
+    movementIntervalID = null;
+
+    currentLevel = levelName;
+    spielfeldLeeren();
+    ladeBlocksInArray(levelName);
     zeigeSpielfeld();
 
-    console.log(spielfeld);
-    setStartingPosition();
-    setInterval(movePlayer, 150);
+    //  Workaround: 1ms delay auf setStartingPosition(),
+    //  da zeigeSpielfeld() anscheinend noch nicht fertig ist, während
+    //  setStartingPosition() aufgerüfen wird
+    setTimeout(setStartingPosition, 1);
+
+    //  Enable movement
+    movementIntervalID = setInterval(movePlayer, 150);
+}
+
+function starteEngine() {
+    ladeLevel('foyer');
 }
 
 
@@ -103,24 +114,18 @@ function setStartingPosition() {
     let level = LEVEL.find(l => l.name == currentLevel);
 
     console.log(level);
-    forceSetPosition(level.start_x, level.start_y);
+    forceSetPosition(level.meta.start_x, level.meta.start_y);
 }
 
 function setPosition(x, y) {
-
-    if(checkInteraktion(x, y))
-
+    checkInteraktion(x, y);
     forceSetPosition(x, y);
 }
 
 
-function forceSetPosition(x, y) 
-{
+function forceSetPosition(x, y) {
     if (x < player.positionX) $('#spielfigur').css('transform', 'scaleX(-1)');
     if (x > player.positionX) $('#spielfigur').css('transform', 'scaleX(1)');
-
-    console.log(x);
-    console.log(y);
 
     player.positionX = x;
     player.positionY = y;
@@ -145,7 +150,7 @@ $(document).on("keydown", (e) => {
                 player.isMovingRight = true;
                 break;
         }
-       // console.log(e.code)
+        // console.log(e.code)
     }
 });
 
@@ -186,25 +191,16 @@ function istBetretbar(x, y) {
 
 
 function checkInteraktion(x, y) {
-    if (!spielfeld[x][y].interactive) {
-        return true;
-    }
-    else {
-        if (spielfeld[x][y].material == "door") {
-            //  player keycard check
-            currentLevel = spielfeld[x][y].interaction.replace('teleport_', '');
-            console.log("neues level");
+    const block = spielfeld[x][y]
+    if (!block.interactive) return false;
+    if (block.material == "door") {
+        //  player keycard check
+        console.log(`Door Interaktion @ x=${x}, y=${y}`);
+        teleportDestionation = block.interaction.replace('teleport_', '');
+        console.log(`Lade Level '${teleportDestionation}'`);
 
-            spielfeldLeeren();
-            ladeBlocksInArray();
-            zeigeSpielfeld();
-            console.log('Level change??');
-            setStartingPosition();
-            return false;
-        }
-        if (spielfeld.material == ""){
-             
-        }
+        ladeLevel(teleportDestionation);
+        return true;
     }
 }
 
@@ -223,8 +219,8 @@ To do liste
 function addToInventory(item) {
     inventory.push(item);
     console.log(item + " wurde dem Inventar hinzugefügt.");
-  }
-  
+}
+
 
 function removeFromInventory(item) {
     var index = inventory.indexOf(item);
@@ -247,25 +243,25 @@ function checkInventory(item) {
     }
 }
 
-setInterval(function () {
+// setInterval(function () {
 
-    // Überprüfen ob die DIVs des Items und des Spielers sich überlappen
-    if (checkOverlap([player.x, player.y], [item.x, item.y]) == true) {
-        // Item wird aufgesammelt
-        $("#item").hide();
-        addItemInv(item.name, player.inventory)
-        item.x = 0;
-        item.y = 0;
-        showMessage(item.name);
-    }
+//     // Überprüfen ob die DIVs des Items und des Spielers sich überlappen
+//     if (checkOverlap([player.x, player.y], [item.x, item.y]) == true) {
+//         // Item wird aufgesammelt
+//         $("#item").hide();
+//         addItemInv(item.name, player.inventory)
+//         item.x = 0;
+//         item.y = 0;
+//         showMessage(item.name);
+//     }
 
 
-    if (checkOverlap([tuer_pos.x, tuer_pos.y], [player.x, player.y]) == true && player.inventory.includes(item.name) == true) {
-        // Tür wird geöffnet
-        console.log("Tür öffnet")
-        tuer_pos.x = 0;
-        tuer_pos.x = 0;
-        $("#tuer").hide();
-        removeItemInv(item.name, player.inventory)
-    }
-}, 33);
+//     if (checkOverlap([tuer_pos.x, tuer_pos.y], [player.x, player.y]) == true && player.inventory.includes(item.name) == true) {
+//         // Tür wird geöffnet
+//         console.log("Tür öffnet")
+//         tuer_pos.x = 0;
+//         tuer_pos.x = 0;
+//         $("#tuer").hide();
+//         removeItemInv(item.name, player.inventory)
+//     }
+// }, 33);
