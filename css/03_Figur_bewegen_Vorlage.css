@@ -7,6 +7,7 @@
     background-size: contain;
     background-repeat: no-repeat;
     z-index: 1;
+    
 }
 
 #item {
@@ -27,4 +28,10 @@
     background-size: contain;
     background-repeat: no-repeat;
 
+   }
+
+#message {
+    color: green;
+    background-color: #232323;
+    text-shadow: 0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px #18ffd8, 0 0 30px #18e4ff, 0 0 40px #18c9ff, 0 0 55px #18ffff, 0 0 75px #18e4ff
    }
