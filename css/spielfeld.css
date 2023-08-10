@@ -10,7 +10,7 @@ body {
 	margin: auto auto;
 	display: flex;
 	flex-flow: row wrap;
-	
+
 	border: 10px solid black;
 }
 
@@ -43,13 +43,13 @@ body {
 }
 
 #spielfigur {
-    width: 60px;
-    height: 60px;
-    background-image: url(img/spielFigur/lumberjackOne.png);
-    background-repeat: no-repeat;
-    position: absolute;
-    background-size: contain;
-    z-index: 1;
+	width: 60px;
+	height: 60px;
+	background-image: url('../img/spielFigur/Christian_Klein.png');
+	background-repeat: no-repeat;
+	position: absolute;
+	background-size: contain;
+	z-index: 1;
 	filter: drop-shadow(2px 4px 6px black)
 }
 
