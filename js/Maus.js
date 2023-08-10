@@ -1,7 +1,7 @@
 $(document).ready(function(){
-    alert ('verfolge die Geschäftsanfragen um Punkte zu sammeln solange die Zeit läuft!')
+    alert ('verfolge die Geschäftsanfragen um Punkte zu sammeln solange die Zeit läuft,aber Achtung manche sind vom falschem anbieter!')
 
-    var timeleft = 5;
+    var timeleft = 60;
     var downloadTimer = setInterval(function(){
     timeleft--;
     document.getElementById("seconds").textContent = timeleft + "s";
@@ -11,6 +11,8 @@ $(document).ready(function(){
         if(timeleft == 0){ //Checke wenn Scoreboard == 0 -> dann verstecke Logo
             versteckeSapLogo(); 
             versteckeOracleLogo();
+            versteckeSalesforceLogo();
+            versteckeAppleLogo();
 
            
             
@@ -47,33 +49,96 @@ $(document).ready(function(){
     var a = 0 //Variable für Score
         $("#SAP-logo").click(function(){
             if (timeleft != 0) { //Prüfe bevor Score hochzählt ob Zeit > 0 ist
-                platziereLogos();
+                platziereSAPlogo();
+                platziereOracleLogo();
+                platziereSalesForceLogo();
+                platziereAppleLogo();
                 Scoregehthoch();
             }else{
                 versteckeSapLogo();
                 versteckeOracleLogo();
-
+                versteckeSalesforceLogo();
+                versteckeAppleLogo();
             }
         });
         $("#oracle-logo").click(function(){
             if (timeleft != 0) { //Prüfe bevor Score hochzählt ob Zeit > 0 ist
-                platziereLogos();
+                platziereSAPlogo();
+                platziereOracleLogo();
+                platziereSalesForceLogo();
+                platziereAppleLogo();
                 Scoregehtrunter();
             }else{
                 versteckeSapLogo();
                 versteckeOracleLogo();
-
+                versteckeSalesforceLogo();
+                platziereAppleLogo();
+                versteckeAppleLogo();
+            }
+        });
+        $("#salesforce-logo").click(function(){
+            if (timeleft != 0) { //Prüfe bevor Score hochzählt ob Zeit > 0 ist
+                platziereSAPlogo();
+                platziereOracleLogo();
+                platziereSalesForceLogo();
+                platziereAppleLogo();
+                Scoregehtrunter();
+                console.log(SalesForceClicked);
+            }else{
+                versteckeSapLogo();
+                versteckeOracleLogo();
+                versteckeSalesforceLogo();
+                versteckeAppleLogo();
+            }
+        });
+        $("#apple-logo").click(function(){
+            if (timeleft != 0) { //Prüfe bevor Score hochzählt ob Zeit > 0 ist
+                platziereSAPlogo();
+                platziereOracleLogo();
+                platziereSalesForceLogo();
+                platziereAppleLogo();
+                Scoregehthoch();
+                console.log(appleClicked);
+            }else{
+                versteckeSapLogo();
+                versteckeOracleLogo();
+                versteckeSalesforceLogo();
+                versteckeAppleLogo();
+                
             }
         });
 
-    function platziereLogos()   //alle Firmen Logos werden zufällig platziert
+    function platziereSAPlogo()                         // Logos werden zufällig platziert
     {
         let x = Math.floor(Math.random()*1000);
         let y = Math.floor(Math.random()*1000);
 
         $("#SAP-logo").css("top", x);
         $("#SAP-logo").css("left", y);
+    } 
+    function platziereOracleLogo()                         
+    {
+        let x = Math.floor(Math.random()*1000);
+        let y = Math.floor(Math.random()*1000);
 
+        $("#oracle-logo").css("top", x);
+        $("#oracle-logo").css("left", y);
+    }
+    function platziereSalesForceLogo()                        
+    {
+        let x = Math.floor(Math.random()*1000);
+        let y = Math.floor(Math.random()*1000);
+
+        $("#salesforce-logo").css("top", x);
+        $("#salesforce-logo").css("left", y);
+    }
+    function platziereAppleLogo()                        
+    {
+        let x = Math.floor(Math.random()*1000);
+        let y = Math.floor(Math.random()*1000);
+
+        $("#apple-logo").css("top", x);
+        $("#apple-logo").css("left", y);
     }
 
     function versteckeSapLogo(){
@@ -82,6 +147,12 @@ $(document).ready(function(){
     }                                       
     function versteckeOracleLogo(){
         $("#oracle-logo").hide();
+    }
+    function versteckeSalesforceLogo(){
+        $("#salesforce-logo").hide();
+    }
+    function versteckeAppleLogo(){
+        $("#apple-logo").hide();
     }
 
     
@@ -116,6 +187,7 @@ function Scoregehtrunter(){
 function checkScore(){
     if( a < 0){
         alert('OH NEIN! - verloren :( ')
+        
     }else if ( a == 0){
         alert('OH NEIN! - verloren :( ')
 

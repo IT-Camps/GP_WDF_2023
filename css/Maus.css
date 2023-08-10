@@ -1,0 +1,97 @@
+body{
+	width: 0vw;
+	height: 0vh;
+	margin: 0;
+}
+#hintergrundbild {
+    background: cover;
+    background-image : url('../img/spielFeld/Hintergrund_Käse&Maus.png');
+    width: 1000px;
+    height: 750px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: center;
+    margin-left:26.45em;
+    
+
+	display: flex;
+	flex-flow: row wrap;
+	flex-direction: row-reverse;
+	border: 10px solid brown;
+    
+}
+
+#Geschäftsmann {
+    width: 100px;
+    height: 100px;
+    background-image: url('../img/spielfigur/Christian Klein.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    z-index: 1;
+}
+
+#SAP-logo {
+    width: 50px;
+    height: 50px;
+    top: 200px;
+    left: 200px;
+    background-image: url('../img/icons/logo_SAP.png');
+    background-repeat: no-repeat;
+    position: absolute;
+    background-size: contain;
+} 
+#oracle-logo {
+    width: 50px;
+    height: 50px;
+    top: 500px;
+    left: 100px;
+    background-image: url('../img/icons/logo_oracle.png');
+    background-repeat: no-repeat;
+    position: absolute;
+    background-size: contain;
+}
+#salesforce-logo {
+    width: 50px;
+    height: 50px;
+    top: 700px;
+    left: 300px;
+    background-image: url('../img/icons/logo_salesforce.png');
+    background-repeat: no-repeat;
+    position: absolute;
+    background-size: contain;
+}
+#apple-logo {
+    width: 50px;
+    height: 50px;
+    top: 600px;
+    left: 200px;
+    background-image: url('..//img/icons/Apple.png');
+    background-repeat: no-repeat;
+    position: absolute;
+    background-size: contain;
+}
+display:inline-block {
+width: 300px; 
+margin: 20px 0; 
+border-radius: 5px;  
+background: lightskyblue; 
+}
+#countdown {
+font-family: "Fira Sans", sans-serif; 
+display: inline-block;
+padding: 30px; 
+background: lightskyblue;
+color: white;
+text-align: left;
+}
+
+#countdown span {
+font-weight: bold; 
+font-size: 30px; 
+}
+#neustart {
+background-color: lightskyblue;
+text-indent: left;
+text-align: left;
+}

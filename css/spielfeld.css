@@ -1,6 +1,6 @@
-body{
-	width: 100vw;
-	height: 100vh;
+body {
+	width: 0vw;
+	height: 0vh;
 	margin: 0;
 }
 
@@ -10,7 +10,6 @@ body{
 	margin: auto auto;
 	display: flex;
 	flex-flow: row wrap;
-	
 	border: 10px solid black;
 }
 
@@ -30,4 +29,83 @@ body{
 
 .floor {
 	background-image: url('../img/spielFeld/SRB.png');
+}
+
+.SSF {
+	background-image: url('../img/spielFeld/SSF.png');
+}
+
+.SSU {
+	background-image: url('../img/spielFeld/SSU.png');
+}
+.SSL {
+	background-image: url('../img/spielFeld/SSL.png');
+}
+.SSM {
+	background-image: url('../img/spielFeld/SSM.png');
+}
+.SSD {
+	background-image: url('../img/spielFeld/SSD.png');
+}
+.SSR {
+	background-image: url('../img/spielFeld/SSR.png');
+}
+
+.Tür {
+	background-image: url("../img/Gegenstände/TolleTür.png")
+}
+#spielfigur {
+	width: 60px;
+	height: 60px;
+	background-image: url('../img/spielFigur/Christian_Klein.png');
+	background-repeat: no-repeat;
+	position: absolute;
+	background-size: contain;
+	z-index: 1;
+	filter: drop-shadow(2px 4px 6px black)
+}
+
+
+#keycard1 {
+	width: 60px;
+	height: 60px;
+	background-image: url('../img/KeyCards/keycard_bob.png');
+	background-repeat: no-repeat;
+	position: absolute;
+	background-size: contain;
+	z-index: 1;
+	filter: drop-shadow(2px 4px 6px black)
+}
+
+#keycard2 {
+	width: 60px;
+	height: 60px;
+	background-image: url('../img/KeyCards/keycard_daniel.png');
+	background-repeat: no-repeat;
+	position: absolute;
+	background-size: contain;
+	z-index: 1;
+	filter: drop-shadow(2px 4px 6px black)
+}
+
+#keycard3 {
+	width: 60px;
+	height: 60px;
+	background-image: url('../img/KeyCards/keycard_olli.png');
+	background-repeat: no-repeat;
+	position: absolute;
+	background-size: contain;
+	z-index: 1;
+	filter: drop-shadow(2px 4px 6px black)
+}
+
+#keycard4 {
+	width: 60px;
+	height: 60px;
+	background-image: url('../img/KeyCards/keycard_oskar.png');
+	background-repeat: no-repeat;
+	position: absolute;
+	background-size: contain;
+	z-index: 1;
+	filter: drop-shadow(2px 4px 6px black)
 }
