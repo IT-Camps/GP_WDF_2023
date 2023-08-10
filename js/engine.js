@@ -155,6 +155,3 @@ function checkInteraktion(x, y) {
         }
     }
 }
-
-
-
