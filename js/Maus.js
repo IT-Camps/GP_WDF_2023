@@ -166,14 +166,12 @@ $(document).ready(function(){
         $("#Geschäftsmann").css("left" , e.pageX+5);
          });
 
-
-
     }
     $(document).ready(function(){
         MausfolgtZeiger();
     })
 
-    function Scoregehthoch()
+function Scoregehthoch()
     {
         a++;
         $("#score").text("Score: "+a);
@@ -187,10 +185,22 @@ function Scoregehtrunter(){
 function checkScore(){
     if( a < 0){
         alert('OH NEIN! - verloren :( ')
+        versteckeAppleLogo();
+        versteckeOracleLogo();
+        versteckeSalesforceLogo();
+        versteckeSapLogo();
+        timeleft = 0;
+        a = 0;
         
     }else if ( a == 0){
         alert('OH NEIN! - verloren :( ')
-
+        versteckeAppleLogo();
+        versteckeOracleLogo();
+        versteckeSalesforceLogo();
+        versteckeSapLogo();
+        timeleft = 0;
+        a = 0;
+        
     }
 }
 });

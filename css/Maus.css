@@ -8,8 +8,8 @@ body{
     background-image : url('../img/spielFeld/Hintergrund_Käse&Maus.png');
     width: 1000px;
     height: 750px;
-    background-repeat: no-repeat;
-    background-size: cover;
+    background-repeat: no-repeat;                                                       /****hintergrundbild innerhalb des kastens 1000x750px ****/
+    background-size: cover;                                             
     position: center;
     margin-left:26.45em;
     
@@ -24,19 +24,19 @@ body{
 #Geschäftsmann {
     width: 100px;
     height: 100px;
-    background-image: url('../img/spielfigur/Christian Klein.png');
+    background-image: url('Christian_Klein.png');     /**christian klein **/
     background-size: contain;
     background-repeat: no-repeat;
     position: absolute;
-    z-index: 1;
+    z-index: 2;
 }
 
 #SAP-logo {
     width: 50px;
     height: 50px;
     top: 200px;
-    left: 200px;
-    background-image: url('../img/icons/logo_SAP.png');
+    left: 200px;            
+    background-image: url('../img/icons/logo_SAP.png');                     /*sap Logo größe & startposition*/
     background-repeat: no-repeat;
     position: absolute;
     background-size: contain;
@@ -46,7 +46,7 @@ body{
     height: 50px;
     top: 500px;
     left: 100px;
-    background-image: url('../img/icons/logo_oracle.png');
+    background-image: url('../img/icons/logo_oracle.png');                   /*oracle Logo größe & startposition*/
     background-repeat: no-repeat;
     position: absolute;
     background-size: contain;
@@ -56,7 +56,7 @@ body{
     height: 50px;
     top: 700px;
     left: 300px;
-    background-image: url('../img/icons/logo_salesforce.png');
+    background-image: url('../img/icons/logo_salesforce.png');                  /*sap Logo größe & startposition*/
     background-repeat: no-repeat;
     position: absolute;
     background-size: contain;
@@ -66,7 +66,7 @@ body{
     height: 50px;
     top: 600px;
     left: 200px;
-    background-image: url('..//img/icons/Apple.png');
+    background-image: url('..//img/icons/Apple.png');                       /* apple logo größe & startposition*/
     background-repeat: no-repeat;
     position: absolute;
     background-size: contain;
