@@ -35,8 +35,7 @@ function spielfeldLeeren() {
      	for(let x = 0; x < BREITE; x++) {
             current = document.getElementById(y + '/' + x);
             current.remove();
-     	}
-    }
+
 }
 
 function starteEngine() {
@@ -52,7 +51,7 @@ function starteEngine() {
 
 $(document).ready(function() {
     starteEngine();
-    //spielfeldLeeren();
-    //spielfeld = blockAuswechseln(spielfeld, 1, 2, 'black', true, true);
-    //zeigeSpielfeld(spielfeld); 
+    spielfeldLeeren();
+    spielfeld = blockAuswechseln(spielfeld, 2, 5, 'black', true, true);
+    zeigeSpielfeld(spielfeld); 
 });
