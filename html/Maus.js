@@ -12,6 +12,7 @@ $(document).ready(function(){
             versteckeSapLogo(); 
             versteckeOracleLogo();
             versteckeSalesforceLogo();
+            versteckeAppleLogo();
 
            
             
@@ -51,11 +52,13 @@ $(document).ready(function(){
                 platziereSAPlogo();
                 platziereOracleLogo();
                 platziereSalesForceLogo();
+                platziereAppleLogo();
                 Scoregehthoch();
             }else{
                 versteckeSapLogo();
                 versteckeOracleLogo();
                 versteckeSalesforceLogo();
+                versteckeAppleLogo();
             }
         });
         $("#oracle-logo").click(function(){
@@ -63,11 +66,14 @@ $(document).ready(function(){
                 platziereSAPlogo();
                 platziereOracleLogo();
                 platziereSalesForceLogo();
+                platziereAppleLogo();
                 Scoregehtrunter();
             }else{
                 versteckeSapLogo();
                 versteckeOracleLogo();
                 versteckeSalesforceLogo();
+                platziereAppleLogo();
+                versteckeAppleLogo();
             }
         });
         $("#salesforce-logo").click(function(){
@@ -75,11 +81,30 @@ $(document).ready(function(){
                 platziereSAPlogo();
                 platziereOracleLogo();
                 platziereSalesForceLogo();
+                platziereAppleLogo();
                 Scoregehtrunter();
+                console.log(SalesForceClicked);
             }else{
                 versteckeSapLogo();
                 versteckeOracleLogo();
                 versteckeSalesforceLogo();
+                versteckeAppleLogo();
+            }
+        });
+        $("#apple-logo").click(function(){
+            if (timeleft != 0) { //Prüfe bevor Score hochzählt ob Zeit > 0 ist
+                platziereSAPlogo();
+                platziereOracleLogo();
+                platziereSalesForceLogo();
+                platziereAppleLogo();
+                Scoregehthoch();
+                console.log(appleClicked);
+            }else{
+                versteckeSapLogo();
+                versteckeOracleLogo();
+                versteckeSalesforceLogo();
+                versteckeAppleLogo();
+                
             }
         });
 
@@ -107,6 +132,14 @@ $(document).ready(function(){
         $("#salesforce-logo").css("top", x);
         $("#salesforce-logo").css("left", y);
     }
+    function platziereAppleLogo()                        
+    {
+        let x = Math.floor(Math.random()*1000);
+        let y = Math.floor(Math.random()*1000);
+
+        $("#apple-logo").css("top", x);
+        $("#apple-logo").css("left", y);
+    }
 
     function versteckeSapLogo(){
         $("#SAP-logo").hide();
@@ -117,6 +150,9 @@ $(document).ready(function(){
     }
     function versteckeSalesforceLogo(){
         $("#salesforce-logo").hide();
+    }
+    function versteckeAppleLogo(){
+        $("#apple-logo").hide();
     }
 
     
@@ -152,7 +188,7 @@ function checkScore(){
     if( a < 0){
         alert('OH NEIN! - verloren :( ')
     }else if ( a == 0){
-        alert('OH NEIN! - verloren :( ')
+        alert('OH NEIN! - verloren :( m ')
 
     }
 }
