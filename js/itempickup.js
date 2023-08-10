@@ -100,8 +100,9 @@ $(document).ready(function() {
         $("#"+item)
             .css('height', '50px')
             .css('width', '50px')
-            .css('background-image', 'url(../img/KeyCards/KeycardBobRoss.png)')
+            .css('background-image', 'url(./img/KeyCards/KeycardBobRoss.png)')
             .css('position', 'absolute')
+            .css('display','inline-block')
             .css('z-index', '4');
         console.log(item)
     }
