@@ -204,18 +204,6 @@ function checkInteraktion(x, y) {
     }
 }
 
-
-/*
-To do liste
-    Sebastian:
-        -teleport logic
-        -interaktion
-    Maksim:
-        -interaktion mit items
-        -keycards aufheben und oben rechts im bildschirm als inventar anzeigen
-*/
-
-
 function addToInventory(item) {
     inventory.push(item);
     console.log(item + " wurde dem Inventar hinzugefügt.");
