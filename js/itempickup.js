@@ -112,8 +112,8 @@ $(document).ready(function() {
         let index = inventory.indexOf(item);
         if (index > -1) {
             inventory.splice(index, 1);
-            $("#"+item.name).remove();
             }
+        $("#", item.name).remove();
         }
 
     // Funktion für die Spieler bewegung
