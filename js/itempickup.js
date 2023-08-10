@@ -136,10 +136,12 @@ $(document).ready(function() {
         }
         if(checkOverlap(tuer_pos, player_pos) == true && item_pos.x == 0){
             console.log("Tür öffnet")
+            tuer_pos.x = 0;
+            tuer_pos.x = 0;
         }
             });
         
-    });//,33);
+    },33);
 
     $(document).keydown(function(event){
         movePlayer(event);
