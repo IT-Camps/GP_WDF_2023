@@ -5,7 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4ca5b4e1-ce09-4837-ae85-c6194abfb20f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/css/03_Figur_bewegen_Vorlage.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/03_Figur_bewegen_Vorlage.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/minigame_server.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/minigame_server.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/minigame_server.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/minigame_server.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/minigame.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/minigame.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,7 +32,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "Minigame-Server-maxLeo",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",

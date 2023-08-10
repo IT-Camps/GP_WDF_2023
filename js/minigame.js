@@ -11,12 +11,12 @@ $(document).ready(function () {
   let server10 = true;
   let server11 = true;
   let server12 = true;
-  const meinScore = document.getElementById("score");
+  //const meinScore = document.getElementById("score");
   const meinDiv = document.getElementById("timer");
   var score = 0;
   var timeleft = 15;
   meinDiv.innerHTML = `<p> Zeit:${timeleft}</p>`;
-  meinScore.innerHTML = `<p>Score:${score}</p>`;
+  //meinScore.innerHTML = `<p>Score:${score}</p>`;
   if (
     $("#button").on("click", (e) => {
       if (timeleft >= 15 || timeleft <= 1) {
@@ -26,7 +26,6 @@ $(document).ready(function () {
           timeleft = timeleft - 0.5;
           if (timeleft <= 0) {
             clearInterval(downloadTimer);
-            console.log(timeleft);
           }
           meinDiv.innerHTML = `<p>Zeit:${timeleft}</p>`;
           serverRandomZerstören();
@@ -41,10 +40,8 @@ $(document).ready(function () {
       $("#server > .server-reihe" + i + " >.server" + j + "").on(
         "click",
         (e) => {
-          console.log("reihe");
           let zahl = 1;
           if (zahl == 2) {
-            console.log("image");
             $("#server" + j + "").css(
               "background-image",
               "url(../img/spielFeld/SSF.png)"
@@ -53,7 +50,6 @@ $(document).ready(function () {
             console.log(zahl + "von zahl2");
           }
           if (zahl == 1) {
-            console.log("image2");
             $("#server" + j).css(
               "background-image",
               "url(../img/spielFeld/SSF.png)"
@@ -72,7 +68,6 @@ $(document).ready(function () {
         console.log("server 1 wurde angeklickt");
         $("#server1").css("background-image", "url(../img/spielFeld/SSF.png)");
         console.log("Bild richtig" + server1);
-        score++;
         server1 = true;
       }
     }
@@ -81,7 +76,6 @@ $(document).ready(function () {
     if (timeleft != 0) {
       if (server2) {
         $("#server2").css("background-image", "url(../img/spielFeld/SSF.png)");
-        score++;
         server2 = true;
       }
     }
@@ -90,7 +84,6 @@ $(document).ready(function () {
     if (timeleft != 0) {
       if (server3) {
         $("#server3").css("background-image", "url(../img/spielFeld/SSF.png)");
-        score++;
         server3 = true;
       }
     }
@@ -99,7 +92,6 @@ $(document).ready(function () {
     if (timeleft != 0) {
       if (server4) {
         $("#server4").css("background-image", "url(../img/spielFeld/SSF.png)");
-        score++;
         server4 = true;
       }
     }
@@ -108,7 +100,6 @@ $(document).ready(function () {
     if (timeleft != 0) {
       if (server5 ) {
         $("#server5").css("background-image", "url(../img/spielFeld/SSF.png)");
-        score++;
         server5 = true;
       }
     }
@@ -117,7 +108,6 @@ $(document).ready(function () {
     if (timeleft != 0) {
       if (server6 ) {
         $("#server6").css("background-image", "url(../img/spielFeld/SSF.png)");
-        score++;
         server6 = true;
       }
     }
@@ -126,7 +116,6 @@ $(document).ready(function () {
     if (timeleft != 0) {
       if (server7 ) {
         $("#server7").css("background-image", "url(../img/spielFeld/SSF.png)");
-        score++;
         server7 = true;
       }
     }
@@ -135,7 +124,6 @@ $(document).ready(function () {
     if (timeleft != 0) {
       if (server8 ) {
         $("#server8").css("background-image", "url(../img/spielFeld/SSF.png)");
-        score++;
         server8 = true;
       }
     }
@@ -144,7 +132,6 @@ $(document).ready(function () {
     if (timeleft != 0) {
       if (server9) {
         $("#server9").css("background-image", "url(../img/spielFeld/SSF.png)");
-        score++;
         server9 = true;
       }
     }
@@ -153,7 +140,6 @@ $(document).ready(function () {
     if (timeleft != 0) {
       if (server10) {
         $("#server10").css("background-image", "url(../img/spielFeld/SSF.png)");
-        score++;
         server10 = true;
       }
     }
@@ -162,7 +148,6 @@ $(document).ready(function () {
     if (timeleft != 0) {
       if (server11) {
         $("#server11").css("background-image", "url(../img/spielFeld/SSF.png)");
-        score++;
         server11 = true;
       }
     }
@@ -171,7 +156,6 @@ $(document).ready(function () {
     if (timeleft != 0) {
       if (server12 ) {
         $("#server12").css("background-image", "url(../img/spielFeld/SSF.png)");
-        score++;
         server12 = true;
       }
     }

@@ -88,7 +88,6 @@
     width: 200px;
     
 }
-
 #score{
     position :absolute;
     font-family: 'Poppins', sans-serif;
@@ -99,11 +98,10 @@
     width: 40px;
 }
 
+
+
 #score p {
     margin:0;
     position: absolute;
  
 }
-
-
-
