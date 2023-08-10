@@ -10,7 +10,6 @@ let player = {
     positionY: 0,
     top: 0,
     left: 0,
-    speed: 150
 };
 
 function ladeBlocksInArray(levelName) {

@@ -40,5 +40,6 @@ body{
     position: absolute;
     background-size: contain;
     z-index: 1;
+	filter: drop-shadow(2px 4px 6px black)
 }
 
