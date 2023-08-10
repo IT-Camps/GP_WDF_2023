@@ -19,16 +19,6 @@ body {
 	margin: 0;
 }
 
-#spielfigur {
-	width: 60px;
-	height: 60px;
-	background-image: url(img/spielFigur/lumberjackOne.png);
-	background-repeat: no-repeat;
-	position: absolute;
-	background-size: contain;
-	z-index: 1;
-}
-
 .white {
 	background: white;
 }
@@ -61,6 +51,9 @@ body {
 	background-image: url('../img/spielFeld/SSR.png');
 }
 
+.Tür {
+	background-image: url("../img/Gegenstände/TolleTür.png")
+}
 #spielfigur {
 	width: 60px;
 	height: 60px;
@@ -70,28 +63,4 @@ body {
 	background-size: contain;
 	z-index: 1;
 	filter: drop-shadow(2px 4px 6px black)
-}
-
-.SSF {
-	background-image: url('../img/spielFeld/SSF.png');
-}
-
-.SSL {
-	background-image: url('../img/spielFeld/SSL.png');
-}
-
-.SSU {
-	background-image: url('../img/spielFeld/SSU.png');
-}
-
-.SSD {
-	background-image: url('../img/spielFeld/SSD.png');
-}
-
-.SSM {
-	background-image: url('../img/spielFeld/SSM.png');
-}
-
-.SSR {
-	background-image: url('../img/spielFeld/SSR.png');
 }

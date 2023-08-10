@@ -16,17 +16,17 @@ let player = {
 
 function ladeBlocksInArray(levelName) {
     const level = LEVEL.find(l => l.name == levelName);
-    for (let x = 0; x < HOEHE; x++) {
+    for (let x = 0; x < BREITE; x++) {
         spielfeld[x] = [];
-        for (let y = 0; y < BREITE; y++) {
+        for (let y = 0; y < HOEHE; y++) {
             spielfeld[x][y] = level.data.find(block => block.x == x && block.y == y) || { x: x, y: y, material: 'floor', solid: false, interactive: false };
         }
     }
 }
 
 function zeigeSpielfeld() {
-    for (let x = 0; x < HOEHE; x++) {
-        for (let y = 0; y < BREITE; y++) {
+    for (let y = 0; y < HOEHE; y++) {
+        for (let x = 0; x < BREITE; x++) {
             $("#spielfeld").append(`<div class="${spielfeld[x][y].material}" id="${x}/${y}"></div>`)
         }
     }
@@ -68,10 +68,10 @@ $(document).ready(function () {
 });
 
 function movePlayer() {
-    if (player.isMovingUp && !istBetretbar(player.positionX, player.positionY - 1)) setPosition(player.positionX, player.positionY - 1);
-    if (player.isMovingDown && !istBetretbar(player.positionX, player.positionY + 1)) setPosition(player.positionX, player.positionY + 1);
-    if (player.isMovingLeft && !istBetretbar(player.positionX - 1, player.positionY)) setPosition(player.positionX - 1, player.positionY);
-    if (player.isMovingRight && !istBetretbar(player.positionX + 1, player.positionY)) setPosition(player.positionX + 1, player.positionY);
+    if (player.isMovingUp && istBetretbar(player.positionX, player.positionY - 1)) setPosition(player.positionX, player.positionY - 1);
+    if (player.isMovingDown && istBetretbar(player.positionX, player.positionY + 1)) setPosition(player.positionX, player.positionY + 1);
+    if (player.isMovingLeft && istBetretbar(player.positionX - 1, player.positionY)) setPosition(player.positionX - 1, player.positionY);
+    if (player.isMovingRight && istBetretbar(player.positionX + 1, player.positionY)) setPosition(player.positionX + 1, player.positionY);
 }
 
 function setStartingPosition() {
@@ -129,6 +129,22 @@ $(document).on("keyup", (e) => {
 
 
 function istBetretbar(x, y) {
-    if (x < 0 || y < 0 || x >= BREITE || y >= HOEHE) return true;
-    return spielfeld[x][y].solid;
+    if (x < 0 || y < 0 || x >= BREITE || y >= HOEHE) return false;
+    return !spielfeld[x][y].solid;
 }
+
+
+/*function interaktion(x, y) {
+    if (!spielfeld.interactive) {
+        console.log("Nicht interagierbar")
+    }
+    else {
+        if (spielfeld.material == Tür) { //Material hinzufügen || Tür?
+            //Ändere Level
+            ladeBlocksInArray(current_level);
+        }
+        if (spielfeld.material == Server SSF || SSW){
+            
+        }
+    }
+}*/
