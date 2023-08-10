@@ -3,7 +3,7 @@
     height: 150px;
     width: 150px;
     position: absolute;
-    background-image: url('../img/sap.jpg');
+    background-image: url('../img/logos/sap.jpg');
     background-size: contain;
     background-repeat: no-repeat;
     z-index: 1;
@@ -13,7 +13,7 @@
    height: 50px;
    width: 50px;
    position: absolute;
-   background-image: url('../img/dreikek.jpg');
+   background-image: url('../img/icons/dreikek.jpg');
    background-size: contain;
    background-repeat: no-repeat;
   }
@@ -22,7 +22,7 @@
     height: 50px;
     width: 50px;
     position: absolute;
-    background-image: url("../img/tür.jpg");
+    background-image: url("Gegenstände/tür.jpg");
     background-size: contain;
     background-repeat: no-repeat;
 
