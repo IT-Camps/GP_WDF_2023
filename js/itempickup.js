@@ -2,6 +2,7 @@ let player = document.getElementById("player");
 let item = document.getElementById("item");
 let tür = document.getElementById("tür");
 var inventory = [];
+
 // Platzhalter für Position des Spielers
 let player_pos = {
     x : 800,
@@ -14,9 +15,9 @@ let item_pos = {
 
 }
 
-let tür_pos = {
-    x : 400,
-    y : 400
+let tuer_pos = {
+    x : 600,
+    y : 600
 
 }
 
@@ -24,7 +25,7 @@ let tür_pos = {
  function setStartPosition() {
     setPlayerOnPosition("800px", "800px");
     setItemOnPosition("400px", "400px");
-    //setTürOnPosition("600px", "600px");
+    setTuerOnPosition("600px", "600px");
 }
 
 
@@ -42,15 +43,26 @@ let tür_pos = {
 
 }
 
-function seTürOnPosition(x,y) {
-    $('#tür')
+function setTuerOnPosition(x,y) {
+    $('#tuer')
     .css('margin-top', x )
     .css('margin-left', y );
 
 
 }
 
-
+function checkOverlap(player, item) {
+    // Check if the x coordinates overlap
+    if (player.x + 50 > item.x && player.x < item.x + 50) {
+      // Check if the y coordinates overlap
+      if (player.y + 50 > item.y && player.y < item.y + 50) {
+        // The player and the item overlap
+        return true;
+      }
+    }
+    // The player and the item do not overlap
+    return false;
+  }
 
  function movePlayer(event){
     if(player_pos.x > 10 && player_pos.y > 10) {
@@ -86,11 +98,12 @@ function seTürOnPosition(x,y) {
                 console.log("Default case");
                 break;
             }
-
-        setPlayerOnPosition(player_pos.x, player_pos.y);
+          
+            setPlayerOnPosition(player_pos.x, player_pos.y);
     } else {
+       // setPlayerOnPosition(player_pos.x, player_pos.y);
         console.log("Set Start");
-        setStartPosition();
+       // setStartPosition();
     }
         
     }
@@ -111,18 +124,20 @@ $(document).ready(function() {
         let itemHeight = parseInt(item_pos.y);
         console.log(itemTop);
     
-        if (itemHeight == charHeight && charTop == itemTop || itemHeight == charHeight || itemHeight == charHeight) {
+        if (checkOverlap(player_pos, item_pos) == true) {
             // Treffen der DIVs
 
-           $("#item").hide();  //item sollte aufgesammelt werden wenn man drüber geht 
+           $("#item").hide();  //item sollte aufgesammelt werden wenn man drüber geht
+           item_pos.x = 0;
+           item_pos.y = 0;
+
+           console.log("Treffer")
            
         }
+        if(checkOverlap(tuer_pos, player_pos) == true && item_pos.x == 0){
+            console.log("Tür öffnet")
+        }
             });
-            
-            
-     if(itemHeight == türHeight && türTop == itemTop || itemHeight == türHeight || itemHeight == türHeight){
-        console.log("Tür öffnet")
-     }
         
     });//,33);
 
