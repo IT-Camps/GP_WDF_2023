@@ -3,6 +3,7 @@ let blocks;
 let current_level = "foyer";
 const BREITE = 20;
 const HOEHE = 15;
+var inventory = [];
 
 let player = {
     positionX: 0,
@@ -202,3 +203,31 @@ To do liste
         -interaktion mit items
         -keycards aufheben und oben rechts im bildschirm als inventar anzeigen
 */
+
+
+function addToInventory(item) {
+    inventory.push(item);
+    console.log(item + " wurde dem Inventar hinzugefügt.");
+  }
+  
+  
+  function removeFromInventory(item) {
+    var index = inventory.indexOf(item);
+    if (index > -1) {
+      inventory.splice(index, 1);
+      console.log(item + " wurde aus dem Inventar entfernt.");
+    } else {
+      console.log(item + " konnte nicht gefunden werden.");
+    }
+  }
+  
+  
+  function checkInventory(item) {
+    if (inventory.indexOf(item) > -1) {
+      console.log(item + " ist im Inventar.");
+      return true;
+    } else {
+      console.log(item + " ist nicht im Inventar.");
+      return false;
+    }
+  }
