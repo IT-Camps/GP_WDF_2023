@@ -1,6 +1,8 @@
 // Spoiler: Tut nicht ganz (:
 let ITEM_TEXTURE_ATLAS = {
   item_keycard_bob: "./img/keyCards/keycard_bob.png",
+  item_keycard_daniel: "./img/keyCards/keycard_daniel.png",
+  item_keycard_olli: "./img/keyCards/keycard_olli.png",
 }
 let LEVEL = [
   {
@@ -11,10 +13,12 @@ let LEVEL = [
       default_material: 'FBKP'
     },
     data: [
-      { x: 19, y: 7, material: 'door', solid: false, interactive: true, interaction: "teleport_serverraum" }, //serverrraum
+      { x: 19, y: 7, material: 'door', solid: false, interactive: true, interaction: "teleport_serverraum", keycard: "keycard_olli" }, //serverrraum
       { x: 12, y: 0, material: 'door', solid: false, interactive: true, interaction: "teleport_office", keycard: "keycard_bob" }, //eigenes büro
-      { x: 3, y: 0, material: 'door', solid: false, interactive: true, interaction: "teleport_ceo" }, //aufzug ceo
+      { x: 3, y: 0, material: 'door', solid: false, interactive: true, interaction: "teleport_ceo", keycard: "keycard_daniel" }, //aufzug ceo
       { x: 0, y: 7, material: 'door', solid: false, interactive: true, interaction: "teleport_kaffeeecke" }, //cafeteria
+
+      { x: 19, y: 0, material: 'FBKP', solid: false, interactive: true, interaction: "item_keycard_olli" }
       /*{x:10, y:0, material: 'SPRU', solid: true, interactive: false},
       
       
@@ -62,65 +66,204 @@ let LEVEL = [
     ]
   },
 
-  {
+  { 
     name: 'kaffeeecke',
     meta: {
-      start_x: 10,
-      start_y: 14,
-      default_material: 'Holzboden'
+      start_x: 19,
+      start_y: 5,
+      default_material: 'fu'
     },
-    data: [
-      { x: 9, y: 0, material: 'door', solid: false, interactive: true, interaction: "teleport_foyer" },
-      { x: 1, y: 0, material: 'KTW', solid: true, interactive: false },
-      { x: 2, y: 0, material: 'KTW', solid: true, interactive: false },
-      { x: 3, y: 0, material: 'KTW', solid: true, interactive: false },
-      { x: 4, y: 0, material: 'KTW', solid: true, interactive: false },
-      { x: 5, y: 0, material: 'KTW', solid: true, interactive: false },
-      { x: 6, y: 0, material: 'KTW', solid: true, interactive: false },
-      { x: 7, y: 0, material: 'KTW', solid: true, interactive: false },
-      { x: 8, y: 0, material: 'KTW', solid: true, interactive: false },
-      { x: 10, y: 0, material: 'KTW', solid: true, interactive: false },
-      { x: 11, y: 0, material: 'KTW', solid: true, interactive: false },
-      { x: 12, y: 0, material: 'KTW', solid: true, interactive: false },
-      { x: 13, y: 0, material: 'KTW', solid: true, interactive: false },
-      { x: 14, y: 0, material: 'KTW', solid: true, interactive: false },
-      { x: 15, y: 0, material: 'KTW', solid: true, interactive: false },
-      { x: 16, y: 0, material: 'KTW', solid: true, interactive: false },
-      { x: 17, y: 0, material: 'KTW', solid: true, interactive: false },
-      { x: 18, y: 0, material: 'KTW', solid: true, interactive: false },
-      { x: 19, y: 0, material: 'KTW', solid: true, interactive: false },
-      { x: 0, y: 0, material: 'KTW', solid: true, interactive: false },
-
-      { x: 0, y: 1, material: 'KTW', solid: true, interactive: false },
-      { x: 19, y: 1, material: 'KTW', solid: true, interactive: false },
-
-      { x: 0, y: 2, material: 'KTW', solid: true, interactive: false },
-      { x: 19, y: 2, material: 'KTW', solid: true, interactive: false },
-
-      { x: 1, y: 3, material: 'KTW', solid: true, interactive: false },
-      { x: 4, y: 3, material: 'KTW', solid: true, interactive: false },
-      { x: 5, y: 3, material: 'KTW', solid: true, interactive: false },
-      { x: 6, y: 3, material: 'KTW', solid: true, interactive: false },
-      { x: 7, y: 3, material: 'KTW', solid: true, interactive: false },
-      { x: 8, y: 3, material: 'KTW', solid: true, interactive: false },
-      { x: 9, y: 3, material: 'KTW', solid: true, interactive: false },
-      { x: 10, y: 3, material: 'KTW', solid: true, interactive: false },
-      { x: 11, y: 3, material: 'KTW', solid: true, interactive: false },
-      { x: 12, y: 3, material: 'KTW', solid: true, interactive: false },
-      { x: 13, y: 3, material: 'KTW', solid: true, interactive: false },
-      { x: 14, y: 3, material: 'KTW', solid: true, interactive: false },
-      { x: 15, y: 3, material: 'KTW', solid: true, interactive: false },
-      { x: 18, y: 3, material: 'KTW', solid: true, interactive: false },
-      { x: 19, y: 3, material: 'KTW', solid: true, interactive: false },
-      { x: 0, y: 3, material: 'KTW', solid: true, interactive: false },
-
-
-      
-
-
-    ]
+    data: [      
+    {y:12, x:2, material: 'KEKM', solid: true, interactive: true},
+    {x:9, y:0, material: 'door', solid: false, interactive: true, interaction: "teleport_foyer"},
+    { x: 1, y: 8, material: 'Holzboden', solid: false, interactive: true, interaction: 'item_keycard_daniel' },
+    {y:0, x:0, material: 'KEW', solid: true, interactive: false},
+    {y:0, x:1, material: 'KEW', solid: true, interactive: false},
+    {y:0, x:2, material: 'KEW', solid: true, interactive: false},
+    {y:0, x:3, material: 'KEW', solid: true, interactive: false},
+    {y:0, x:4, material: 'KEW', solid: true, interactive: false},
+    {y:0, x:5, material: 'KEW', solid: true, interactive: false},
+    {y:0, x:6, material: 'KEW', solid: true, interactive: false},
+    {y:0, x:7, material: 'KEW', solid: true, interactive: false},
+    {y:0, x:8, material: 'KEW', solid: true, interactive: false},
+    {y:0, x:9, material: 'KEW', solid: true, interactive: false},
+    {y:0, x:10, material: 'KEW', solid: true, interactive: false},
+    {y:0, x:11, material: 'KEW', solid: true, interactive: false},
+    {y:0, x:12, material: 'KEW', solid: true, interactive: false},
+    {y:0, x:13, material: 'KEW', solid: true, interactive: false},
+    {y:0, x:14, material: 'KEW', solid: true, interactive: false},
+    {y:0, x:15, material: 'KEW', solid: true, interactive: false},
+    {y:0, x:16, material: 'KEW', solid: true, interactive: false},
+    {y:0, x:17, material: 'KEW', solid: true, interactive: false},
+    {y:0, x:18, material: 'KEW', solid: true, interactive: false},
+    {y:0, x:19, material: 'KEW', solid: true, interactive: false},
+  
+    {y:1, x:0, material: 'KEW', solid: true, interactive: false},
+    {y:1, x:2, material: 'KEW', solid: true, interactive: false},
+    {y:1, x:4, material: 'KEW', solid: true, interactive: false},
+    {y:1, x:5, material: 'KEW', solid: true, interactive: false},
+    {y:1, x:6, material: 'KEW', solid: true, interactive: false},
+    {y:1, x:7, material: 'KEW', solid: true, interactive: false},
+    {y:1, x:12, material: 'KEW', solid: true, interactive: false},
+    {y:1, x:14, material: 'KEW', solid: true, interactive: false},
+    {y:1, x:15, material: 'KEW', solid: true, interactive: false},
+    {y:1, x:16, material: 'KEW', solid: true, interactive: false},
+    {y:1, x:19, material: 'KEW', solid: true, interactive: false},
+  
+    {y:2, x:0, material: 'KEW', solid: true, interactive: false},
+    {y:2, x:2, material: 'KEW', solid: true, interactive: false},
+    {y:2, x:7, material: 'KEW', solid: true, interactive: false},
+    {y:2, x:8, material: 'KEW', solid: true, interactive: false},
+    {y:2, x:9, material: 'KEW', solid: true, interactive: false},
+    {y:2, x:10, material: 'KEW', solid: true, interactive: false},
+    {y:2, x:12, material: 'KEW', solid: true, interactive: false},
+    {y:2, x:14, material: 'KEW', solid: true, interactive: false},
+    {y:2, x:15, material: 'KEW', solid: true, interactive: false},
+    {y:2, x:16, material: 'KEW', solid: true, interactive: false},
+    {y:2, x:19, material: 'KEW', solid: true, interactive: false},
+  
+    {y:3, x:0, material: 'KEW', solid: true, interactive: false},
+    {y:3, x:2, material: 'KEW', solid: true, interactive: false},
+    {y:3, x:3, material: 'KEW', solid: true, interactive: false},
+    {y:3, x:4, material: 'KEW', solid: true, interactive: false},
+    {y:3, x:5, material: 'KEW', solid: true, interactive: false},
+    {y:3, x:12, material: 'KEW', solid: true, interactive: false},
+    {y:3, x:19, material: 'KEW', solid: true, interactive: false},
+  
+    {y:4, x:0, material: 'KEW', solid: true, interactive: false},
+    {y:4, x:5, material: 'KEW', solid: true, interactive: false},
+    {y:4, x:7, material: 'KEW', solid: true, interactive: false},
+    {y:4, x:8, material: 'KEW', solid: true, interactive: false},
+    {y:4, x:10, material: 'KEW', solid: true, interactive: false},
+    {y:4, x:12, material: 'KEW', solid: true, interactive: false},
+    {y:4, x:14, material: 'KEW', solid: true, interactive: false},
+    {y:4, x:15, material: 'KEW', solid: true, interactive: false},
+    {y:4, x:16, material: 'KEW', solid: true, interactive: false},
+    {y:4, x:17, material: 'KEW', solid: true, interactive: false},
+    {y:4, x:18, material: 'KEW', solid: true, interactive: false},
+    {y:4, x:19, material: 'KEW', solid: true, interactive: false},
+  
+    {y:5, x:0, material: 'KEW', solid: true, interactive: false},
+    {y:5, x:1, material: 'KEW', solid: true, interactive: false},
+    {y:5, x:4, material: 'KEW', solid: true, interactive: false},
+    {y:5, x:5, material: 'KEW', solid: true, interactive: false},
+    {y:5, x:8, material: 'KEW', solid: true, interactive: false},
+    {y:5, x:10, material: 'KEW', solid: true, interactive: false},
+    {y:5, x:12, material: 'KEW', solid: true, interactive: false},
+  
+    {y:6, x:0, material: 'KEW', solid: true, interactive: false},
+    {y:6, x:7, material: 'KEW', solid: true, interactive: false},
+    {y:6, x:8, material: 'KEW', solid: true, interactive: false},
+    {y:6, x:10, material: 'KEW', solid: true, interactive: false},
+    {y:6, x:11, material: 'KEW', solid: true, interactive: false},
+    {y:6, x:12, material: 'KEW', solid: true, interactive: false},
+    {y:6, x:13, material: 'KEW', solid: true, interactive: false},
+    {y:6, x:14, material: 'KEW', solid: true, interactive: false},
+    {y:6, x:15, material: 'KEW', solid: true, interactive: false},
+    {y:6, x:19, material: 'KEW', solid: true, interactive: false},
+    {y:6, x:17, material: 'KEW', solid: true, interactive: false},
+    {y:6, x:18, material: 'KEW', solid: true, interactive: false},
+  
+    {y:7, x:0, material: 'KEW', solid: true, interactive: false},
+    {y:7, x:1, material: 'KEW', solid: true, interactive: false},
+    {y:7, x:2, material: 'KEW', solid: true, interactive: false},
+    {y:7, x:3, material: 'KEW', solid: true, interactive: false},
+    {y:7, x:4, material: 'KEW', solid: true, interactive: false},
+    {y:7, x:5, material: 'KEW', solid: true, interactive: false},
+    {y:7, x:6, material: 'KEW', solid: true, interactive: false},
+    {y:7, x:7, material: 'KEW', solid: true, interactive: false},
+    {y:7, x:17, material: 'KEW', solid: true, interactive: false},
+    {y:7, x:19, material: 'KEW', solid: true, interactive: false},
+  
+    {y:8, x:0, material: 'KEW', solid: true, interactive: false},
+    {y:8, x:2, material: 'KEW', solid: true, interactive: false},
+    {y:8, x:3, material: 'KEW', solid: true, interactive: false},
+    {y:8, x:4, material: 'KEW', solid: true, interactive: false},
+    {y:8, x:5, material: 'KEW', solid: true, interactive: false},
+    {y:8, x:6, material: 'KEW', solid: true, interactive: false},
+    {y:8, x:7, material: 'KEW', solid: true, interactive: false},
+    {y:8, x:9, material: 'KEW', solid: true, interactive: false},
+    {y:8, x:10, material: 'KEW', solid: true, interactive: false},
+    {y:8, x:11, material: 'KEW', solid: true, interactive: false},
+    {y:8, x:12, material: 'KEW', solid: true, interactive: false},
+    {y:8, x:13, material: 'KEW', solid: true, interactive: false},
+    {y:8, x:15, material: 'KEW', solid: true, interactive: false},
+    {y:8, x:17, material: 'KEW', solid: true, interactive: false},
+    {y:8, x:19, material: 'KEW', solid: true, interactive: false},
+  
+    {y:9, x:2, material: 'KEW', solid: true, interactive: false},
+    {y:9, x:7, material: 'KEW', solid: true, interactive: false},
+    {y:9, x:9, material: 'KEW', solid: true, interactive: false},
+    {y:9, x:13, material: 'KEW', solid: true, interactive: false},
+    {y:9, x:15, material: 'KEW', solid: true, interactive: false},
+    {y:9, x:17, material: 'KEW', solid: true, interactive: false},
+    {y:9, x:19, material: 'KEW', solid: true, interactive: false},
+  
+    {y:10, x:0, material: 'KEW', solid: true, interactive: false},
+    {y:10, x:4, material: 'KEW', solid: true, interactive: false},
+    {y:10, x:5, material: 'KEW', solid: true, interactive: false},
+    {y:10, x:7, material: 'KEW', solid: true, interactive: false},
+    {y:10, x:9, material: 'KEW', solid: true, interactive: false},
+    {y:10, x:17, material: 'KEW', solid: true, interactive: false},
+    {y:10, x:19, material: 'KEW', solid: true, interactive: false},
+  
+    {y:11, x:0, material: 'KEW', solid: true, interactive: false},
+    {y:11, x:1, material: 'KEW', solid: true, interactive: false},
+    {y:11, x:2, material: 'KEW', solid: true, interactive: false},
+    {y:11, x:3, material: 'KEW', solid: true, interactive: false},
+    {y:11, x:4, material: 'KEW', solid: true, interactive: false},
+    {y:11, x:7, material: 'KEW', solid: true, interactive: true},
+    {y:11, x:11, material: 'KEW', solid: true, interactive: true},
+    {y:11, x:13, material: 'KEW', solid: true, interactive: false},
+    {y:11, x:17, material: 'KEW', solid: true, interactive: false},
+    {y:11, x:18, material: 'KEW', solid: true, interactive: false},
+    {y:11, x:19, material: 'KEW', solid: true, interactive: false},
+  
+    {y:12, x:0, material: 'KEW', solid: true, interactive: false},
+    {y:12, x:3, material: 'KEW', solid: true, interactive: false},
+    {y:12, x:4, material: 'KEW', solid: true, interactive: false},
+    {y:12, x:5, material: 'KEW', solid: true, interactive: false},
+    {y:12, x:7, material: 'KEW', solid: true, interactive: false},
+    {y:12, x:8, material: 'KEW', solid: true, interactive: false},
+    {y:12, x:9, material: 'KEW', solid: true, interactive: false},
+    {y:12, x:10, material: 'KEW', solid: true, interactive: false},
+    {y:12, x:11, material: 'KEW', solid: true, interactive: false},
+    {y:12, x:13, material: 'KEW', solid: true, interactive: false},
+    {y:12, x:14, material: 'KEW', solid: true, interactive: false},
+    {y:12, x:19, material: 'KEW', solid: true, interactive: false},
+  
+    {y:13, x:0, material: 'KEW', solid: true, interactive: false},
+    {y:13, x:13, material: 'KEW', solid: true, interactive: false},
+    {y:13, x:14, material: 'KEW', solid: true, interactive: false},
+    {y:13, x:15, material: 'KEW', solid: true, interactive: false},
+    {y:13, x:16, material: 'KEW', solid: true, interactive: false},
+    {y:13, x:17, material: 'KEW', solid: true, interactive: false},
+    {y:13, x:18, material: 'KEW', solid: true, interactive: false},
+    {y:13, x:19, material: 'KEW', solid: true, interactive: false},
+  
+    {y:14, x:0, material: 'KEW', solid: true, interactive: false},
+    {y:14, x:1, material: 'KEW', solid: true, interactive: false},
+    {y:14, x:2, material: 'KEW', solid: true, interactive: false},
+    {y:14, x:3, material: 'KEW', solid: true, interactive: false},
+    {y:14, x:4, material: 'KEW', solid: true, interactive: false},
+    {y:14, x:5, material: 'KEW', solid: true, interactive: false},
+    {y:14, x:6, material: 'KEW', solid: true, interactive: false},
+    {y:14, x:7, material: 'KEW', solid: true, interactive: false},
+    {y:14, x:8, material: 'KEW', solid: true, interactive: false},
+    {y:14, x:9, material: 'KEW', solid: true, interactive: false},
+    {y:14, x:10, material: 'KEW', solid: true, interactive: false},
+    {y:14, x:11, material: 'KEW', solid: true, interactive: false},
+    {y:14, x:12, material: 'KEW', solid: true, interactive: false},
+    {y:14, x:13, material: 'KEW', solid: true, interactive: false},
+    {y:14, x:14, material: 'KEW', solid: true, interactive: false},
+    {y:14, x:15, material: 'KEW', solid: true, interactive: false},
+    {y:14, x:16, material: 'KEW', solid: true, interactive: false},
+    {y:14, x:17, material: 'KEW', solid: true, interactive: false},
+    {y:14, x:18, material: 'KEW', solid: true, interactive: false},
+    {y:14, x:19, material: 'KEW', solid: true, interactive: false},
+    
+  ]
   },
-
   {
     name: 'serverraum',
     meta: {
