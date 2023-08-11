@@ -5,6 +5,8 @@ const BREITE = 20;
 const HOEHE = 15;
 var inventory = [];
 
+let aufgesammelteItems = [];
+
 //  damit movement interval gestoppt werden kann
 let movementIntervalID;
 
@@ -54,8 +56,8 @@ function zeigeSpielfeld() {
             $("#spielfeld").append(`<div class="${block.material}" id="${x}_${y}"></div>`)
 
             //  Render items
-            if (block.interaction?.startsWith('item_')) {
-                setBlockItem(x, y, block.interaction.replace('item_', ''), ITEM_TEXTURE_ATLAS[block.interaction], false);
+            if (block.interactive && block.interaction?.startsWith('item_') && !aufgesammelteItems.includes(block.interaction)) {
+                setBlockItem(x, y, block.interaction.replace('item_', ''), ITEM_TEXTURE_ATLAS[block.interaction], true);
             }
         }
     }
@@ -245,20 +247,27 @@ function checkInventory(item) {
 }
 
 function itempPickupAnimation(elementID) {
+    let elementHTML = document.getElementById(elementID)?.outerHTML;
+    document.getElementById(elementID)?.remove();
+    console.log(elementHTML)
+    $('#spielfigur').append(elementHTML);
+    $(`#${elementID}`).css('scale', 0.4).css('left', '18px').css('top', '10px');
     document.getElementById(elementID).animate([
         {
-            position: "absolute",
-            left: "50%",
-            top: "50%",
-            transform: "translate(-50%, -50%)",
-            scale: 6.0
+            scale: 0.4,
+            top: "10px",
         },
         {
-            position: "relative",
-            transofrm: "none",
-            scale: 1
+            top: "-10px",
+            scale: 1.5,
+            transform: "rotateY(180deg)"
+        },
+        {
+            scale: 0.4,
+            top: "10px",
+            transform: "rotateY(0deg)"
         }
-    ], {duration: 2500})
+    ], { duration: 750 })
 }
 
 function checkInteraktion(x, y) {
@@ -269,17 +278,30 @@ function checkInteraktion(x, y) {
             //  player keycard check
             console.log(`Door Interaktion @ x=${x}, y=${y}`);
             teleportDestionation = block.interaction.replace('teleport_', '');
+            //  Keycard check
+            if (block.keycard && !aufgesammelteItems.includes(block.keycard)) return true;
+            else if (block.keycard && aufgesammelteItems.includes(block.keycard)) {
+
+                inventory.splice(inventory.indexOf(block.keycard), 1);
+                document.getElementById(`item_${block.keycard}`)?.remove();
+
+            }
+
             console.log(`Lade Level '${teleportDestionation}'`);
 
             ladeLevel(teleportDestionation);
             return true;
             break;
+
         case "item": // item
+            if (aufgesammelteItems.includes(block.interaction)) return true;
             const item = block.interaction.replace('item_', '');
+            itempPickupAnimation(block.interaction);
             console.log(item);
             addToInventory(item);
+            aufgesammelteItems.push(item);
             blockAuswechseln(block.x, block.y, LEVEL.find(l => l.name === currentLevel).meta.default_material, false, false);
-            spielfeld[block.x, block.y] = { x: block.x, y: block.y, material: LEVEL.find(l => l.name === currentLevel).meta.default_material, solid: false, interactive: false };
+            spielfeld[block.x][block.y] = { x: block.x, y: block.y, material: LEVEL.find(l => l.name === currentLevel).meta.default_material, solid: false, interactive: false };
             break;
     }
 }
