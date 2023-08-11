@@ -1,16 +1,57 @@
 body {
 	width: 0vw;
-	height: 0vh;
+	height: 1vh;
+	margin: 0;
+	background-color: steelblue;
+}
+
+h1 {
+	text-align: center;
+	font-size: 36px;
+  }
+  
+#inventory-list {
+	list-style-type: none;
+	padding: 0;
 	margin: 0;
 }
+  
+.item {
+	display: flex;
+	justify-content: space-between;
+	margin: 10px;
+	padding: 10px;
+	background-color: #eaeaea;
+	border-radius: 5px;
+  }
+  
+  .item-name {
+	font-weight: bold;
+	font-size: 24px;
+  }
+  
+  .item-remove {
+	background-color: red;
+	color: white;
+	border: none;
+	border-radius: 3px;
+	font-size: 20px;
+	padding: 5px 10px;
+	cursor: pointer;
+  }
+  
+  .item-remove:hover {
+	background-color: #cc0000;
+  }
 
 #spielfeld {
 	width: 1000px;
 	height: 750px;
-	margin: auto auto;
+	margin: auto, auto;
 	display: flex;
 	flex-flow: row wrap;
-	border: 10px solid black;
+	
+	border: 10px solid brown;
 }
 
 #spielfeld>div {
@@ -27,6 +68,23 @@ body {
 	position: absolute;
 	background-size: contain;
 	z-index: 1;
+	filter: drop-shadow(2px 4px 6px black)
+}
+
+#ausdunkeln {
+	width: 2250px;
+	height: 1750px;
+	top: -925px;
+	left: -875px;
+	background-image: url('../img/hintergrund/ausblenden.png');
+	background-repeat: no-repeat;
+	position: absolute;
+	background-size: contain;
+	z-index: 2;
+}
+
+.Holzboden {
+	background-image: url('../img/hintergrund/GuterHolzboden.png');
 }
 
 .white {
@@ -40,11 +98,9 @@ body {
 .SRB {
 	background-image: url('../img/spielFeld/SRB.png');
 }
-
 .SSF {
 	background-image: url('../img/spielFeld/SSF.png');
 }
-
 .SSU {
 	background-image: url('../img/spielFeld/SSU.png');
 }
@@ -59,6 +115,10 @@ body {
 }
 .SSR {
 	background-image: url('../img/spielFeld/SSR.png');
+}
+
+.Tür {
+	background-image: url("../img/Gegenstände/TolleTür.png")
 }
 
 #spielfigur {
@@ -75,37 +135,32 @@ body {
 .SSF {
 	background-image: url('../img/spielFeld/SSF.png');
 }
-
 .SSL {
 	background-image: url('../img/spielFeld/SSL.png');
 }
-
 .SSU {
 	background-image: url('../img/spielFeld/SSU.png');
 }
-
 .SSD {
 	background-image: url('../img/spielFeld/SSD.png');
 }
-
 .SSM {
 	background-image: url('../img/spielFeld/SSM.png');
 }
-
 .SSR {
 	background-image: url('../img/spielFeld/SSR.png');
 }
 
 .KHW {
-	background-image: url ('../img/hintergrund/KHW.png');
+	background-image: url('../img/hintergrund/KHW.png');
 }
 
 .KTB {
-	background-image: url ('../img/hintergrund/KTB.png');
+	background-image: url('../img/hintergrund/KTB.png');
 }
 
 .KTW {
-	background-image: url ('../img/hintergrund/KTW.png');
+	background-image: url('../img/hintergrund/KTW.png');
 }
 .FBKP {
 	background-image: url('../img/spielFeld/FBKP.png');
@@ -113,7 +168,6 @@ body {
 .FPKF {
 	background-image: url('../img/spielFeld/FPKF.png');
 }
-
 .AFFE {
 	background-image: url('../img/spielFeld/AFFE.png');
 }
@@ -129,3 +183,16 @@ body {
 .SPRU {
 	background-image: url('../img/spielFeld/SPRU.png');
 }
+
+.KAFFEE {
+	background-image: url('../img/Gegenstaende/Kaffemaschiene2.png');
+}
+
+.KEW {
+	background-color: tomato;
+}
+
+.KEKM {
+	background-color: green;
+}
+
