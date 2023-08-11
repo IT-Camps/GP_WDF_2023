@@ -66,7 +66,7 @@ let LEVEL = [
     ]
   },
 
-  { 
+  {
     name: 'kaffeeecke',
     meta: {
       start_x: 19,
@@ -592,14 +592,6 @@ let LEVEL = [
         interactive: false,
       },
       {
-        x: 14,
-        y: 4,
-        material: 'SRB',
-        solid: false,
-        interactive: true,
-        interaction: 'item_keycard_bob'
-      },
-      {
         x: 15,
         y: 4,
         material: 'SSF',
@@ -738,6 +730,15 @@ let LEVEL = [
         material: 'SSF',
         solid: true,
         interactive: false,
+      },
+
+      {
+        x: 19,
+        y: 6,
+        material: 'SRF',
+        solid: false,
+        interactive: true,
+        interaction: 'game_server'
       },
 
       {

@@ -5,6 +5,9 @@ const BREITE = 20;
 const HOEHE = 15;
 var inventory = [];
 
+let posX;
+let posY;
+
 let aufgesammelteItems = [];
 
 //  damit movement interval gestoppt werden kann
@@ -36,8 +39,8 @@ function ladeBlocksInArray(levelName) {
                 .css("background-image", "url('img/hintergrund/endbildschir_bearbeitet_final.png')")
                 .css('background-size', 'cover')
                 .css('background-repeat', 'no-repeat')
-                .css('background-position-x','100%');
-            $("#spielfigur").hide(); 
+                .css('background-position-x', '100%');
+            $("#spielfigur").hide();
             $(".startseite").css("visibility", "visible");
             break;
     }
@@ -133,9 +136,26 @@ function starteEngine() {
     ladeLevel('foyer');
 }
 
+function shadowFolgtFigur() {
+    posX = player.positionX * 50;
+    posY = player.positionY * 50;
+    
+    if (currentLevel != 'kaffeeecke') {
+        $("#sichteinschraenkung").hide();
+    }
+    else if (currentLevel == 'kaffeeecke') {
+        console.log(currentLevel);
+        $("#sichteinschraenkung").show();
+    }
+
+    $("#sichteinschraenkung").css("top",posY - 850);
+    $("#sichteinschraenkung").css("left", posX - 1050);
+}
 
 $(document).ready(function () {
     starteEngine();
+    shadowFolgtFigur();
+
 });
 
 function movePlayer() {
@@ -170,6 +190,7 @@ function forceSetPosition(x, y) {
 }
 
 $(document).on("keydown", (e) => {
+    shadowFolgtFigur();
     if (!e.originalEvent.repeat) {
         switch (e.code) {
             case "KeyW":
@@ -309,6 +330,13 @@ function checkInteraktion(x, y) {
             aufgesammelteItems.push(item);
             blockAuswechseln(block.x, block.y, LEVEL.find(l => l.name === currentLevel).meta.default_material, false, false);
             spielfeld[block.x][block.y] = { x: block.x, y: block.y, material: LEVEL.find(l => l.name === currentLevel).meta.default_material, solid: false, interactive: false };
+            break;
+
+        case "game":
+            if (block.interaction == "game_server") {
+                //  Start server game
+                console.log("server mini game...")
+            }
             break;
     }
 }
