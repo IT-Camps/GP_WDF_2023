@@ -26,7 +26,7 @@ $(document).ready(function(){
 
            
             
-            if (a< 10){                             //alört um die Punkte anzugeben
+            if (a< 10){                                              //alört um die Punkte anzugeben
             alert ('Die Zeit is um! Deine punkte sind: '+a+' Versuchs nochmal!');
             }
             else if (a <20) {
@@ -48,7 +48,7 @@ $(document).ready(function(){
                 alert ('Die Zeit is um! Deine punkte sind: '+a+' Du hast mehr als 1 klick pro sekunde, WOW!');
             }
             else if (a >70) {
-                alert ('Die Zeit is um! Deine punkte sind: '+a+' Cheatest du?');
+                alert ('Die Zeit is um! Deine punkte sind: '+a+' cheatest du?');
             }
 
 
@@ -121,7 +121,7 @@ $(document).ready(function(){
             }
         });
 
-    function platziereSAPlogo()                         // Logos werden zufällig platziert
+    function platziereSAPlogo()                         // alle Logos werden zufällig platziert
     {
         console.log($("#hintergrundbild"));
         console.log($("#hintergrundbild")[0].offsetLeft);
@@ -195,7 +195,7 @@ function Scoregehtrunter(){
     }
 function checkScore(){
     if( a < 0){
-        window.open("ende.html");
+        alert('OH NEIN! veroren :( deine punkte waren: '+a+'')
         versteckeAppleLogo();
         versteckeOracleLogo();
         versteckeSalesforceLogo();
@@ -204,7 +204,7 @@ function checkScore(){
         a = 0;
         
     }else if ( a == 0){
-        window.open("ende.html");
+        alert('OH NEIN! veroren :( deine punkte waren: '+a+'')
         versteckeAppleLogo();
         versteckeOracleLogo();
         versteckeSalesforceLogo();
@@ -213,7 +213,4 @@ function checkScore(){
         a = 0;
         
     }
-}
-});
-
-
+}});
