@@ -1,20 +1,12 @@
-#body1{
+body{
 	width: 0vw;
 	height: 0vh;
 	margin: 0;
-    background-image: url('../img/hintergrund/');
+    background-image: url('../img/hintergrund/SapSimulatorStartBildschirm-gruen.png');
     background-repeat:no-repeat;
     background-size: cover;
 }
-#body2{
-    width: 0vw;
-	height: 0vh;
-	margin: 0;
-    background-image: url('../img/hintergrund/käseMausEndeHintergrund.png');
-    background-repeat:no-repeat;
-    background-size: cover;
-}
-
+    
 #hintergrundbild {
     background: cover;
     background-image : url('../img/spielFeld/Hintergrund_Käse&Maus.png');
@@ -49,7 +41,7 @@
     width: 50px;
     height: 50px;
     top: 200px;
-    left: 1000px;            
+    left: 800px;            
     background-image: url('../img/icons/logo_SAP.png');                     /*sap Logo größe & startposition*/
     background-repeat: no-repeat;
     position: absolute;
@@ -58,8 +50,8 @@
 #oracle-logo {
     width: 50px;
     height: 50px;
-    top: 500px;
-    left: 810px;
+    top: 200px;
+    left: 900px;
     background-image: url('../img/icons/logo_oracle.png');                   /*oracle Logo größe & startposition*/
     background-repeat: no-repeat;
     position: absolute;
@@ -68,8 +60,8 @@
 #salesforce-logo {
     width: 50px;
     height: 50px;
-    top:   320px;
-    left: 1300px;
+    top:   300px;
+    left:  900px;
     background-image: url('../img/icons/logo_salesforce.png');                  /*sap Logo größe & startposition*/
     background-repeat: no-repeat;
     position: absolute;
@@ -78,9 +70,19 @@
 #apple-logo {
     width: 50px;
     height: 50px;
-    top: 100px;
-    left:500px;
+    top: 300px;
+    left:800px;
     background-image: url('..//img/icons/Apple.png');                       /* apple logo größe & startposition*/
+    background-repeat: no-repeat;
+    position: absolute;
+    background-size: contain;
+}
+#Startbefehl {
+    width: 100px;
+    height: 100px;
+    top: 400px;
+    left:840px;
+    background-image: url('..//img/icons/StartButton.png');                       /* start knopf größe & Position*/
     background-repeat: no-repeat;
     position: absolute;
     background-size: contain;
@@ -89,12 +91,13 @@ display:inline-block {
 width: 300px; 
 margin: 20px 0; 
 border-radius: 5px;  
-background: lightskyblue; 
+background: lightskyblue;
+margin-left: 20px; 
 }
 #countdown {
 font-family: "Fira Sans", sans-serif; 
 display: inline-block;
-padding: 30px; 
+padding: 20px; 
 background: lightskyblue;
 color: white;
 text-align: left;
@@ -105,11 +108,28 @@ font-weight: bold;
 font-size: 30px; 
 }
 #neustart {
+margin: 0;
 background-color: lightskyblue;
 text-indent: left;
 text-align: left;
+margin: right;
+font-family: "Fira Sans", sans-serif; 
+display: inline-block;
+padding: 18.5px; 
 }
-#backToStart {
-    color: white;
-    text-align: center;
+#backzumspiel {
+    margin: 0;
+background-color: lightskyblue;
+text-indent: left;
+text-align: left;
+margin: right;
+font-family: "Fira Sans", sans-serif; 
+display: inline-block;
+padding: 18.5px;
+}
+
+#score {
+    position: absolute;
+    left: 20em;
+    font-size: x-large;
 }
