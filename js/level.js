@@ -1,6 +1,8 @@
 // Spoiler: Tut nicht ganz (:
 let ITEM_TEXTURE_ATLAS = {
   item_keycard_bob: "./img/keyCards/keycard_bob.png",
+  item_keycard_daniel: "./img/keyCards/keycard_daniel.png",
+  item_keycard_olli: "./img/keyCards/keycard_olli.png",
 }
 let LEVEL = [
   {
@@ -11,10 +13,12 @@ let LEVEL = [
       default_material: 'FBKP'
     },
     data: [
-      { x: 19, y: 7, material: 'door', solid: false, interactive: true, interaction: "teleport_serverraum" }, //serverrraum
+      { x: 19, y: 7, material: 'door', solid: false, interactive: true, interaction: "teleport_serverraum", keycard: "keycard_olli" }, //serverrraum
       { x: 12, y: 0, material: 'door', solid: false, interactive: true, interaction: "teleport_office", keycard: "keycard_bob" }, //eigenes büro
-      { x: 3, y: 0, material: 'door', solid: false, interactive: true, interaction: "teleport_ceo" }, //aufzug ceo
+      { x: 3, y: 0, material: 'door', solid: false, interactive: true, interaction: "teleport_ceo", keycard: "keycard_daniel" }, //aufzug ceo
       { x: 0, y: 7, material: 'door', solid: false, interactive: true, interaction: "teleport_kaffeeecke" }, //cafeteria
+
+      { x: 19, y: 0, material: 'FBKP', solid: false, interactive: true, interaction: "item_keycard_olli" }
       /*{x:10, y:0, material: 'SPRU', solid: true, interactive: false},
       
       
@@ -73,6 +77,7 @@ let LEVEL = [
       
     {y:12, x:2, material: 'KEKM', solid: false, interactive: false},
     {x:9, y:0, material: 'door', solid: false, interactive: true, interaction: "teleport_foyer"},
+    { x: 1, y: 8, material: 'Holzboden', solid: false, interactive: true, interaction: 'item_keycard_daniel' },
     {y:0, x:0, material: 'KEW', solid: true, interactive: false},
     {y:0, x:1, material: 'KEW', solid: true, interactive: false},
     {y:0, x:2, material: 'KEW', solid: true, interactive: false},
