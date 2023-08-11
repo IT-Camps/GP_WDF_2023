@@ -71,7 +71,7 @@ function zeigeSpielfeld() {
 
             //  Render items
             if (block.interactive && block.interaction?.startsWith('item_') && !aufgesammelteItems.includes(block.interaction.replace('item_', ''))) {
-                setBlockItem(x, y, block.interaction.replace('item_', ''), ITEM_TEXTURE_ATLAS[block.interaction], true);
+                setBlockItem(x, y, block.interaction.replace('item_', ''), ITEM_TEXTURE_ATLAS[block.interaction], "45deg", true);
             }
         }
     }
@@ -86,11 +86,11 @@ function blockAuswechseln(x, y, material, solid, interactive) {
 }
 
 //  Beispiel: setBlockItem(19, 7, 'keycard_bob', './img/keyCards/keycard_bob.png', true); 
-function setBlockItem(x, y, itemName, itemTextureLocation, animate) {
+function setBlockItem(x, y, itemName, itemTextureLocation, rotate, animate) {
     const block = spielfeld[x][y];
     block.interactive = true;
     block.interaction = `item_${itemName}`;
-    $(`#${block.x}_${block.y}`).append(`<div id='${block.interaction}' style='background-image: url("${itemTextureLocation}"); height: 50px; scale: 0.7; rotate: 45deg; position: relative; top: 0px; filter: drop-shadow(0 0 6px black);'></div>`);
+    $(`#${block.x}_${block.y}`).append(`<div id='${block.interaction}' style='background-image: url("${itemTextureLocation}"); height: 50px; scale: 0.7; rotate: ${rotate}; position: relative; top: 0px; filter: drop-shadow(0 0 6px black);'></div>`);
     if (animate != false) {
         document.getElementById(block.interaction).animate([
             {
@@ -145,7 +145,7 @@ function starteEngine() {
 function shadowFolgtFigur() {
     posX = player.positionX * 50;
     posY = player.positionY * 50;
-    
+
     if (currentLevel != 'kaffeeecke' || getrunken == true) {
         $("body").css('background-color', 'steelblue');
         $("#sichteinschraenkung").hide();
@@ -197,7 +197,7 @@ function forceSetPosition(x, y) {
 }
 
 $(document).on("keydown", (e) => {
-    
+
     if (!e.originalEvent.repeat) {
         switch (e.code) {
             case "KeyW":
@@ -216,7 +216,7 @@ $(document).on("keydown", (e) => {
         // console.log(e.code)
         shadowFolgtFigur();
     }
-    
+
 });
 
 $(document).on("keyup", (e) => {
@@ -350,13 +350,13 @@ function checkInteraktion(x, y) {
 
         case "coffee":
             console.log("coffee interaction")
-            getrunken = true;
             if (movementIntervalID) clearInterval(movementIntervalID)
             movementIntervalID = null;
 
             setTimeout(() => forceSetPosition(1, 12), 20);
 
-            document.getElementById(`${x}_${y}`).animate([
+            const kaffeemaschine = document.getElementById(`${x}_${y}`);
+            kaffeemaschine.animate([
                 {
                     scale: 1.0
                 },
@@ -366,7 +366,51 @@ function checkInteraktion(x, y) {
                 {
                     scale: 1.0
                 },
-            ], { duration: 500, iterations: 5 })
+            ], { duration: 500, iterations: 5 }).onfinish = () => {
+                setBlockItem(x, y, "coffee", "./img/Gegenstaende/Kaffetasse.png", "0deg", false);
+
+                itempPickupAnimation("item_coffee");
+                $("#item_coffee").css('scale', 0.2);
+
+                setTimeout(() => {
+                    document.getElementById("item_coffee").animate([
+                        {
+                            offset: 0.1,
+                            rotate: "0deg",
+                            top: "10px",
+                            left: "18px"
+                        },
+                        {
+                            offset: 0.8,
+                            rotate: "-40deg",
+                            top: "-3px",
+                            left: "8px",
+                        },
+                        {
+                            offset: 1,
+                            rotate: "0deg",
+                            top: "10px",
+                            left: "18px"
+                        },
+                    ], { duration: 2500 }).onfinish = () => {
+                        document.getElementById(`item_coffee`)?.remove();
+
+                        document.getElementById("sichteinschraenkung").animate([
+                            {
+                                opacity: "100%"
+                            },
+                            {
+                                opacity: "0%",
+                            }
+                        ], { duration: 1000 }).onfinish = () => {
+                            $("#sichteinschraenkung").hide();
+                            getrunken = true;
+                            setBlockItem(1, 1, "keycard_daniel", "./img/keyCards/keycard_daniel.png", "45deg", true);
+                            movementIntervalID = setInterval(movePlayer, 150);
+                        }
+                    }
+                }, 350)
+            }
 
             break;
     }
