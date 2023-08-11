@@ -18,7 +18,7 @@ $(document).ready(function(){
         timeleft = 0;
     }
         
-        if(timeleft == 0){ //Checke wenn Scoreboard == 0 -> dann verstecke Logo
+        if(timeleft == 0){                                              //Checke wenn Scoreboard == 0 -> dann verstecke Logo
             versteckeSapLogo(); 
             versteckeOracleLogo();
             versteckeSalesforceLogo();
