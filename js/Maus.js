@@ -26,8 +26,8 @@ $(document).ready(function(){
 
            
             
-            if (a< 10){                                              //alört um die Punkte anzugeben
-            alert ('Die Zeit is um! Deine punkte sind: '+a+' Versuchs nochmal!');
+            if (a< 10){                                                          //alört um die Punkte anzugeben
+                alert ('Die Zeit is um! Deine punkte sind: '+a+' Versuchs nochmal!');
             }
             else if (a <20) {
                 alert ('Die Zeit is um! Deine punkte sind: '+a+' Du wirst besser!');
@@ -120,6 +120,13 @@ $(document).ready(function(){
                 
             }
         });
+        $("#Startbefehl").click(function(){
+            platziereAppleLogo();
+            platziereOracleLogo();
+            platziereSAPlogo();
+            platziereSalesForceLogo();
+            versteckeStartBefehl();
+        });
 
     function platziereSAPlogo()                         // alle Logos werden zufällig platziert
     {
@@ -168,6 +175,9 @@ $(document).ready(function(){
     function versteckeAppleLogo(){
         $("#apple-logo").hide();
     }
+    function versteckeStartBefehl(){
+        $("#Startbefehl").hide();
+    }
 
     
     
@@ -195,7 +205,7 @@ function Scoregehtrunter(){
     }
 function checkScore(){
     if( a < 0){
-        alert('OH NEIN! veroren :( deine punkte waren: '+a+'')
+        alert('OH NEIN! veroren :(')
         versteckeAppleLogo();
         versteckeOracleLogo();
         versteckeSalesforceLogo();
@@ -204,7 +214,7 @@ function checkScore(){
         a = 0;
         
     }else if ( a == 0){
-        alert('OH NEIN! veroren :( deine punkte waren: '+a+'')
+        alert('OH NEIN! veroren :( Viel glück beim Nächsten versuch!')
         versteckeAppleLogo();
         versteckeOracleLogo();
         versteckeSalesforceLogo();
