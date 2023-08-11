@@ -179,3 +179,13 @@ h1 {
 	background-color: green;
 }
 
+.startseite{
+	position:absolute;
+	width: 245px;
+	height: 80px;
+	visibility: hidden;
+	left: 725px;
+	top: 648px;
+	z-index: 2;
+	cursor: pointer;
+}

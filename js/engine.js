@@ -37,7 +37,8 @@ function ladeBlocksInArray(levelName) {
                 .css('background-size', 'cover')
                 .css('background-repeat', 'no-repeat')
                 .css('background-position-x','100%');
-            $("#spielfigur").hide();    
+            $("#spielfigur").hide(); 
+            $(".startseite").css("visibility", "visible");
             break;
     }
 
