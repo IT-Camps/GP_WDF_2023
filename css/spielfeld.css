@@ -193,11 +193,11 @@ h1 {
 }
 
 .KEW {
-	background-color: tomato;
+	background-image: url('../img/hintergrund/KHW.png');
 }
 
 .KEKM {
-	background-color: green;
+	background-image: url('../img/Gegenstaende/Kaffemaschine2.png');
 }
 
 .startseite {

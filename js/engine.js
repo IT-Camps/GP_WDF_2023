@@ -28,6 +28,11 @@ function ladeBlocksInArray(levelName) {
     //  TODO: Vollkommen auf level.meta.default_material umsteigen
     //  mit ausnahme von background-image und level spezifischen stylesheets
     switch (currentLevel) {
+        case "kaffeeecke":
+            //  blackout effect
+
+            setTimeout(() => alert("Du bist extrem müde! Trinke einen starken Kaffe."), 20);
+            break;
         case "office":
             //floor = 'fu';
             $("#spielfeld").css("background-image", "url('img/hintergrund/mathis spiel.png')");
@@ -339,6 +344,27 @@ function checkInteraktion(x, y) {
                 //  Start server game
                 console.log("server mini game...")
             }
+            break;
+
+        case "coffee":
+            console.log("coffee interaction")
+            if (movementIntervalID) clearInterval(movementIntervalID)
+            movementIntervalID = null;
+
+            setTimeout(() => forceSetPosition(1, 12), 20);
+
+            document.getElementById(`${x}_${y}`).animate([
+                {
+                    scale: 1.0
+                },
+                {
+                    scale: 1.2
+                },
+                {
+                    scale: 1.0
+                },
+            ], { duration: 500, iterations: 5 })
+
             break;
     }
 }
