@@ -32,9 +32,12 @@ function ladeBlocksInArray(levelName) {
             break;
         case "ceo":
             floor = 'fu';
-            $("#spielfeld").css("background-image", "url('img/hintergrund/endbildschir_bearbeitet_final.png')", 'background-size', 'auto');
-            $("#spielfigur").hide();
-            //CSS FÜR ENDBILDSCHIRM setzen
+            $("#spielfeld")
+                .css("background-image", "url('img/hintergrund/endbildschir_bearbeitet_final.png')")
+                .css('background-size', 'cover')
+                .css('background-repeat', 'no-repeat')
+                .css('background-position-x','100%');
+            $("#spielfigur").hide();    
             break;
     }
 
