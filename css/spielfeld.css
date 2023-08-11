@@ -66,8 +66,8 @@ h1 {
 	border: 10px solid white;
 }
 #minimaus {
-	width: 1000px;
-	height: 750px;
+	width: 1800px;
+	height: 1000px;
 	display: flex;
 	flex-flow: row wrap;
 

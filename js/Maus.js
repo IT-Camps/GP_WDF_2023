@@ -1,7 +1,7 @@
 $(document).ready(function(){
    
     MausfolgtZeiger();
-    var timeleft = 15;
+    var timeleft = 16;
     var downloadTimer = setInterval(function(){
     timeleft--;
     if(timeleft >= 0){
