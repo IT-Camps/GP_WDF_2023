@@ -5,6 +5,9 @@ const BREITE = 20;
 const HOEHE = 15;
 var inventory = [];
 
+let posX;
+let posY;
+
 let aufgesammelteItems = [];
 
 //  damit movement interval gestoppt werden kann
@@ -138,9 +141,26 @@ function starteEngine() {
     ladeLevel('foyer');
 }
 
+function shadowFolgtFigur() {
+    posX = player.positionX * 50;
+    posY = player.positionY * 50;
+    
+    if (currentLevel != 'kaffeeecke') {
+        $("#sichteinschraenkung").hide();
+    }
+    else if (currentLevel == 'kaffeeecke') {
+        console.log(currentLevel);
+        $("#sichteinschraenkung").show();
+    }
+
+    $("#sichteinschraenkung").css("top",posY - 850);
+    $("#sichteinschraenkung").css("left", posX - 1050);
+}
 
 $(document).ready(function () {
     starteEngine();
+    shadowFolgtFigur();
+
 });
 
 function movePlayer() {
@@ -175,6 +195,7 @@ function forceSetPosition(x, y) {
 }
 
 $(document).on("keydown", (e) => {
+    shadowFolgtFigur();
     if (!e.originalEvent.repeat) {
         switch (e.code) {
             case "KeyW":
