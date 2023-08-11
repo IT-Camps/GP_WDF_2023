@@ -1,15 +1,27 @@
-body{
+#body1{
 	width: 0vw;
 	height: 0vh;
 	margin: 0;
+    background-image: url('../img/hintergrund/');
+    background-repeat:no-repeat;
+    background-size: cover;
 }
+#body2{
+    width: 0vw;
+	height: 0vh;
+	margin: 0;
+    background-image: url('../img/hintergrund/käseMausEndeHintergrund.png');
+    background-repeat:no-repeat;
+    background-size: cover;
+}
+
 #hintergrundbild {
     background: cover;
     background-image : url('../img/spielFeld/Hintergrund_Käse&Maus.png');
     width: 1000px;
     height: 750px;
-    background-repeat: no-repeat;
-    background-size: cover;
+    background-repeat: no-repeat;                                                       /****hintergrundbild innerhalb des kastens 1000x750px ****/
+    background-size: cover;                                             
     position: center;
     margin-left:26.45em;
     
@@ -17,26 +29,28 @@ body{
 	display: flex;
 	flex-flow: row wrap;
 	flex-direction: row-reverse;
-	border: 10px solid brown;
+	border: 10px solid black;
     
 }
 
 #Geschäftsmann {
     width: 100px;
     height: 100px;
-    background-image: url('../img/spielfigur/Christian Klein.png');
+    top: 150px;
+    left: 100px;
+    background-image: url('../img/spielFigur/Christian_Klein.png');     /**christian klein **/
     background-size: contain;
     background-repeat: no-repeat;
     position: absolute;
-    z-index: 1;
+    z-index: 2;
 }
 
 #SAP-logo {
     width: 50px;
     height: 50px;
     top: 200px;
-    left: 200px;
-    background-image: url('../img/icons/logo_SAP.png');
+    left: 1000px;            
+    background-image: url('../img/icons/logo_SAP.png');                     /*sap Logo größe & startposition*/
     background-repeat: no-repeat;
     position: absolute;
     background-size: contain;
@@ -45,8 +59,8 @@ body{
     width: 50px;
     height: 50px;
     top: 500px;
-    left: 100px;
-    background-image: url('../img/icons/logo_oracle.png');
+    left: 810px;
+    background-image: url('../img/icons/logo_oracle.png');                   /*oracle Logo größe & startposition*/
     background-repeat: no-repeat;
     position: absolute;
     background-size: contain;
@@ -54,9 +68,9 @@ body{
 #salesforce-logo {
     width: 50px;
     height: 50px;
-    top: 700px;
-    left: 300px;
-    background-image: url('../img/icons/logo_salesforce.png');
+    top:   320px;
+    left: 1300px;
+    background-image: url('../img/icons/logo_salesforce.png');                  /*sap Logo größe & startposition*/
     background-repeat: no-repeat;
     position: absolute;
     background-size: contain;
@@ -64,9 +78,9 @@ body{
 #apple-logo {
     width: 50px;
     height: 50px;
-    top: 600px;
-    left: 200px;
-    background-image: url('..//img/icons/Apple.png');
+    top: 100px;
+    left:500px;
+    background-image: url('..//img/icons/Apple.png');                       /* apple logo größe & startposition*/
     background-repeat: no-repeat;
     position: absolute;
     background-size: contain;
@@ -94,4 +108,8 @@ font-size: 30px;
 background-color: lightskyblue;
 text-indent: left;
 text-align: left;
+}
+#backToStart {
+    color: white;
+    text-align: center;
 }

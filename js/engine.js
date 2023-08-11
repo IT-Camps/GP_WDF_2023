@@ -1,10 +1,8 @@
 let spielfeld = [];
 let blocks;
 let current_level = "foyer";
-let floor;
 const BREITE = 20;
 const HOEHE = 15;
-
 
 let player = {
     positionX: 0,
@@ -15,29 +13,45 @@ let player = {
     isMovingRight: false,
 };
 
-function ladeBlocksInArray(levelName) {
-    const level = LEVEL.find(l => l.name == levelName);
-    switch (levelName) {
+function ladeBlocksInArray() {
+    const level = LEVEL.find(l => l.name == current_level);
+    switch (current_level) {
         case "foyer":
             floor = 'FBKP';
             break;
         case "serverraum":
             floor = 'SRB';
             break;
+        case "kaffeeecke":
+            floor = 'Holzboden';
+            break;
+        case "office":
+            floor = 'fu';
+            console.log($("#spielfeld"));
+            $("#spielfeld").css("background-image", "url('img/hintergrund/mathis spiel.png')");
+            //CSS FÜR eigenes büro setzen
+            break;
+        case "ceo":
+            floor = 'fu';
+            console.log($("#spielfeld"));
+            $("#spielfeld").css("background-image", "url('img/hintergrund/endbildschir_bearbeitet_final.png')");
+            //CSS FÜR ENDBILDSCHIRM setzen
+            break;
         default:
             break;
     }
-    for (let x = 0; x < HOEHE; x++) {
+    
+    for (let x = 0; x < BREITE; x++) {
         spielfeld[x] = [];
-        for (let y = 0; y < BREITE; y++) {
+        for (let y = 0; y < HOEHE; y++) {
             spielfeld[x][y] = level.data.find(block => block.x == x && block.y == y) || { x: x, y: y, material: floor, solid: false, interactive: false };
         }
     }
 }
 
 function zeigeSpielfeld() {
-    for (let x = 0; x < HOEHE; x++) {
-        for (let y = 0; y < BREITE; y++) {
+    for (let y = 0; y < HOEHE; y++) {
+        for (let x = 0; x < BREITE; x++) {
             $("#spielfeld").append(`<div class="${spielfeld[x][y].material}" id="${x}/${y}"></div>`)
         }
     }
@@ -51,21 +65,17 @@ function blockAuswechseln(x, y, material, solid, interactive) {
 }
 
 function spielfeldLeeren() {
-    let current;
     for (let y = 0; y < HOEHE; y++) {
         for (let x = 0; x < BREITE; x++) {
-            current = document.getElementById(x + '/' + y);
-            current.remove();
+            document.getElementById(x + '/' + y).remove();
         }
     }
 }
 
 function starteEngine() {
     let levelNamen = LEVEL.map(l => l.name);
-    console.log("Starte engine...");
-    console.log(`Geladene level: ` + levelNamen.join(', '));
 
-    ladeBlocksInArray(current_level);
+    ladeBlocksInArray();
     zeigeSpielfeld();
 
     console.log(spielfeld);
@@ -73,26 +83,45 @@ function starteEngine() {
     setInterval(movePlayer, 150);
 }
 
+function ausdunkeln() { 
+    // Irgendwas machen, dass der nicht ausgedunkelte bereich der Figur folgt
+    // Maße der Schablone: height: 1750, width: 2250 durchmesser kreis: 250px
+}
 
 $(document).ready(function () {
     starteEngine();
+    ausdunkeln();
 });
 
 function movePlayer() {
-    if (player.isMovingUp && !istBetretbar(player.positionX, player.positionY - 1)) setPosition(player.positionX, player.positionY - 1);
-    if (player.isMovingDown && !istBetretbar(player.positionX, player.positionY + 1)) setPosition(player.positionX, player.positionY + 1);
-    if (player.isMovingLeft && !istBetretbar(player.positionX - 1, player.positionY)) setPosition(player.positionX - 1, player.positionY);
-    if (player.isMovingRight && !istBetretbar(player.positionX + 1, player.positionY)) setPosition(player.positionX + 1, player.positionY);
+    if (player.isMovingUp && istBetretbar(player.positionX, player.positionY - 1)) setPosition(player.positionX, player.positionY - 1);
+    if (player.isMovingDown && istBetretbar(player.positionX, player.positionY + 1)) setPosition(player.positionX, player.positionY + 1);
+    if (player.isMovingLeft && istBetretbar(player.positionX - 1, player.positionY)) setPosition(player.positionX - 1, player.positionY);
+    if (player.isMovingRight && istBetretbar(player.positionX + 1, player.positionY)) setPosition(player.positionX + 1, player.positionY);
 }
 
 function setStartingPosition() {
-    setPosition(0, 0);
+    let level = LEVEL.find(l => l.name == current_level);
+
+    console.log(level);
+    forceSetPosition(level.start_x, level.start_y);
 }
 
 function setPosition(x, y) {
-    // X orientation
+
+    if(checkInteraktion(x, y))
+
+    forceSetPosition(x, y);
+}
+
+
+function forceSetPosition(x, y) 
+{
     if (x < player.positionX) $('#spielfigur').css('transform', 'scaleX(-1)');
-    if (x > player.positionX) $('#spielfigur').css('transform', 'scaleX(1)')
+    if (x > player.positionX) $('#spielfigur').css('transform', 'scaleX(1)');
+
+    console.log(x);
+    console.log(y);
 
     player.positionX = x;
     player.positionY = y;
@@ -117,7 +146,7 @@ $(document).on("keydown", (e) => {
                 player.isMovingRight = true;
                 break;
         }
-        console.log(e.code)
+       // console.log(e.code)
     }
 });
 
@@ -140,6 +169,101 @@ $(document).on("keyup", (e) => {
 
 
 function istBetretbar(x, y) {
-    if (x < 0 || y < 0 || x >= BREITE || y >= HOEHE) return true;
-    return spielfeld[x][y].solid;
+    if (x < 0 || y < 0 || x >= BREITE || y >= HOEHE) return false;
+    return !spielfeld[x][y].solid;
+}
+
+
+function checkInteraktion(x, y) {
+    if (!spielfeld[x][y].interactive) {
+        return true;
+    }
+    else {
+        if (spielfeld[x][y].material == "door") {
+            //  player keycard check
+            current_level = spielfeld[x][y].interaction.replace('teleport_', '');
+            console.log("neues level");
+
+            spielfeldLeeren();
+            ladeBlocksInArray();
+            zeigeSpielfeld();
+            console.log('Level change??');
+            setStartingPosition();
+            return false;
+        }
+        if (spielfeld.material == ""){
+             
+        }
+    }
+}
+
+
+/*
+To do liste
+    Sebastian:
+        -teleport logic
+        -interaktion
+    Maksim:
+        -interaktion mit items
+        -keycards aufheben und oben rechts im bildschirm als inventar anzeigen
+*/
+
+
+
+//items unsichtbar
+//items werden platziert, wenn der benötigte Raum geladen ist und Bedingungen erfüllt sind
+//platzieren: zugewiesene Koordinaten im Array auslesen
+//items werden aufgehoben, aber anstelle item.hide oben rechts in die ecke und kleiner
+//Stelle im array wo item war mit floor ersetzen
+//items fallen lassen nicht einbauen weil warum
+
+function itemSichtbar(item){
+    switch (item){
+        case "keycard1":
+            itemSetPosition(item)
+            $(item).show()
+
+    }
+}
+let arrayKeycards= [false,false,false,false]
+function itemSetPosition(item, inventar){
+    switch(item){
+        case "keycard1":
+            if (inventar == true){
+                
+                $('#item')
+                    .css('top',  )//Koordinaten anpassen
+                    .css('left',  );
+            }
+            else{
+                blockAuswechseln(x, y, "keycard1", false, true) //Koordinaten auswechseln
+            }
+        case "keycard2":
+            if (inventar == true){
+                $('#item')
+                    .css('top',  )//Koordinaten anpassen
+                    .css('left',  );
+            }
+            else{
+                blockAuswechseln(x, y, "keycard2", false, true) //Koordinaten auswechseln
+            }
+        case "keycard3":
+            if (inventar == true){
+                $('#item')
+                    .css('top',  )//Koordinaten anpassen
+                    .css('left',  );
+            }
+            else{
+                blockAuswechseln(x, y, "keycard3", false, true) //Koordinaten auswechseln
+            }
+        case "keycard4":
+            if (inventar == true){
+                $('#item')
+                    .css('top',  )//Koordinaten anpassen
+                    .css('left',  );
+            }
+            else{
+                blockAuswechseln(x, y, "keycard4", false, true) //Koordinaten auswechseln
+            }
+    }
 }
