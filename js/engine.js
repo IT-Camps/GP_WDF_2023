@@ -141,10 +141,12 @@ function shadowFolgtFigur() {
     posY = player.positionY * 50;
     
     if (currentLevel != 'kaffeeecke') {
+        $("body").css('background-color', 'steelblue');
         $("#sichteinschraenkung").hide();
     }
     else if (currentLevel == 'kaffeeecke') {
         console.log(currentLevel);
+        $("body").css('background-color', 'black');
         $("#sichteinschraenkung").show();
     }
 
