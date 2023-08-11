@@ -32,7 +32,8 @@ function ladeBlocksInArray(levelName) {
             break;
         case "ceo":
             floor = 'fu';
-            $("#spielfeld").css("background-image", "url('img/hintergrund/endbildschir_bearbeitet_final.png')");
+            $("#spielfeld").css("background-image", "url('img/hintergrund/endbildschir_bearbeitet_final.png')", 'background-size', 'auto');
+            $("#spielfigur").hide();
             //CSS FÜR ENDBILDSCHIRM setzen
             break;
     }
@@ -286,6 +287,8 @@ function checkInteraktion(x, y) {
                 document.getElementById(`item_${block.keycard}`)?.remove();
 
             }
+
+
 
             console.log(`Lade Level '${teleportDestionation}'`);
 

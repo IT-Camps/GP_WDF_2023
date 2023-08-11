@@ -43,6 +43,25 @@ let LEVEL = [
     ]
   },
 
+
+  {
+    name: 'ceo',
+    meta: {
+      start_x: 10,
+      start_y: 14,
+      default_material: 'fu'
+    },
+    data: [
+      /* { x: 9, y: 0, material: 'door', solid: false, interactive: true, interaction: "teleport_foyer" },
+     {x:10, y:0, material: 'SPRU', solid: true, interactive: false},
+      
+      
+      {x:14, y:7, material: 'FPKF', solid: true, interactive: false},
+      {x:14, y:10, material: 'FPKF', solid: true, interactive: false}  */
+
+    ]
+  },
+
   {
     name: 'kaffeeecke',
     meta: {

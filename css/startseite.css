@@ -1,16 +1,16 @@
 #startseite{
-    grid-column: 4/6;
-    grid-row: 4/6;
+    grid-column: 2/3;
+    grid-row: 2/3;
     cursor: pointer;
-    background-color: blue;
 
 }
 body{
     display: grid;
-    grid-template-columns: 10vw 10vw 13vw 8vw 10vw 10vw 10vw 10vw 10vw 10vw;
-    grid-template-rows: 10vh 9vh 11vh 10vh 9vh 20vh 10vh 10vh 10vh auto;
+    grid-template-columns:  auto 20vw auto;
+    grid-template-rows: 33vh 14vh 65vh;
     background-image: url("../img/hintergrund/SapSimulatorStartBildschirm-rot.png");
     background-repeat: no-repeat;
     background-size: contain;
     opacity: 30%;
+    overflow: hidden;
 }
