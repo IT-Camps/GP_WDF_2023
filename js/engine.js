@@ -335,7 +335,7 @@ function checkInteraktion(x, y) {
             console.log(item);
             addToInventory(item);
             aufgesammelteItems.push(item);
-            blockAuswechseln(block.x, block.y, LEVEL.find(l => l.name === currentLevel).meta.default_material, false, false);
+            //blockAuswechseln(block.x, block.y, LEVEL.find(l => l.name === currentLevel).meta.default_material, false, false);
             spielfeld[block.x][block.y] = { x: block.x, y: block.y, material: LEVEL.find(l => l.name === currentLevel).meta.default_material, solid: false, interactive: false };
             break;
 
