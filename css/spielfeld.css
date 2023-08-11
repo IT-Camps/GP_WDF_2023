@@ -1,8 +1,13 @@
 body {
-	width: 0vw;
+	/*width: 0vw;
 	height: 1vh;
 	margin: 0;
-	background-color: steelblue;
+	background-color: steelblue;*/
+	background-image: url(../img/hintergrund/Hintergrundbildserverminigame.png);
+    z-index: -1;
+    background-size: cover;
+   /*background-repeat: no-repeat;*/
+    object-fit: cover;
 }
 
 h1 {

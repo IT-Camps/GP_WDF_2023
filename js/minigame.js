@@ -1,4 +1,8 @@
 $(document).ready(function () {
+  //const meinScore = document.getElementById("score");
+  const meinDiv = document.getElementById("timer");
+  var score = 0;
+  var timeleft = 15;
   let server1 = true;
   let server2 = true;
   let server3 = true;
@@ -11,10 +15,28 @@ $(document).ready(function () {
   let server10 = true;
   let server11 = true;
   let server12 = true;
-  //const meinScore = document.getElementById("score");
-  const meinDiv = document.getElementById("timer");
-  var score = 0;
-  var timeleft = 15;
+  function Spielgewinnen() {
+    console.log(server1);
+    if (
+      server1 == true &&
+      server2 == true &&
+      server3 == true &&
+      server4 == true &&
+      server5 == true &&
+      server6 == true &&
+      server7 == true &&
+      server8 == true &&
+      server9 == true &&
+      server10 == true &&
+      server11 == true &&
+      server12 == true &&
+      timeleft < 2
+    ) {
+      // HIER Programm Code wie es weiter gehen soll , wenn das Spiel gemeistert worden ist
+      window.location.replace("../index.html");
+    }
+  }
+
   meinDiv.innerHTML = `<p> Zeit:${timeleft}</p>`;
   //meinScore.innerHTML = `<p>Score:${score}</p>`;
   if (
@@ -23,13 +45,13 @@ $(document).ready(function () {
         alleServerNeu();
         timeleft = 15;
         var downloadTimer = setInterval(function () {
-          timeleft = timeleft - 0.5;
+          timeleft = timeleft - 1;
           if (timeleft <= 0) {
             clearInterval(downloadTimer);
           }
           meinDiv.innerHTML = `<p>Zeit:${timeleft}</p>`;
           serverRandomZerstören();
-        }, 500);
+        }, 1000);
       }
     })
   );
@@ -69,6 +91,7 @@ $(document).ready(function () {
         $("#server1").css("background-image", "url(../img/spielFeld/SSF.png)");
         console.log("Bild richtig" + server1);
         server1 = true;
+        Spielgewinnen();
       }
     }
   });
@@ -77,6 +100,7 @@ $(document).ready(function () {
       if (server2) {
         $("#server2").css("background-image", "url(../img/spielFeld/SSF.png)");
         server2 = true;
+        Spielgewinnen();
       }
     }
   });
@@ -85,6 +109,7 @@ $(document).ready(function () {
       if (server3) {
         $("#server3").css("background-image", "url(../img/spielFeld/SSF.png)");
         server3 = true;
+        Spielgewinnen();
       }
     }
   });
@@ -93,38 +118,43 @@ $(document).ready(function () {
       if (server4) {
         $("#server4").css("background-image", "url(../img/spielFeld/SSF.png)");
         server4 = true;
+        Spielgewinnen();
       }
     }
   });
   $("#server5").click(function () {
     if (timeleft != 0) {
-      if (server5 ) {
+      if (server5) {
         $("#server5").css("background-image", "url(../img/spielFeld/SSF.png)");
         server5 = true;
+        Spielgewinnen();
       }
     }
   });
   $("#server6").click(function () {
     if (timeleft != 0) {
-      if (server6 ) {
+      if (server6) {
         $("#server6").css("background-image", "url(../img/spielFeld/SSF.png)");
         server6 = true;
+        Spielgewinnen();
       }
     }
   });
   $("#server7").click(function () {
     if (timeleft != 0) {
-      if (server7 ) {
+      if (server7) {
         $("#server7").css("background-image", "url(../img/spielFeld/SSF.png)");
         server7 = true;
+        Spielgewinnen();
       }
     }
   });
   $("#server8").click(function () {
     if (timeleft != 0) {
-      if (server8 ) {
+      if (server8) {
         $("#server8").css("background-image", "url(../img/spielFeld/SSF.png)");
         server8 = true;
+        Spielgewinnen();
       }
     }
   });
@@ -133,6 +163,7 @@ $(document).ready(function () {
       if (server9) {
         $("#server9").css("background-image", "url(../img/spielFeld/SSF.png)");
         server9 = true;
+        Spielgewinnen();
       }
     }
   });
@@ -141,6 +172,7 @@ $(document).ready(function () {
       if (server10) {
         $("#server10").css("background-image", "url(../img/spielFeld/SSF.png)");
         server10 = true;
+        Spielgewinnen();
       }
     }
   });
@@ -149,14 +181,16 @@ $(document).ready(function () {
       if (server11) {
         $("#server11").css("background-image", "url(../img/spielFeld/SSF.png)");
         server11 = true;
+        Spielgewinnen();
       }
     }
   });
   $("#server12").click(function () {
     if (timeleft != 0) {
-      if (server12 ) {
+      if (server12) {
         $("#server12").css("background-image", "url(../img/spielFeld/SSF.png)");
         server12 = true;
+        Spielgewinnen();
       }
     }
   });
