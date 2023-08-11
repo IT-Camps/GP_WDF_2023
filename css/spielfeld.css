@@ -60,15 +60,47 @@ h1 {
 	margin: 0;
 }
 
-#spielfigur {
-	width: 60px;
-	height: 60px;
-	background-image: url(img/spielFigur/lumberjackOne.png);
-	background-repeat: no-repeat;
+#item {
+	height: 50px;
+	width: 50px;
 	position: absolute;
+	background-image: url('../img/KeyCards/KeycardBobRoss.png');
 	background-size: contain;
+	background-repeat: no-repeat;
 	z-index: 1;
-}
+ }
+ 
+ #tuer {
+	 height: 50px;
+	 width: 50px;
+	 position: absolute;
+	 background-color: gray;
+	 background-size: contain;
+	 background-repeat: no-repeat;
+	 z-index: 1;
+ }
+ 
+ #message {
+	 color: rgb(255, 4, 4);
+	 background-color: #b9b5b5;
+	 height: fit-content;
+	 width: fit-content;
+	 position: fixed;
+	 bottom: 0;
+	 right: 0;
+	 z-index: 3;
+ }
+ 
+ #inventory {
+	 color: rgb(255, 4, 4);
+	 background-color: #b9b5b5;
+	 height: 100px;
+	 width: 400px;
+	 position: fixed;
+	 bottom: 0;
+	 left: 0;
+	 z-index: 3;
+ }
 
 .white {
 	background: white;
@@ -112,7 +144,7 @@ h1 {
 	position: absolute;
 	background-size: contain;
 	z-index: 1;
-	filter: drop-shadow(2px 4px 6px black)
+	filter: drop-shadow(2px 4px 6px black);
 }
 
 .SSF {
@@ -167,15 +199,13 @@ h1 {
 	background-image: url('../img/spielFeld/SPRU.png');
 }
 
-.KAFFEE {
-	background-image: url('../img/Gegenstaende/Kaffemaschiene2.png');
-}
-
 .KEW {
 	background-color: tomato;
 }
 
 .KEKM {
-	background-color: green;
+	background-image: url('../img/ideen/neue_kaffeemaschine.jpg');
+	background-size: contain;
+	background-repeat: no-repeat;
 }
 

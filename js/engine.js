@@ -1,6 +1,7 @@
 let spielfeld = [];
 let blocks;
 let current_level = "foyer";
+let level = LEVEL.find(l => l.name == current_level);
 const BREITE = 20;
 const HOEHE = 15;
 
@@ -11,13 +12,17 @@ let player = {
     isMovingDown: false,
     isMovingLeft: false,
     isMovingRight: false,
+    inventory : []
 };
 
 function ladeBlocksInArray() {
     const level = LEVEL.find(l => l.name == current_level);
     switch (current_level) {
         case "foyer":
-            floor = 'FBKP';
+            floor = 'fu';
+            console.log($("#spielfeld"));
+            $("#spielfeld").css("background-image", "url('./img/hintergrund/Foyer_Hintergrund.png')");
+            //Hintergrund Spielfeld
             break;
         case "serverraum":
             floor = 'SRB';
@@ -86,6 +91,133 @@ function starteEngine() {
 
 $(document).ready(function () {
     starteEngine();
+
+
+    // DIV der Nachricht und des Inventars verstecken
+    $("#message").hide();
+    $('#inventory').hide();
+
+    // Informationen des Items
+    let item= {
+        x : 110,
+        y : 610,
+        name: "Keycard",
+
+    }
+    // Position der Tür
+    let tuer_pos = {
+        x : 10,
+        y : 460
+
+    }
+    // Position der Nachricht
+    let message_pos = {
+        x : 50,
+        y : 50,
+    }
+
+    // Funktion für das setzen der Item position
+    function setItemOnPosition(x,y) {
+        $('#item')
+        .css('margin-top', x )
+        .css('margin-left', y );
+    }
+
+    // Funktion für das setzen der Tür position
+    function setTuerOnPosition(x,y) {
+        $('#tuer')
+        .css('margin-top', x )
+        .css('margin-left', y );
+    }
+
+    // Funktion für das setzen der Item-pick-up-Message position
+    function setMessageOnPosition(x,y) {
+        $('#message')
+        .css('margin-top', x )
+        .css('margin-left', y );
+    }
+
+    // Funktionen zum Nachricht erstellen und anzeigen
+    function showMessage(input) {
+        $('#message_content').text(input + " wurde aufgesammelt.");
+        $('#message').append()
+        $("#message").show();
+        setTimeout(function() {
+            $('#message').fadeOut('fast');
+        }, 5000); // <-- time in milliseconds
+    }
+
+    // Alle Spielobjekte Platzieren
+    function setPositions() {
+        setItemOnPosition(item.x+"px", item.y+"px");
+        setTuerOnPosition(tuer_pos.x+"px", tuer_pos.y+"px");
+        setMessageOnPosition(message_pos.x+"px", message_pos.y+"px");
+    }
+
+    // Objekte auf Überlappungen überprüfen
+    function checkOverlap(playerDummy, item) {
+        // Überprüfen ob X-Koordinaten sich überlappen
+        if (playerDummy[0] + 50 > item[0] && playerDummy[0] < item[0] + 50) {
+            // Überprüfen ob Y-Koordinaten sich überlappen
+            if (playerDummy[1] + 50 > item[1] && playerDummy[1] < item[1] + 50) {
+                // Spieler und Item überlappen sich
+                return true;
+            	}
+        }
+        // Spieler und Item überlappen sich nicht
+        return false;
+    }
+
+    // Item zu Inventar hinzufügen
+    function addItemInv (item, inventory) {
+        inventory.push(item)
+        let $div = $("<div>", {id: item});
+        $("#inventory").append($div);
+        $("#"+item)
+            .css('height', '50px')
+            .css('width', '50px')
+            .css('background-image', 'url(./img/KeyCards/KeycardBobRoss.png)')
+            .css('position', 'absolute')
+            .css('display','inline-block')
+            .css('z-index', '4');
+        console.log(item)
+    }
+
+    // Item vom Inventar entfernen
+    function removeItemInv (item, inventory) {
+        let index = inventory.indexOf(item);
+        if (index > -1) {
+            inventory.splice(index, 1);
+            }
+        $("#", item.name).remove();
+        }
+    
+    // Spiel Objekte erscheinen lassen
+    setPositions();
+
+    // Intervall festlegen
+    setInterval( function(){
+        
+        // Überprüfen ob die DIVs des Items und des Spielers sich überlappen
+        if (checkOverlap([player.positionX, player.positionY], [item.x, item.y]) == true) {
+            // Item wird aufgesammelt
+            $("#item").hide();
+            addItemInv(item.name, player.inventory)
+            item.x = 0;
+            item.y = 0;
+            showMessage(item.name);
+        }
+
+
+        if(checkOverlap([tuer_pos.x,tuer_pos.y], [player.positionX, player.positionY]) == true && player.inventory.includes(item.name) == true){
+            // Tür wird geöffnet
+            console.log("Tür öffnet")
+            tuer_pos.x = 0;
+            tuer_pos.x = 0;
+            $("#tuer").hide();
+            removeItemInv(item.name, player.inventory)
+        }
+    },33);
 });
 
 function movePlayer() {
@@ -96,7 +228,7 @@ function movePlayer() {
 }
 
 function setStartingPosition() {
-    let level = LEVEL.find(l => l.name == current_level);
+    level = LEVEL.find(l => l.name == current_level);
 
     console.log(level);
     forceSetPosition(level.start_x, level.start_y);
@@ -114,9 +246,6 @@ function forceSetPosition(x, y)
 {
     if (x < player.positionX) $('#spielfigur').css('transform', 'scaleX(-1)');
     if (x > player.positionX) $('#spielfigur').css('transform', 'scaleX(1)');
-
-    console.log(x);
-    console.log(y);
 
     player.positionX = x;
     player.positionY = y;
@@ -140,6 +269,12 @@ $(document).on("keydown", (e) => {
             case "KeyD":
                 player.isMovingRight = true;
                 break;
+            case "KeyE": //E Taste   (Inventar)
+                $('#inventory').show();
+                setTimeout(function() {
+                    $('#inventory').fadeOut('fast');
+                }, 7000); // <-- time in milliseconds
+            break;
         }
        // console.log(e.code)
     }
