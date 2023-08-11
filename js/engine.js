@@ -1,6 +1,6 @@
 let spielfeld = [];
 let blocks;
-let currentLevel = "foyer";
+let currentLevel = "serverraum";
 const BREITE = 20;
 const HOEHE = 15;
 var inventory = [];
@@ -28,6 +28,11 @@ function ladeBlocksInArray(levelName) {
         case "office":
             //floor = 'fu';
             $("#spielfeld").css("background-image", "url('img/hintergrund/mathis spiel.png')");
+            //CSS FÜR eigenes büro setzen
+            break;
+        case "foyer":
+            //floor = 'fu';
+            $("#spielfeld").css("background-image", "url('img/hintergrund/Foyer_Hintergrund.png')");
             //CSS FÜR eigenes büro setzen
             break;
         case "ceo":
@@ -135,6 +140,7 @@ function starteEngine() {
 
 
 $(document).ready(function () {
+    hideMinigame();
     starteEngine();
 });
 
@@ -314,6 +320,8 @@ function checkInteraktion(x, y) {
         case "game":
             if (block.interaction == "game_server") {
                 //  Start server game
+
+                showMinigame();
                 console.log("server mini game...")
             }
             break;
@@ -321,6 +329,32 @@ function checkInteraktion(x, y) {
 }
 
 
+function hideMinigame() {
+    $('#miniserver').hide();
+   // if (x > player.positionX) $('#spielfigur').css('background-image', "url('./img/spielFigur/Christian Rechts.png')");
+
+    //player.positionX = x;
+    //player.positionY = y;
+   // x *= 50;
+   // y *= 50;
+   // $("#spielfigur").css("left", x).css("top", y);
+}
+
+
+
+
+function showMinigame() {
+    $('#spielfeld').hide();
+    $('#spielfigur').hide();
+    $('#miniserver').show();
+   // if (x > player.positionX) $('#spielfigur').css('background-image', "url('./img/spielFigur/Christian Rechts.png')");
+
+    //player.positionX = x;
+    //player.positionY = y;
+   // x *= 50;
+   // y *= 50;
+   // $("#spielfigur").css("left", x).css("top", y);
+}
 
 // setInterval(function () {
 

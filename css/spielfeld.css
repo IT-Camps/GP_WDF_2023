@@ -52,27 +52,24 @@ h1 {
 #spielfeld {
 	width: 1000px;
 	height: 750px;
-	margin: auto, auto;
 	display: flex;
 	flex-flow: row wrap;
 
-	border: 10px solid brown;
+	border: 10px solid white;
+}
+#miniserver {
+	width: 1000px;
+	height: 750px;
+	display: flex;
+	flex-flow: row wrap;
+
+	border: 10px solid white;
 }
 
 #spielfeld>div {
 	width: 50px;
 	height: 50px;
 	margin: 0;
-}
-
-#spielfigur {
-	width: 60px;
-	height: 60px;
-	background-image: url(img/spielFigur/lumberjackOne.png);
-	background-repeat: no-repeat;
-	position: absolute;
-	background-size: contain;
-	z-index: 1;
 }
 
 .white {

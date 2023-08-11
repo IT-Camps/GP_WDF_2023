@@ -10,7 +10,7 @@ let LEVEL = [
     meta: {
       start_x: 10,
       start_y: 14,
-      default_material: 'FBKP'
+      default_material: 'fu'
     },
     data: [
       { x: 19, y: 7, material: 'door', solid: false, interactive: true, interaction: "teleport_serverraum", keycard: "keycard_olli" }, //serverrraum
@@ -18,7 +18,12 @@ let LEVEL = [
       { x: 3, y: 0, material: 'door', solid: false, interactive: true, interaction: "teleport_ceo", keycard: "keycard_daniel" }, //aufzug ceo
       { x: 0, y: 7, material: 'door', solid: false, interactive: true, interaction: "teleport_kaffeeecke" }, //cafeteria
 
-      { x: 19, y: 0, material: 'FBKP', solid: false, interactive: true, interaction: "item_keycard_olli" }
+      { x: 19, y: 0, material: 'FBKP', solid: false, interactive: true, interaction: "item_keycard_olli" },
+      { x: 18, y: 0, material: 'FBKP', solid: false, interactive: false },
+      { x: 19, y: 1, material: 'FBKP', solid: false, interactive: false },
+      { x: 17, y: 0, material: 'FBKP', solid: false, interactive: false },
+      { x: 17, y: 1, material: 'FBKP', solid: false, interactive: false },
+      { x: 18, y: 1, material: 'FBKP', solid: false, interactive: false }
       /*{x:10, y:0, material: 'SPRU', solid: true, interactive: false},
       
       
