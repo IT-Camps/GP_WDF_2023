@@ -14,7 +14,7 @@ let LEVEL = [
     },
     data: [
       { x: 19, y: 7, material: 'door', solid: false, interactive: true, interaction: "teleport_serverraum", keycard: "keycard_olli" }, //serverrraum
-      { x: 12, y: 0, material: 'door', solid: false, interactive: true, interaction: "teleport_office", keycard: "keycard_bob" }, //eigenes büro
+      { x: 12, y: 0, material: 'door', solid: false, interactive: true, interaction: "game_maus", keycard: "keycard_bob" }, //eigenes büro
       { x: 3, y: 0, material: 'door', solid: false, interactive: true, interaction: "teleport_ceo", keycard: "keycard_daniel" }, //aufzug ceo
       { x: 0, y: 7, material: 'door', solid: false, interactive: true, interaction: "teleport_kaffeeecke" }, //cafeteria
 

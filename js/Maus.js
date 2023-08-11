@@ -1,7 +1,7 @@
 $(document).ready(function(){
-    alert ('verfolge die Geschäftsanfragen um Punkte zu sammeln solange die Zeit läuft,aber Achtung manche sind vom falschem anbieter!')
+   
     MausfolgtZeiger();
-    var timeleft = 60;
+    var timeleft = 15;
     var downloadTimer = setInterval(function(){
     timeleft--;
     if(timeleft >= 0){
@@ -25,7 +25,7 @@ $(document).ready(function(){
             versteckeAppleLogo();
 
            
-            
+            /*
             if (a< 10){                             //alört um die Punkte anzugeben
             alert ('Die Zeit is um! Deine punkte sind: '+a+' Versuchs nochmal!');
             }
@@ -50,6 +50,7 @@ $(document).ready(function(){
             else if (a >70) {
                 alert ('Die Zeit is um! Deine punkte sind: '+a+' Cheatest du?');
             }
+            */
 
 
         }
@@ -194,6 +195,7 @@ function Scoregehtrunter(){
         checkScore();
     }
 function checkScore(){
+    /*
     if( a < 0){
         window.open("ende.html");
         versteckeAppleLogo();
@@ -213,6 +215,7 @@ function checkScore(){
         a = 0;
         
     }
+    */
 }
 });
 

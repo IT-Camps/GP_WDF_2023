@@ -1,6 +1,3 @@
-import hideMinigame from "./engine";
-
-
 $(document).ready(function () {
   //const meinScore = document.getElementById("score");
   const meinDiv = document.getElementById("timer");
@@ -37,9 +34,6 @@ $(document).ready(function () {
     ) {
       // HIER Programm Code wie es weiter gehen soll , wenn das Spiel gemeistert worden ist
       //window.location.replace("../index.html");
-      console.log("gewonnen");
-      $("#miniserver").hide();
-      hideMinigame();
     }
   }
 

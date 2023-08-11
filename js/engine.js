@@ -322,38 +322,62 @@ function checkInteraktion(x, y) {
                 //  Start server game
 
                 showMinigame();
-                console.log("server mini game...")
+
+                setTimeout(function () {
+                    hideMinigame();
+                    $('#spielfeld').show();
+                    $('#spielfigur').show();
+                    setBlockItem(8, 9, 'keycard_bob', './img/keyCards/keycard_bob.png', true); 
+                }, 17000);
+
             }
-            break;
+
+
+            if (block.interaction == "game_maus") {
+                //  Start server game
+
+                showMinigameMaus();
+
+                setTimeout(function () {
+                    hideMinigameMaus();
+                    $('#spielfeld').show();
+                    $('#spielfigur').show();
+                    setBlockItem(2, 12, 'keycard_bob', './img/keyCards/keycard_bob.png', true); 
+                }, 17000);
+
+            }
     }
 }
 
 
 function hideMinigame() {
     $('#miniserver').hide();
-   // if (x > player.positionX) $('#spielfigur').css('background-image', "url('./img/spielFigur/Christian Rechts.png')");
-
-    //player.positionX = x;
-    //player.positionY = y;
-   // x *= 50;
-   // y *= 50;
-   // $("#spielfigur").css("left", x).css("top", y);
+    $('#minimaus').hide();
+  
 }
-
-
 
 
 function showMinigame() {
     $('#spielfeld').hide();
     $('#spielfigur').hide();
     $('#miniserver').show();
-   // if (x > player.positionX) $('#spielfigur').css('background-image', "url('./img/spielFigur/Christian Rechts.png')");
 
-    //player.positionX = x;
-    //player.positionY = y;
-   // x *= 50;
-   // y *= 50;
-   // $("#spielfigur").css("left", x).css("top", y);
+}
+
+
+
+function hideMinigameMaus() {
+    $('#minimaus').hide();
+    $('#miniserver').hide();
+  
+}
+
+
+function showMinigameMaus() {
+    $('#spielfeld').hide();
+    $('#spielfigur').hide();
+    $('#minimaus').show();
+
 }
 
 // setInterval(function () {

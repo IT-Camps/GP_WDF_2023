@@ -65,6 +65,14 @@ h1 {
 
 	border: 10px solid white;
 }
+#minimaus {
+	width: 1000px;
+	height: 750px;
+	display: flex;
+	flex-flow: row wrap;
+
+	border: 10px solid white;
+}
 
 #spielfeld>div {
 	width: 50px;
