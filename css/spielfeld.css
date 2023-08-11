@@ -60,14 +60,13 @@ h1 {
 	margin: 0;
 }
 
-#spielfigur {
-	width: 60px;
-	height: 60px;
-	background-image: url(img/spielFigur/lumberjackOne.png);
+#sichteinschraenkung { /* momentan nicht funktionierend*/
+	width: 2250px;
+	height: 1750px;
+	background-image: url('../img/hintergrund/sichteinschraenkung.png');
 	background-repeat: no-repeat;
+	background-size: cover;
 	position: absolute;
-	background-size: contain;
-	z-index: 1;
 }
 
 .white {
