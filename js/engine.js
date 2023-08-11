@@ -56,7 +56,7 @@ function zeigeSpielfeld() {
             $("#spielfeld").append(`<div class="${block.material}" id="${x}_${y}"></div>`)
 
             //  Render items
-            if (block.interactive && block.interaction?.startsWith('item_') && !aufgesammelteItems.includes(block.interaction)) {
+            if (block.interactive && block.interaction?.startsWith('item_') && !aufgesammelteItems.includes(block.interaction.replace('item_', ''))) {
                 setBlockItem(x, y, block.interaction.replace('item_', ''), ITEM_TEXTURE_ATLAS[block.interaction], true);
             }
         }
@@ -154,8 +154,8 @@ function setPosition(x, y) {
 
 
 function forceSetPosition(x, y) {
-    if (x < player.positionX) $('#spielfigur').css('transform', 'scaleX(-1)');
-    if (x > player.positionX) $('#spielfigur').css('transform', 'scaleX(1)');
+    if (x < player.positionX) $('#spielfigur').css('background-image', "url('./img/spielFigur/Christian Links.png')");
+    if (x > player.positionX) $('#spielfigur').css('background-image', "url('./img/spielFigur/Christian Rechts.png')");
 
     player.positionX = x;
     player.positionY = y;
@@ -287,6 +287,8 @@ function checkInteraktion(x, y) {
 
             }
 
+
+
             console.log(`Lade Level '${teleportDestionation}'`);
 
             ladeLevel(teleportDestionation);
@@ -294,8 +296,8 @@ function checkInteraktion(x, y) {
             break;
 
         case "item": // item
-            if (aufgesammelteItems.includes(block.interaction)) return true;
             const item = block.interaction.replace('item_', '');
+            if (aufgesammelteItems.includes(item)) return true;
             itempPickupAnimation(block.interaction);
             console.log(item);
             addToInventory(item);
