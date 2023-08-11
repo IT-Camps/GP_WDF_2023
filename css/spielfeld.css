@@ -8,14 +8,14 @@ body {
 h1 {
 	text-align: center;
 	font-size: 36px;
-  }
-  
+}
+
 #inventory-list {
 	list-style-type: none;
 	padding: 0;
 	margin: 0;
 }
-  
+
 .item {
 	display: flex;
 	justify-content: space-between;
@@ -23,14 +23,14 @@ h1 {
 	padding: 10px;
 	background-color: #eaeaea;
 	border-radius: 5px;
-  }
-  
-  .item-name {
+}
+
+.item-name {
 	font-weight: bold;
 	font-size: 24px;
-  }
-  
-  .item-remove {
+}
+
+.item-remove {
 	background-color: red;
 	color: white;
 	border: none;
@@ -38,11 +38,11 @@ h1 {
 	font-size: 20px;
 	padding: 5px 10px;
 	cursor: pointer;
-  }
-  
-  .item-remove:hover {
+}
+
+.item-remove:hover {
 	background-color: #cc0000;
-  }
+}
 
 #spielfeld {
 	width: 1000px;
@@ -50,7 +50,7 @@ h1 {
 	margin: auto, auto;
 	display: flex;
 	flex-flow: row wrap;
-	
+
 	border: 10px solid brown;
 }
 
@@ -81,23 +81,33 @@ h1 {
 .SRB {
 	background-image: url('../img/spielFeld/SRB.png');
 }
+
 .SSF {
 	background-image: url('../img/spielFeld/SSF.png');
 }
+
 .SSU {
 	background-image: url('../img/spielFeld/SSU.png');
 }
+
 .SSL {
 	background-image: url('../img/spielFeld/SSL.png');
 }
+
 .SSM {
 	background-image: url('../img/spielFeld/SSM.png');
 }
+
 .SSD {
 	background-image: url('../img/spielFeld/SSD.png');
 }
+
 .SSR {
 	background-image: url('../img/spielFeld/SSR.png');
+}
+
+.SRF {
+	background-image: url('../img/spielFeld/SRF.png');
 }
 
 .door {
@@ -118,18 +128,23 @@ h1 {
 .SSF {
 	background-image: url('../img/spielFeld/SSF.png');
 }
+
 .SSL {
 	background-image: url('../img/spielFeld/SSL.png');
 }
+
 .SSU {
 	background-image: url('../img/spielFeld/SSU.png');
 }
+
 .SSD {
 	background-image: url('../img/spielFeld/SSD.png');
 }
+
 .SSM {
 	background-image: url('../img/spielFeld/SSM.png');
 }
+
 .SSR {
 	background-image: url('../img/spielFeld/SSR.png');
 }
@@ -145,24 +160,31 @@ h1 {
 .KTW {
 	background-image: url('../img/hintergrund/KTW.png');
 }
+
 .FBKP {
 	background-image: url('../img/spielFeld/FBKP.png');
 }
+
 .FPKF {
 	background-image: url('../img/spielFeld/FPKF.png');
 }
+
 .AFFE {
 	background-image: url('../img/spielFeld/AFFE.png');
 }
+
 .DESK {
 	background-image: url('../img/spielFeld/DESK.png');
 }
+
 .DPPH {
 	background-image: url('../img/spielFeld/DPPH.png');
 }
+
 .CRDR {
 	background-image: url('../img/spielFeld/CRDR.png');
 }
+
 .SPRU {
 	background-image: url('../img/spielFeld/SPRU.png');
 }
@@ -179,8 +201,8 @@ h1 {
 	background-color: green;
 }
 
-.startseite{
-	position:absolute;
+.startseite {
+	position: absolute;
 	width: 245px;
 	height: 80px;
 	visibility: hidden;

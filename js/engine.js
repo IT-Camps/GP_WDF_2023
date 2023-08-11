@@ -36,8 +36,8 @@ function ladeBlocksInArray(levelName) {
                 .css("background-image", "url('img/hintergrund/endbildschir_bearbeitet_final.png')")
                 .css('background-size', 'cover')
                 .css('background-repeat', 'no-repeat')
-                .css('background-position-x','100%');
-            $("#spielfigur").hide(); 
+                .css('background-position-x', '100%');
+            $("#spielfigur").hide();
             $(".startseite").css("visibility", "visible");
             break;
     }
@@ -309,6 +309,13 @@ function checkInteraktion(x, y) {
             aufgesammelteItems.push(item);
             blockAuswechseln(block.x, block.y, LEVEL.find(l => l.name === currentLevel).meta.default_material, false, false);
             spielfeld[block.x][block.y] = { x: block.x, y: block.y, material: LEVEL.find(l => l.name === currentLevel).meta.default_material, solid: false, interactive: false };
+            break;
+
+        case "game":
+            if (block.interaction == "game_server") {
+                //  Start server game
+                console.log("server mini game...")
+            }
             break;
     }
 }
