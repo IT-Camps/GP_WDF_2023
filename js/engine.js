@@ -145,7 +145,7 @@ function shadowFolgtFigur() {
     posX = player.positionX * 50;
     posY = player.positionY * 50;
     
-    if (currentLevel != 'kaffeeecke') {
+    if (currentLevel != 'kaffeeecke' || getrunken == true) {
         $("body").css('background-color', 'steelblue');
         $("#sichteinschraenkung").hide();
     }
