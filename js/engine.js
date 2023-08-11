@@ -5,6 +5,9 @@ const BREITE = 20;
 const HOEHE = 15;
 var inventory = [];
 
+let posX;
+let posY;
+
 let aufgesammelteItems = [];
 
 //  damit movement interval gestoppt werden kann
@@ -25,6 +28,11 @@ function ladeBlocksInArray(levelName) {
     //  TODO: Vollkommen auf level.meta.default_material umsteigen
     //  mit ausnahme von background-image und level spezifischen stylesheets
     switch (currentLevel) {
+        case "kaffeeecke":
+            //  blackout effect
+
+            setTimeout(() => alert("Du bist extrem müde! Trinke einen starken Kaffe."), 20);
+            break;
         case "office":
             //floor = 'fu';
             $("#spielfeld").css("background-image", "url('img/hintergrund/mathis spiel.png')");
@@ -138,10 +146,29 @@ function starteEngine() {
     ladeLevel('foyer');
 }
 
+function shadowFolgtFigur() {
+    posX = player.positionX * 50;
+    posY = player.positionY * 50;
+    
+    if (currentLevel != 'kaffeeecke' || getrunken == true) {
+        $("body").css('background-color', 'steelblue');
+        $("#sichteinschraenkung").hide();
+    }
+    else if (currentLevel == 'kaffeeecke') {
+        console.log(currentLevel);
+        $("body").css('background-color', 'black');
+        $("#sichteinschraenkung").show();
+    }
+
+    $("#sichteinschraenkung").css("top",posY - 850);
+    $("#sichteinschraenkung").css("left", posX - 1050);
+}
 
 $(document).ready(function () {
     hideMinigame();
     starteEngine();
+    shadowFolgtFigur();
+
 });
 
 function movePlayer() {
@@ -176,6 +203,7 @@ function forceSetPosition(x, y) {
 }
 
 $(document).on("keydown", (e) => {
+    shadowFolgtFigur();
     if (!e.originalEvent.repeat) {
         switch (e.code) {
             case "KeyW":
@@ -313,7 +341,7 @@ function checkInteraktion(x, y) {
             console.log(item);
             addToInventory(item);
             aufgesammelteItems.push(item);
-            blockAuswechseln(block.x, block.y, LEVEL.find(l => l.name === currentLevel).meta.default_material, false, false);
+            //blockAuswechseln(block.x, block.y, LEVEL.find(l => l.name === currentLevel).meta.default_material, false, false);
             spielfeld[block.x][block.y] = { x: block.x, y: block.y, material: LEVEL.find(l => l.name === currentLevel).meta.default_material, solid: false, interactive: false };
             break;
 
@@ -346,6 +374,28 @@ function checkInteraktion(x, y) {
                 }, 17000);
 
             }
+            break;
+
+        case "coffee":
+            console.log("coffee interaction")
+            if (movementIntervalID) clearInterval(movementIntervalID)
+            movementIntervalID = null;
+
+            setTimeout(() => forceSetPosition(1, 12), 20);
+
+            document.getElementById(`${x}_${y}`).animate([
+                {
+                    scale: 1.0
+                },
+                {
+                    scale: 1.2
+                },
+                {
+                    scale: 1.0
+                },
+            ], { duration: 500, iterations: 5 })
+
+            break;
     }
 }
 

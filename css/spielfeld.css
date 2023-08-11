@@ -80,6 +80,15 @@ h1 {
 	margin: 0;
 }
 
+#sichteinschraenkung { /* momentan nicht funktionierend*/
+	width: 2250px;
+	height: 1750px;
+	background-image: url('../img/hintergrund/sichteinschraenkung.png');
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: absolute;
+}
+
 .white {
 	background: white;
 }
@@ -204,11 +213,11 @@ h1 {
 }
 
 .KEW {
-	background-color: tomato;
+	background-image: url('../img/hintergrund/KHW.png');
 }
 
 .KEKM {
-	background-color: green;
+	background-image: url('../img/Gegenstaende/Kaffemaschine2.png');
 }
 
 .startseite {

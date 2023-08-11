@@ -80,7 +80,7 @@ let LEVEL = [
     },
     data: [
 
-      { y: 12, x: 2, material: 'KEKM', solid: false, interactive: false },
+      { y: 12, x: 2, material: 'KEKM', solid: false, interactive: true, interaction: "coffee_" },
       { x: 9, y: 0, material: 'door', solid: false, interactive: true, interaction: "teleport_foyer" },
       { y: 0, x: 0, material: 'KEW', solid: true, interactive: false },
       { y: 0, x: 1, material: 'KEW', solid: true, interactive: false },
