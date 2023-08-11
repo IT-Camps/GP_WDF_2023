@@ -65,6 +65,7 @@
 	display: flex;
 	flex-flow: row wrap;
 	border: 10px solid black;
+    background-image: url(../img/hintergrund/Foyer_Hintergrund.png);
 }
 
 #timer{
@@ -105,3 +106,17 @@
     position: absolute;
  
 }
+
+
+body{
+    background-image: url(../img/hintergrund/Hintergrundbildserverminigame.png);
+    z-index: -1;
+    background-size: cover;
+   /*background-repeat: no-repeat;*/
+    object-fit: cover;
+    
+    
+    
+ /*background-color: blue;*/
+}
+
