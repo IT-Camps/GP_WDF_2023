@@ -1,18 +1,18 @@
-if(zahl = 1) {
+if(zahl == 1) {
     //Code
-    } else if (zahl = 2) {
+    } else if (zahl == 2) {
     //Code
-    } else if (zahl = 3) {
+    } else if (zahl == 3) {
     //Code
-    } else if (zahl = 4) {
+    } else if (zahl == 4) {
     //Code
-    } else if (zahl = 5) {
+    } else if (zahl == 5) {
     //Code
     } else {
     //Code
     }
 
-    
+
     switch (zahl) {
     case 1: //Code
     break;
