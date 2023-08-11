@@ -370,7 +370,6 @@ function checkInteraktion(x, y) {
 }
 
 
-
 // setInterval(function () {
 
 //     // Überprüfen ob die DIVs des Items und des Spielers sich überlappen
