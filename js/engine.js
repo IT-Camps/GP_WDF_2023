@@ -4,6 +4,7 @@ let currentLevel = "foyer";
 const BREITE = 20;
 const HOEHE = 15;
 var inventory = [];
+let getrunken = false;
 
 let posX;
 let posY;
@@ -31,7 +32,7 @@ function ladeBlocksInArray(levelName) {
         case "kaffeeecke":
             //  blackout effect
 
-            setTimeout(() => alert("Du bist extrem müde! Trinke einen starken Kaffe."), 20);
+            //setTimeout(() => alert("Du bist extrem müde! Trinke einen starken Kaffe."), 20);
             break;
         case "office":
             //floor = 'fu';
@@ -150,12 +151,11 @@ function shadowFolgtFigur() {
         $("#sichteinschraenkung").hide();
     }
     else if (currentLevel == 'kaffeeecke') {
-        console.log(currentLevel);
         $("body").css('background-color', 'black');
         $("#sichteinschraenkung").show();
     }
 
-    $("#sichteinschraenkung").css("top",posY - 850);
+    $("#sichteinschraenkung").css("top", posY - 850);
     $("#sichteinschraenkung").css("left", posX - 1050);
 }
 
@@ -197,7 +197,7 @@ function forceSetPosition(x, y) {
 }
 
 $(document).on("keydown", (e) => {
-    shadowFolgtFigur();
+    
     if (!e.originalEvent.repeat) {
         switch (e.code) {
             case "KeyW":
@@ -214,7 +214,9 @@ $(document).on("keydown", (e) => {
                 break;
         }
         // console.log(e.code)
+        shadowFolgtFigur();
     }
+    
 });
 
 $(document).on("keyup", (e) => {
@@ -348,6 +350,7 @@ function checkInteraktion(x, y) {
 
         case "coffee":
             console.log("coffee interaction")
+            getrunken = true;
             if (movementIntervalID) clearInterval(movementIntervalID)
             movementIntervalID = null;
 
